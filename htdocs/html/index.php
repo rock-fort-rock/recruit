@@ -6,54 +6,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
 <title></title>
 <link rel='stylesheet' id='style-css'  href='/assets/css/style.css?ver=1.2' type='text/css' media='all' />
+<style><?php include $_SERVER['DOCUMENT_ROOT'].'/assets/css/site.css'; ?></style>
 </head>
 <body class="pageHome">
   <header class="globalHeader">
-    <div class="globalHeader__inner">
-      <h1 class="globalHeader__logo">
+    <div class="globalHeader__header">
+      <div class="globalHeader__logo">
         <a href="/">
-          <img src="/assets/images/logo.png" alt="" class="globalHeader__logoImg">
+          <img src="/assets/images/logo.png" alt="ミュゼプラチナム" class="globalHeader__logoImg">
         </a>
-      </h1>
-      <ul class="globalHeader__langSelect">
-        <li class="globalHeader__langSelectItem">
-          <span>日本語</span>
-        </li>
-        <li class="globalHeader__langSelectItem">
-          <a href="#">English</a>
-        </li>
-        <li class="globalHeader__langSelectItem">
-          <a href="#">中文</a>
-        </li>
-      </ul>
-
+      </div>
       <div class="globalHeader__hamburger">
         <span></span>
       </div>
     </div>
 
+    <h1 class="globalHeader__catch">あなたもミュゼプラチナムの一員として一緒に成長してみませんか？</h1>
+
     <nav class="globalHeader__nav">
       <ul class="globalHeader__navList">
         <li class="globalHeader__navItem">
-          <a href="/menu/">メニュー</a>
+          <a href="/menu/"><span class="Icon -facebook"></span>カテゴリー</a>
         </li>
         <li class="globalHeader__navItem">
-          <a href="/about/">あら木について</a>
+          <a href="/about/"><span class="Icon -twitter"></span>用語集</a>
         </li>
         <li class="globalHeader__navItem">
-          <a href="/shop/">店舗情報</a>
+          <a href="/shop/"><span class="Icon -instagram"></span>関心が高い</a>
+        </li>
+        <li class="globalHeader__navItem globalHeader__navItem--wide">
+          <a href="/news/"><span class="Icon -instagram"></span>クリップランキング</a>
         </li>
         <li class="globalHeader__navItem">
-          <a href="/news/">お知らせ</a>
-        </li>
-        <li class="globalHeader__navItem">
-          <a href="/recruit/">求人情報</a>
-        </li>
-        <li class="globalHeader__navItem">
-          <a href="/program/">職人プログラム</a>
-        </li>
-        <li class="globalHeader__navItem">
-          <a href="/contact/">お問い合わせ</a>
+          <a href="/recruit/"><span class="Icon -facebook"></span>応募する</a>
         </li>
       </ul>
     </nav>

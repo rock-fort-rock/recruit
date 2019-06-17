@@ -1,0 +1,11 @@
+$siteColor: #53a7db;
+.globalHeader__logo{
+  width: 75px;
+  @media all and (min-width: 781px){
+    width: 212px;
+  }
+}
+.globalHeader__nav{
+  background-color: $siteColor;
+  color: #fff;
+}

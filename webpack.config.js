@@ -13,6 +13,7 @@ module.exports = [
    entry: {
       style: __dirname + Path + '/css/sass/style.scss',
       amp: __dirname + Path + '/css/sass/amp.scss',
+      site: __dirname + Path + '/css/sass/site.scss',
     },
     output: {
         path: __dirname + Path + '/css/',
