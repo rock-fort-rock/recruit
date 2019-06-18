@@ -20,6 +20,7 @@ body{
 	color: $textColor;
 	width: 100%;
 	word-wrap: break-word;
+	background-color: $bgColor;
 }
 
 a {
@@ -39,8 +40,10 @@ p{
 	}
 }
 
-.emph{
-	color: $keyColor;
+em{
+	color: #f10d0d;
+	font-style: normal;
+	font-weight: bold;
 }
 .center{
 	text-align: center;
@@ -73,7 +76,7 @@ HEADER
 		width: 100%;
 		height: $sp_headerHight;
 		z-index: 999;
-		box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+		box-shadow: 0 1px 3px rgba(0,0,0,0.3);
     // background-color: rgba(255,255,255,0.95);
     background-color: #fff;
   	display: flex;
@@ -147,13 +150,121 @@ HEADER
       }
     }
   }
-  &__nav{
-  }
-  &__navList{
+
+	@media all and (min-width: $breakpoint + 1){
+		box-shadow: none;
+		// background-color: #fff;
+    // padding: 0 20px;
+		&__band{
+			border-bottom: 1px solid #e8e8e8;
+		}
+		&__bandInner{
+			max-width: $contentWidth;
+			margin: 0 auto;
+			display: flex;
+			align-items: center;
+			padding: 8px 0;
+		}
+
+
+    &__header{
+      height: auto;
+			position: relative;
+			box-shadow: none;
+			background-color: transparent;
+    }
+		&__logo{
+			margin: 10px auto;
+		}
+    &__catch{
+			margin-top: 0;
+      background-color: transparent;
+			text-align: center;
+			font-size: 1rem;
+    }
+
+    &__hamburger{
+      display: none;
+    }
+	}
+}
+
+.siteLinks{
+	display: flex;
+	@media all and (max-width: $breakpoint){
+		width: 100%;
+		&__item{
+			flex: 1;
+			a{
+				display: block;
+				font-size: 10px;
+				line-height: 1.2;
+				font-weight: bold;
+				text-align: center;
+				.Icon{
+					display: block;
+					margin-right: 5px;
+					font-size: 1.5rem;
+				}
+			}
+		}
+	}
+	@media all and (min-width: $breakpoint + 1){
+		&__item{
+			margin-right: 30px;
+			a{
+				font-size: 1.05rem;
+				font-weight: bold;
+				@include hover;
+				.Icon{
+					margin-right: 5px;
+					font-size: 1.5rem;
+				}
+			}
+		}
+	}
+}
+.siteInfo{
+	display: flex;
+	margin-left: auto;
+	align-items: center;
+	&__sns{
+		margin-right: 20px;
+		display: flex;
+	}
+	&__snsList{
+		&:not(:last-child){
+			margin-right: 8px;
+		}
+		a{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 28px;
+			height: 28px;
+			border: 1px solid #b0b0b0;
+			border-radius: 50%;
+			background-color: #fff;
+			@include hover;
+			.Icon{
+				color: #b0b0b0;
+				font-size: 18px;
+				top: 0;
+			}
+		}
+	}
+	&__data{
+		font-size: 0.9rem;
+
+	}
+}
+
+.globalNavi{
+	&__list{
     display: flex;
 		position: relative;
   }
-  &__navItem{
+  &__item{
 		flex: 1;
 		&--wide{
 			flex: 1.5;
@@ -178,7 +289,7 @@ HEADER
 					background-color: #fff;
 					transition: all .3s;
 				}
-				.globalHeader__navChildList{
+				.globalNavi__childList{
 					display: flex;
 					animation: fadeIn .3s;
 				}
@@ -204,7 +315,7 @@ HEADER
 			margin-bottom: 2px;
 		}
   }
-	&__navChildList{
+	&__childList{
 		position: absolute;
 		top: 100%;
 		left: 0;
@@ -217,7 +328,7 @@ HEADER
 		z-index: 2;
 		display: none;
 	}
-	&__navChildItem{
+	&__childItem{
 		width: 50%;
 		padding: 8px 5px 0;
 		a{
@@ -227,36 +338,14 @@ HEADER
 		}
 	}
 
-	@media all and (min-width: $breakpoint + 1){
-		box-shadow: none;
-		background-color: #fff;
-    // padding: 0 20px;
-    &__header{
-      height: auto;
-			position: relative;
-			box-shadow: none;
-    }
-		&__logo{
-			margin: 10px auto;
-		}
-    &__catch{
-			margin-top: 0;
-      background-color: transparent;
-			text-align: center;
-			font-size: 1rem;
-    }
 
-    &__hamburger{
-      display: none;
-    }
-    &__nav{
-			margin-top: 30px;
-    }
-    &__navList{
+	@media all and (min-width: $breakpoint + 1){
+		margin-top: 30px;
+		&__list{
 			max-width: $contentWidth;
 			margin: 0 auto;
-    }
-    &__navItem{
+		}
+		&__item{
 			&--hasChild{
 				> span{
 					&::after{
@@ -270,14 +359,14 @@ HEADER
 					}
 				}
 			}
-      > a,
+			> a,
 			> span{
 				flex-direction: row;
 				font-size: 1.05rem;
 				letter-spacing: 0.05em;
 				height: 65px;
 				cursor: pointer;
-      }
+			}
 			> a{
 				@include hover;
 			}
@@ -286,26 +375,31 @@ HEADER
 				font-size: 20px;
 				margin: 0 5px;
 			}
-    }
+		}
 
-		&__navChildList{
+		&__childList{
 			max-width: $contentWidth;
 			background-color: #fff;
 			padding: 15px 15px 30px;
-			box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+			box-shadow: 0 3px 3px rgba(0,0,0,0.2);
 			z-index: 2;
 		}
-		&__navChildItem{
+		&__childItem{
 			width: 25%;
 			padding: 15px 10px 0;
 			a{
 				font-size: 1.05rem;
-				// font-weight: bold;
+				letter-spacing: 0.05em;
+				font-weight: bold;
 				@include hover;
+				span{
+					font-weight: bold;
+				}
 			}
 		}
 	}
 }
+
 
 
 
@@ -675,170 +769,78 @@ MAIN
 FOOTER
 ---------------------------------*/
 .globalFooter{
-  background-color: #262626;
-  color: #fff;
+  background-color: #fff;
   position: relative;
+	padding-bottom: $sp_footerHight;
 	a{
 		color: inherit;
 	}
-  &__toTop{
-    position: absolute;
-    z-index: 99;
-    top: 0;
-    right: 0;
-    width: 44px;
-    height: 44px;
-    background-color: $keyColor;
-    transform: translateY(-50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .Icon{
-      font-size:14px;
-    }
-  }
-  &__copyright{
-    position: absolute;
-    bottom: 5px;
-    width: 100%;
-    text-align: center;
-    font-size: 11px;
-    color: #999;
-  }
   &__inner{
-    padding: 30px 20px;
-  }
-  &__logo{
-    width: 160px;
-    margin: 20px auto 40px;
-    img{
-      width: 90%;
-    }
-  }
-  &__nav{
-    display: flex;
-  }
-  &__navList{
-    // flex: 1;
-    width: 30%;
-    &:first-child{
-      width: 40%;
-    }
-  }
-  &__navListItem{
-    font-size: 0.9rem;
-    line-height: 1.3;
-    &:not(:last-child){
-      margin-bottom: 10px;
-    }
-  }
-  &__navSubList{
-    padding-left: 5px;
-    padding-top: 10px;
-  }
-  &__navSubListItem{
-    position: relative;
-    padding-left: 10px;
-    &::before{
-      content: '-';
-      position: absolute;
-      left: 0;
-    }
-    &:not(:last-child){
-      margin-bottom: 10px;
-    }
+    padding: 10px;
   }
 
-  &__links{
-    padding: 30px 20px 20px;
-    border-top: 1px solid #5A5A5A;
-  }
-  &__langSelect{
+  &__nav{
     display: flex;
-    justify-content: center;
+		align-items: center;
+		justify-content: center;
   }
-  &__langSelectItem{
-    line-height: 1;
-    font-size: 12px;
-    margin-right: 12px;
-    padding-right: 12px;
+  &__navItem{
+    font-size:  8px;
+		line-height: 1.2;
     &:not(:last-child){
-      border-right: 1px solid #666;
-    }
-    span{
-      font-weight: 500;
-    }
-    a{
-      color: #ccc;
+      margin-right: 5px;
+			padding-right: 5px;
+			border-right: 1px solid #ccc;
     }
   }
-  &__sns{
-    display: flex;
-    justify-content: center;
-    margin: 20px auto;
-  }
-  &__snsItem{
-    font-size: 18px;
-    margin: 0 7px;
+	&__copyright{
+		margin-top: 8px;
+    width: 100%;
+    text-align: center;
+    font-size: 8px;
+    color: #999;
   }
 
   @media all and (min-width: $breakpoint-m + 1){
-    display: flex;
-    justify-content: space-between;
-    &__toTop{
-      right: 30px;
-      width: 50px;
-      height: 50px;
-      transition: all .4s;
-      &:hover{
-        background-color: $keyColorHighlight;
-      }
-      .Icon{
-        font-size:16px;
-      }
-    }
-    &__copyright{
-      position: absolute;
-      bottom: 40px;
-      left: 60px;
-      width: auto;
-      text-align: center;
-      width: 200px;
-    }
+		padding-bottom: 0;
     &__inner{
-      flex: 1;
       display: flex;
       justify-content: space-between;
-      padding: 80px 60px;
+      padding: 10px;
+			max-width: $contentWidth;
+			margin: 0 auto;
     }
-    &__logo{
-      width: 200px;
-      margin: 0;
-      img{
-        width: 90%;
-      }
-    }
+
     &__nav{
-      // border: 1px solid #f00;
     }
-    &__navList{
-      margin-left: 50px;
-      width: auto!important;
-      a{
-        @include hover;
-      }
-    }
-    &__navListItem{
+
+    &__navItem{
+			&:not(:last-child){
+				margin-right: 15px;
+				padding-right: 15px;
+			}
       font-size: 0.85rem;
-    }
-    &__links{
-      padding: 80px 20px;
-      width: 250px;
-      border-left: 1px solid #5a5a5a;
-      border-top: none;
-      a{
+			a{
         @include hover;
       }
+    }
+		&__copyright{
+			width: 250px;
+			text-align: right;
     }
   }
+}
+
+.spFooter{
+	position: fixed;
+	z-index: 999;
+	height: $sp_footerHight;
+	display: flex;
+	align-items: center;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	box-shadow: 0 -2px 3px rgba(0,0,0,0.2);
+	background-color: #fff;
+	// border-top: 1px solid #ccc;
 }

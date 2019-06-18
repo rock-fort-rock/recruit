@@ -10,6 +10,43 @@
 </head>
 <body class="pageHome">
   <header class="globalHeader">
+    <div class="globalHeader__band exceptSmall">
+      <div class="globalHeader__bandInner">
+
+        <ul class="siteLinks">
+          <li class="siteLinks__item">
+            <a href="/"><span class="Icon -facebook"></span>TOP</a>
+          </li>
+          <li class="siteLinks__item">
+            <a href="#"><span class="Icon -facebook"></span>クリップした質問</a>
+          </li>
+          <li class="siteLinks__item">
+            <a href="#"><span class="Icon -facebook"></span>質問をする</a>
+          </li>
+          <li class="siteLinks__item">
+            <a href="#"><span class="Icon -facebook"></span>公式サイト</a>
+          </li>
+        </ul>
+
+        <div class="siteInfo">
+          <ul class="siteInfo__sns">
+            <li class="siteInfo__snsList">
+              <a href="#"><span class="Icon -facebook"></a>
+            </li>
+            <li class="siteInfo__snsList">
+              <a href="#"><span class="Icon -twitter"></a>
+            </li>
+            <li class="siteInfo__snsList">
+              <a href="#"><span class="Icon -instagram"></a>
+            </li>
+          </ul>
+          <div class="siteInfo__data">
+            2019年6月1日現在　Q&A数：<em>650</em>件
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="globalHeader__header">
       <div class="globalHeader__logo">
         <a href="/">
@@ -23,47 +60,47 @@
 
     <h1 class="globalHeader__catch">あなたもミュゼプラチナムの一員として一緒に成長してみませんか？</h1>
 
-    <nav class="globalHeader__nav">
-      <ul class="globalHeader__navList">
-        <li class="globalHeader__navItem globalHeader__navItem--hasChild">
+    <nav class="globalNavi">
+      <ul class="globalNavi__list">
+        <li class="globalNavi__item globalNavi__item--hasChild">
           <span><span class="Icon -facebook"></span>カテゴリー</span>
-          <ul class="globalHeader__navChildList">
-            <li class="globalHeader__navChildItem">
+          <ul class="globalNavi__childList">
+            <li class="globalNavi__childItem">
               <a href="#">応募/選考について<span>(5)</span></a>
             </li>
-            <li class="globalHeader__navChildItem">
+            <li class="globalNavi__childItem">
               <a href="#">就業/仕事について<span>(2)</span></a>
             </li>
-            <li class="globalHeader__navChildItem">
+            <li class="globalNavi__childItem">
               <a href="#">応募資格について<span>(3)</span></a>
             </li>
-            <li class="globalHeader__navChildItem">
+            <li class="globalNavi__childItem">
               <a href="#">面接について<span>(5)</span></a>
             </li>
-            <li class="globalHeader__navChildItem">
+            <li class="globalNavi__childItem">
               <a href="#">給与について<span>(5)</span></a>
             </li>
-            <li class="globalHeader__navChildItem">
+            <li class="globalNavi__childItem">
               <a href="#">休暇申請について<span>(2)</span></a>
             </li>
-            <li class="globalHeader__navChildItem">
+            <li class="globalNavi__childItem">
               <a href="#">福利厚生・制度について<span>(3)</span></a>
             </li>
-            <li class="globalHeader__navChildItem">
+            <li class="globalNavi__childItem">
               <a href="#">その他<span>(5)</span></a>
             </li>
           </ul>
         </li>
-        <li class="globalHeader__navItem">
+        <li class="globalNavi__item">
           <a href="/about/"><span class="Icon -twitter"></span>用語集</a>
         </li>
-        <li class="globalHeader__navItem">
+        <li class="globalNavi__item">
           <a href="/shop/"><span class="Icon -instagram"></span>関心が高い</a>
         </li>
-        <li class="globalHeader__navItem globalHeader__navItem--wide">
+        <li class="globalNavi__item globalNavi__item--wide">
           <a href="/news/"><span class="Icon -instagram"></span>クリップランキング</a>
         </li>
-        <li class="globalHeader__navItem">
+        <li class="globalNavi__item">
           <a href="/recruit/"><span class="Icon -facebook"></span>応募する</a>
         </li>
       </ul>
@@ -226,111 +263,46 @@
   </div>
 
   <footer class="globalFooter">
-    <a href="#" class="globalFooter__toTop scroll">
-      <span class="Icon -arrow"></span>
-    </a>
     <div class="globalFooter__inner">
-      <div class="globalFooter__logo">
-        <img src="/assets/images/logo_wht.svg" alt="天丼 あら木">
+      <ul class="globalFooter__nav">
+          <li class="globalFooter__navItem">
+            <a href="/company/">会社概要</a>
+          </li>
+          <li class="globalFooter__navItem">
+            <a href="/privacy/">個人情報保護方針</a>
+          </li>
+          <li class="globalFooter__navItem">
+            <a href="/copyright/">コピーライト・免責事項</a>
+          </li>
+          <li class="globalFooter__navItem">
+            <a href="/terms/">応募規約・プライバシーポリシー</a>
+          </li>
+
+      </ul>
+      <div class="globalFooter__copyright">
+        &copy; MUSEE PLATINUM All Rights Reserved.
       </div>
-      <nav class="globalFooter__nav">
-        <ul class="globalFooter__navList">
-          <li class="globalFooter__navListItem">
-            <a href="/">HOME</a>
-          </li>
-          <li class="globalFooter__navListItem">
-            <a href="/news/">お知らせ</a>
-          </li>
-          <li class="globalFooter__navListItem">
-            <a href="/about/">あら木について</a>
-          </li>
-
-          <li class="globalFooter__navListItem onlySmall">
-            <a href="/recruit/">求人情報</a>
-          </li>
-          <li class="globalFooter__navListItem onlySmall">
-            <a href="/program/">職人プログラム</a>
-          </li>
-          <li class="globalFooter__navListItem onlySmall">
-            <a href="/contact/">お問い合わせ</a>
-          </li>
-        </ul>
-        <ul class="globalFooter__navList">
-          <li class="globalFooter__navListItem">
-            <a href="/menu/">メニュー</a>
-            <ul class="globalFooter__navSubList">
-              <li class="globalFooter__navSubListItem">
-                <a href="#">天ぷら</a>
-              </li>
-              <li class="globalFooter__navSubListItem">
-                <a href="#">天丼</a>
-              </li>
-              <li class="globalFooter__navSubListItem">
-                <a href="#">お酒</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-        <ul class="globalFooter__navList">
-          <li class="globalFooter__navListItem">
-            <a href="/shop/">店舗情報</a>
-            <ul class="globalFooter__navSubList">
-              <li class="globalFooter__navSubListItem">
-                <a href="#">札幌本店</a>
-              </li>
-              <li class="globalFooter__navSubListItem">
-                <a href="#">札幌本店</a>
-              </li>
-              <li class="globalFooter__navSubListItem">
-                <a href="#">aaaabbbbbcccc</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-        <ul class="globalFooter__navList exceptSmall">
-          <li class="globalFooter__navListItem">
-            <a href="/recruit/">求人情報</a>
-          </li>
-          <li class="globalFooter__navListItem">
-            <a href="/program/">職人プログラム</a>
-          </li>
-          <li class="globalFooter__navListItem">
-            <a href="/contact/">お問い合わせ</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-
-    <div class="globalFooter__links">
-      <ul class="globalFooter__langSelect">
-        <li class="globalFooter__langSelectItem">
-          <span>日本語</span>
-        </li>
-        <li class="globalFooter__langSelectItem">
-          <a href="#">English</a>
-        </li>
-        <li class="globalFooter__langSelectItem">
-          <a href="#">中文</a>
-        </li>
-      </ul>
-
-      <ul class="globalFooter__sns">
-        <li class="globalFooter__snsItem">
-          <a href="/" target="_blank"><span class="Icon -facebook"></span></a>
-        </li>
-        <li class="globalFooter__snsItem">
-          <a href="/" target="_blank"><span class="Icon -twitter"></span></a>
-        </li>
-        <li class="globalFooter__snsItem">
-          <a href="/" target="_blank"><span class="Icon -instagram"></span></a>
-        </li>
-      </ul>
-    </div>
-
-    <div class="globalFooter__copyright">
-      &copy; TENDON ARAKI
     </div>
   </footer>
+
+  <div class="onlySmall">
+    <div class="spFooter">
+      <ul class="siteLinks">
+        <li class="siteLinks__item">
+          <a href="/"><span class="Icon -facebook"></span>TOP</a>
+        </li>
+        <li class="siteLinks__item">
+          <a href="#"><span class="Icon -facebook"></span>クリップした質問</a>
+        </li>
+        <li class="siteLinks__item">
+          <a href="#"><span class="Icon -facebook"></span>質問をする</a>
+        </li>
+        <li class="siteLinks__item">
+          <a href="#"><span class="Icon -facebook"></span>公式サイト</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700,900&amp;subset=japanese" rel="stylesheet">
   <script type='text/javascript' src='/assets/js/bundle.js'></script>

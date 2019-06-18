@@ -31,7 +31,7 @@ document.querySelector('.globalHeader__hamburger').addEventListener( 'click', ( 
 	document.querySelector('.globalHeader__nav').classList.toggle('active');
 	noScroll.toggle();
 })
-const $hasSubmenu = document.querySelectorAll('.globalHeader__navItem--hasChild');
+const $hasSubmenu = document.querySelectorAll('.globalNavi__item--hasChild');
 [].forEach.call($hasSubmenu, ( element ) => {
 	if(bodyWidth > breakpoint){
 		element.querySelector('span').addEventListener( 'mouseenter', ( event ) => {
@@ -41,10 +41,10 @@ const $hasSubmenu = document.querySelectorAll('.globalHeader__navItem--hasChild'
 			event.currentTarget.parentNode.classList.remove('-active');
 		});
 
-		element.querySelector('.globalHeader__navChildList').addEventListener( 'mouseenter', ( event ) => {
+		element.querySelector('.globalNavi__childList').addEventListener( 'mouseenter', ( event ) => {
 			event.currentTarget.parentNode.classList.add('-active');
 		});
-		element.querySelector('.globalHeader__navChildList').addEventListener( 'mouseleave', ( event ) => {
+		element.querySelector('.globalNavi__childList').addEventListener( 'mouseleave', ( event ) => {
 			event.currentTarget.parentNode.classList.remove('-active');
 		});
 	}else{

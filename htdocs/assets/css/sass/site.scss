@@ -13,24 +13,25 @@ a {
       width: 212px;
     }
   }
-  &__nav{
-    background-color: $siteColor;
-    color: #fff;
-  }
-  &__navChildItem{
+}
+
+.globalNavi{
+  background-color: $siteColor;
+  color: #fff;
+  &__childItem{
     a{
       span{
         color: $siteColor;
       }
     }
   }
-  &__navItem--hasChild{
+  &__item--hasChild{
     &.-active{
       > span{
         color: $siteColor;
         &::after{
-					border-top-color: $siteColor;
-				}
+          border-top-color: $siteColor;
+        }
       }
     }
   }
