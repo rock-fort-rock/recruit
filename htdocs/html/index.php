@@ -25,8 +25,34 @@
 
     <nav class="globalHeader__nav">
       <ul class="globalHeader__navList">
-        <li class="globalHeader__navItem">
-          <a href="/menu/"><span class="Icon -facebook"></span>カテゴリー</a>
+        <li class="globalHeader__navItem globalHeader__navItem--hasChild">
+          <span><span class="Icon -facebook"></span>カテゴリー</span>
+          <ul class="globalHeader__navChildList">
+            <li class="globalHeader__navChildItem">
+              <a href="#">応募/選考について<span>(5)</span></a>
+            </li>
+            <li class="globalHeader__navChildItem">
+              <a href="#">就業/仕事について<span>(2)</span></a>
+            </li>
+            <li class="globalHeader__navChildItem">
+              <a href="#">応募資格について<span>(3)</span></a>
+            </li>
+            <li class="globalHeader__navChildItem">
+              <a href="#">面接について<span>(5)</span></a>
+            </li>
+            <li class="globalHeader__navChildItem">
+              <a href="#">給与について<span>(5)</span></a>
+            </li>
+            <li class="globalHeader__navChildItem">
+              <a href="#">休暇申請について<span>(2)</span></a>
+            </li>
+            <li class="globalHeader__navChildItem">
+              <a href="#">福利厚生・制度について<span>(3)</span></a>
+            </li>
+            <li class="globalHeader__navChildItem">
+              <a href="#">その他<span>(5)</span></a>
+            </li>
+          </ul>
         </li>
         <li class="globalHeader__navItem">
           <a href="/about/"><span class="Icon -twitter"></span>用語集</a>

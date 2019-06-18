@@ -1,11 +1,37 @@
+/*サイト個別設定*/
+@import "vars";
+
 $siteColor: #53a7db;
-.globalHeader__logo{
-  width: 75px;
-  @media all and (min-width: 781px){
-    width: 212px;
-  }
+
+a {
+  color: $siteColor;
 }
-.globalHeader__nav{
-  background-color: $siteColor;
-  color: #fff;
+.globalHeader{
+  &__logo{
+    width: 75px;
+    @media all and (min-width: $breakpoint + 1){
+      width: 212px;
+    }
+  }
+  &__nav{
+    background-color: $siteColor;
+    color: #fff;
+  }
+  &__navChildItem{
+    a{
+      span{
+        color: $siteColor;
+      }
+    }
+  }
+  &__navItem--hasChild{
+    &.-active{
+      > span{
+        color: $siteColor;
+        &::after{
+					border-top-color: $siteColor;
+				}
+      }
+    }
+  }
 }

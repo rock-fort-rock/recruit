@@ -19,6 +19,7 @@ const detectDeviceType = (event) => {
 	// console.log(deviceType);
 	document.removeEventListener ( "touchstart", detectDeviceType ) ;
 	document.removeEventListener ( "mousemove", detectDeviceType ) ;
+	// console.log(deviceType);
 }
 document.addEventListener ( "touchstart", detectDeviceType ) ;
 document.addEventListener ( "mousemove", detectDeviceType ) ;
@@ -30,22 +31,45 @@ document.querySelector('.globalHeader__hamburger').addEventListener( 'click', ( 
 	document.querySelector('.globalHeader__nav').classList.toggle('active');
 	noScroll.toggle();
 })
+const $hasSubmenu = document.querySelectorAll('.globalHeader__navItem--hasChild');
+[].forEach.call($hasSubmenu, ( element ) => {
+	if(bodyWidth > breakpoint){
+		element.querySelector('span').addEventListener( 'mouseenter', ( event ) => {
+			event.currentTarget.parentNode.classList.add('-active');
+		});
+		element.querySelector('span').addEventListener( 'mouseleave', ( event ) => {
+			event.currentTarget.parentNode.classList.remove('-active');
+		});
+
+		element.querySelector('.globalHeader__navChildList').addEventListener( 'mouseenter', ( event ) => {
+			event.currentTarget.parentNode.classList.add('-active');
+		});
+		element.querySelector('.globalHeader__navChildList').addEventListener( 'mouseleave', ( event ) => {
+			event.currentTarget.parentNode.classList.remove('-active');
+		});
+	}else{
+		element.querySelector('span').addEventListener( 'click', ( event ) => {
+			event.currentTarget.parentNode.classList.toggle('-active');
+		});
+	}
+})
+
 
 
 //ナビ可変
-window.onscroll = () =>{
-	const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-	// console.log(scrollTop);
-	if(scrollTop > 100){
-		if(!document.querySelector('.globalHeader').classList.contains('narrow')){
-			document.querySelector('.globalHeader').classList.add('narrow');
-		}
-	}else{
-		if(document.querySelector('.globalHeader').classList.contains('narrow')){
-			document.querySelector('.globalHeader').classList.remove('narrow');
-		}
-	}
-}
+// window.onscroll = () =>{
+// 	const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+// 	// console.log(scrollTop);
+// 	if(scrollTop > 100){
+// 		if(!document.querySelector('.globalHeader').classList.contains('narrow')){
+// 			document.querySelector('.globalHeader').classList.add('narrow');
+// 		}
+// 	}else{
+// 		if(document.querySelector('.globalHeader').classList.contains('narrow')){
+// 			document.querySelector('.globalHeader').classList.remove('narrow');
+// 		}
+// 	}
+// }
 
 
 
