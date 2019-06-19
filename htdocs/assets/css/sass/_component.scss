@@ -1,0 +1,33 @@
+//AMPには読み込まないやつ
+
+.onlySmall{
+	display: none!important;
+	@media ( max-width: $breakpoint ){
+		display: block!important;
+	}
+}
+.exceptSmall{
+	display: none!important;
+	@media ( min-width: $breakpoint + 1px ){
+		display: block!important;
+	}
+}
+
+//swiper
+.swiper-container{
+	padding-bottom: 35px;
+}
+.swiper-pagination{
+	bottom: 0;
+	.swiper-pagination-bullet{
+		width: 6px;
+		height: 6px;
+		margin: 0 8px!important;
+    background-color: #000;
+    opacity: 1;
+    // box-shadow: 0 0 5px rgba(0,0,0,0.6);
+	}
+	.swiper-pagination-bullet-active{
+		background-color: $keyColor;
+	}
+}

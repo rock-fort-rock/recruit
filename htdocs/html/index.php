@@ -107,158 +107,74 @@
     </nav>
   </header>
 
-  <div class="mainContainer">
-    <div class="homeHero swiper-container">
-      <ul class="homeHero__slidelist swiper-wrapper">
-        <li class="homeHero__slideItem swiper-slide" style="background-image:url('/assets/images/mv.png')">
-          <a href="#"></a>
-        </li>
-        <li class="homeHero__slideItem swiper-slide" style="background-image:url('/assets/images/mv.png')">
-          <a href="#"></a>
-        </li>
-      </ul>
-      <div class="swiper-pagination"></div>
-    </div>
-    <div class="homeNews">
-      <div class="homeNews__newest homeNews__newest--new">
-        <a href="#">
-          <div class="homeNews__newestIcon">NEW</div>
-          <div class="homeNews__newestDate">
-            2019.04.15
+  <div class="container">
+    <div class="container__main">
+      <section class="container__mainSection">
+        <div class="qaArticle">
+          <div class="qaArticle__category" style="background-color: #5360db;">休暇申請</div>
+          <div class="qaArticle__eyecatch">
+            <img src="/assets/images/sample.jpg" class="qaArticle__eyecatchImg" alt="">
           </div>
-          <h2 class="homeNews__newestTitle">
-            新店舗オープンのお知らせ新店舗オープンのお知らせ新店舗オープンのお知らせ新店舗オープンのお知らせ
-          </h2>
-        </a>
-      </div>
-      <div class="homeNews__archive exceptSmall">
-        <a href="/news/">お知らせ一覧を見る<span class="Icon -menu"></span></a>
-      </div>
-    </div>
-
-    <div class="homeShop">
-      <div class="homeShop__container swiper-container">
-        <ul class="homeShop__list swiper-wrapper">
-          <li class="homeShop__item swiper-slide">
-            <a href="#" class="homeShop__itemInner">
-              <div class="homeShop__itemImageBlock">
-                <img src="/assets/images/shop_sample1.png">
-              </div>
-              <div class="homeShop__itemTextBlock">
-                <h3 class="homeShop__name">札幌本店</h3>
-                <div class="homeShop__address">北海道 札幌市中央区 南7条西4 延寿堂 1F</div>
-                <div class="homeShop__info">TEL：011-552-5550<!--<br>営業時間：18:00 - 23:00--></div>
-              </div>
-              <span class="Icon -arrow homeShop__itemArrow"></span>
-            </a>
-          </li>
-          <li class="homeShop__shopItem swiper-slide">
-            <a href="#" class="homeShop__itemInner">
-              <div class="homeShop__itemImageBlock">
-                <img src="/assets/images/shop_sample2.png">
-              </div>
-              <div class="homeShop__itemTextBlock">
-                <h3 class="homeShop__name">札幌本店</h3>
-                <div class="homeShop__address">北海道 札幌市中央区 南7条西4 延寿堂 1F</div>
-                <div class="homeShop__info">TEL：011-552-5550<!--<br>営業時間：18:00 - 23:00--></div>
-              </div>
-              <span class="Icon -arrow homeShop__itemArrow"></span>
-            </a>
-          </li>
-          <li class="homeShop__shopItem swiper-slide">
-            <a href="#" class="homeShop__itemInner">
-              <div class="homeShop__itemImageBlock">
-                <img src="/assets/images/shop_sample3.png">
-              </div>
-              <div class="homeShop__itemTextBlock">
-                <h3 class="homeShop__name">札幌本店</h3>
-                <div class="homeShop__address">北海道 札幌市中央区 南7条西4 延寿堂 1F</div>
-                <div class="homeShop__info">TEL：011-552-5550<!--<br>営業時間：18:00 - 23:00--></div>
-              </div>
-              <span class="Icon -arrow homeShop__itemArrow"></span>
-            </a>
-          </li>
-        </ul>
-        <div class="swiper-pagination"></div>
-      </div>
-      <div class="buttonContainer">
-        <a href="#" class="textButton">店舗一覧を見る</a>
-      </div>
-    </div>
-
-    <div class="homeMenu">
-      <div class="contentInner">
-        <h2 class="homeMenu__title">メニュー紹介</h2>
-        <p class="homeMenu__lede">
-          その季節にしか味わえない旬の素材を豊富に使った日本でしか味わうことができない特別な料理です。
-        </p>
-      </div>
-      <div class="homeMenu__container swiper-container">
-        <?php /*3つ固定*/ ?>
-        <ul class="homeMenu__list swiper-wrapper">
-          <li class="homeMenu__item swiper-slide">
-            <a href="#" class="homeMenu__itemInner">
-              <img src="/assets/images/sample_menu1.png" class="homeMenu__image">
-              <div class="homeMenu__nameContainer">
-                <div class="homeMenu__name">
-                  天ぷら
+          <div class="qaArticle__body">
+            <div class="qaArticle__clip">
+              <div class="clipCounter">
+                <div class="clipCounter__icon">
+                  <span class="Icon -facebook"></span>
                 </div>
+                <div class="clipCounter__num">255</div>
               </div>
-            </a>
-          </li>
-          <li class="homeMenu__item swiper-slide">
-            <a href="#" class="homeMenu__itemInner">
-              <img src="/assets/images/sample_menu2.png" class="homeMenu__image">
-              <div class="homeMenu__nameContainer">
-                <div class="homeMenu__name">
-                  天丼
+            </div>
+
+            <div class="qaArticle__date">2019.06.01</div>
+            <h2 class="qaArticle__question">育児休暇はもらえますか？またその条件はありますか</h2>
+            <div class="qaArticle__questionDescription">
+              ミュゼプラチナムで正社員で勤務した場合勤続から何年目から育児休暇の取得が可能になりますか？<br>
+              また、途中で社員から契約社員、あるいはパート勤務に変わった場合など、取得できる日数や、あるいは条件が変わることなどありますか？
+            </div>
+            <div class="qaArticle__viewAnswer">
+              <a href="#" class="button">
+                <div class="button__inner button__inner--arrow">回答を見る</div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="container__mainSection">
+        <div class="contentTitle">
+          <h2 class="contentTitle__main">最新の質問</h2>
+          <div class="contentTitle__caption">新しく寄せられた質問にお答えいたします。</div>
+        </div>
+        <ul class="qaList">
+          <li class="qaList__item">
+            <a class="qaList__itemInner">
+              <div class="qaList__itemEyecatch">
+                <img src="/assets/images/sample.jpg" class="qaList__itemEyecatchImg" alt="">
+              </div>
+              <div class="qaList__textBlock">
+                <div class="qaList__itemCategory" style="background-color: #5360db;">休暇申請</div>
+                <div class="qaList__itemClip">
+                  <div class="clipCounter">
+                    <div class="clipCounter__icon">
+                      <span class="Icon -facebook"></span>
+                    </div>
+                    <div class="clipCounter__num">255</div>
+                  </div>
                 </div>
-              </div>
-            </a>
-          </li>
-          <li class="homeMenu__item swiper-slide">
-            <a href="#" class="homeMenu__itemInner">
-              <img src="/assets/images/sample_menu3.png" class="homeMenu__image">
-              <div class="homeMenu__nameContainer">
-                <div class="homeMenu__name">
-                  お酒
+                
+                <div class="qaList__date">2019.06.01</div>
+                <h2 class="qaList__question">育児休暇はもらえますか？またその条件はありますか</h2>
+                <div class="qaList__questionDescription">
+                  ミュゼプラチナムで正社員で勤務した場合勤続から何年目から育児休暇の取得が可能になりますか？<br>
+                  また、途中で社員から契約社員、あるいはパート勤務に変わった場合など、取得できる日数や、あるいは条件が変わることなどありますか？
                 </div>
               </div>
             </a>
           </li>
         </ul>
-        <div class="swiper-pagination"></div>
-      </div>
-      <div class="buttonContainer">
-        <a href="#" class="textButton">メニュー一覧を見る</a>
-      </div>
+      </section>
     </div>
-
-    <div class="homeEtc">
-      <ul class="homeEtc__buttonList">
-        <li class="homeEtc__buttonItem">
-          <a href="#" class="homeEtc__buttonItemInner">
-            <div class="homeEtc__buttonImageBlock">
-              <img src="/assets/images/home/etc_program.png" alt="職人プログラム">
-            </div>
-            <div class="homeEtc__buttonTextBlock">
-              <h3 class="homeEtc__buttonTitle">職人プログラム</h3>
-              <div class="homeEtc__buttonDescription">日本の食文化を伝える職人を養成します</div>
-            </div>
-          </a>
-        </li>
-        <li class="homeEtc__buttonItem">
-          <a href="#" class="homeEtc__buttonItemInner">
-            <div class="homeEtc__buttonImageBlock">
-              <img src="/assets/images/home/etc_recruit.png" alt="求人情報">
-            </div>
-            <div class="homeEtc__buttonTextBlock">
-              <h3 class="homeEtc__buttonTitle">求人情報</h3>
-              <div class="homeEtc__buttonDescription">いっしょに働く仲間を募集しています</div>
-            </div>
-          </a>
-        </li>
-      </ul>
+    <div class="container__side">
+      sideContent
     </div>
   </div>
 
