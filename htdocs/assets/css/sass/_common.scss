@@ -545,7 +545,35 @@ MAIN
 	}
 }
 
-
+.viewMore{
+	margin-top: 20px;
+	text-align: center;
+	&__button{
+		padding: 10px 20px;
+		background-color: #e8e8e8;
+		line-height: 1;
+		font-weight: bold;
+		color: inherit;
+		display: inline-block;
+		&--large{
+			font-size: 1.15rem;
+			width: 100%;
+		}
+	}
+	@media all and (min-width: $breakpoint + 1){
+		margin-top: 30px;
+		&__button{
+			padding: 10px 20px;
+			font-size: 1.15rem;
+			@include hover;
+			&--large{
+				padding: 15px 20px;
+				font-size: 1.25rem;
+				max-width: 600px;
+			}
+		}
+	}
+}
 
 
 /*---------------------------------
