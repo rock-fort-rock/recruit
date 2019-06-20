@@ -48,6 +48,7 @@ module.exports = [
                   ]
                 })
             },
+            { test: /\.(png|jpg|gif)$/i, loader: 'url-loader?mimetype=image/png' },
             { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?mimetype=image/svg+xml' },
             { test: /\.woff(\d+)?(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?mimetype=application/font-woff' },
             { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?mimetype=application/font-woff' },

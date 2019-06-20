@@ -13,6 +13,14 @@
 	}
 }
 
+.embedTwitterTimeline{
+	@media all and (min-width: $breakpoint + 1){
+		iframe{
+			height: 500px!important;
+		}
+	}
+}
+
 //swiper
 .swiper-container{
 	padding-bottom: 35px;

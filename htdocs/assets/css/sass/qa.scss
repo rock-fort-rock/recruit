@@ -49,9 +49,15 @@
 }
 
 .qaListContainer{
+  .viewMore{
+    margin-top: 15px;
+  }
   @media all and (min-width: $breakpoint + 1){
     background-color: #fff;
     padding-bottom: 30px;
+    .viewMore{
+      margin-top: 30px;
+    }
   }
 }
 
@@ -102,7 +108,7 @@
     line-height: 1.3;
     font-size: 1.05rem;
     font-weight: 700;
-    color: #53a7db;
+    // color: #53a7db;
     position: relative;
     padding-left: 1.3em;
     &::before{
@@ -207,7 +213,7 @@
     line-height: 1.3;
     font-weight: bold;
     margin-bottom: 10px;
-    color: #53a7db;
+    // color: #53a7db;
     position: relative;
     padding-left: 1.3em;
     &::before{
@@ -240,34 +246,109 @@
 .ranking{
   border: 3px solid #bcbaba;
   background-color: #fff;
+  padding-bottom: 15px;
   &__select{
     padding: 10px;
     border-bottom: 1px solid #ccc;
+    margin-bottom: 5px;
   }
   &__list{
     padding: 10px;
   }
   &__listItem{
     counter-increment: rank;
-    &::before{
-      content: counter(rank) "位";
-    }
+    padding-left: 35px;
+    position: relative;
     a{
       position: relative;
-      padding-left: 1.3em;
-
       &::before{
         content: 'Q:';
-        line-height: 1;
-        position: absolute;
-        display: block;
-        top: 0;
-        left: 0;
+      }
+    }
+    // &:not(:last-child){
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px dotted #ccc;
+    // }
+    &::before{
+      position: absolute;
+      width: 30px;
+      top: 0;
+      left: 0;
+    }
+    &:nth-child(-n + 3) {
+      a{
+        font-size: 1.1rem;
+        line-height: 1.2;
+        font-weight: bold;
+      }
+      &::before{
+        content: '';
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 20px;
+        margin-right: 5px;
+        display: inline-block;
+      }
+    }
+    &:first-child{
+      &::before{
+        background-image: url('../../images/rank1.png');
+      }
+    }
+    &:nth-child(2){
+      &::before{
+        background-image: url('../../images/rank2.png');
+      }
+    }
+    &:nth-child(3){
+      &::before{
+        background-image: url('../../images/rank3.png');
+      }
+    }
+    &:nth-child(n + 4) {
+      &::before{
+        content: counter(rank) "位";
+        color: #b69857;
+        font-size: 0.9rem;
+        text-align: center;
       }
     }
   }
   &__listItemCategory{
     font-size: 0.8rem;
     margin-left: 5px;
+  }
+
+  @media all and (min-width: $breakpoint + 1){
+    padding-bottom: 20px;
+    &__listItem{
+      padding-left: 40px;
+      a{
+        font-weight: bold;
+        @include hover;
+      }
+      // &:not(:last-child){
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+      // }
+      &::before{
+        width: 32px;
+      }
+      &:nth-child(-n + 3) {
+        a{
+          font-size: 18px;
+        }
+        &::before{
+          width: 32px;
+          height: 24px;
+        }
+      }
+    }
+    // &__listItemCategory{
+    //   font-size: 0.8rem;
+    //   margin-left: 5px;
+    // }
   }
 }

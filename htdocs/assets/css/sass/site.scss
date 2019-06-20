@@ -1,7 +1,10 @@
 /*サイト個別設定*/
 @import "vars";
 
-$siteColor: #53a7db;
+// $siteColor: #53a7db;
+$siteColor: hsl(203,62,65);
+$siteColor--dark: hsl(203,62,45);
+$siteColor--light: hsl(203,62,92);
 
 a {
   color: $siteColor;
@@ -36,7 +39,53 @@ a {
     }
   }
 }
-
+.container{
+  &__sideSectionTitle{
+    background-color: $siteColor;
+	}
+}
+.qaList{
+  &__question{
+    color: $siteColor;
+  }
+}
 .qaArticle{
-  
+  &__question{
+    color: $siteColor;
+  }
+}
+.button{
+  &:not(.button--entry){
+    background-color: $siteColor;
+    border-bottom-color: $siteColor--dark;
+  }
+}
+.qaData{
+  &__itemHeadline{
+		.qIcon{
+      color: $siteColor;
+    }
+  }
+  &__itemValue{
+    em{
+      color: $siteColor;
+    }
+  }
+}
+
+.searchForm{
+	&__inner{
+		background-color: $siteColor--light;
+	}
+  &__form{
+		input{
+			border-color: $siteColor;
+		}
+		button{
+			background-color: $siteColor;
+		}
+	}
+}
+.postQuestion{
+	border-color: $siteColor;
 }

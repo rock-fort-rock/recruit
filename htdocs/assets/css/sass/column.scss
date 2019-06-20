@@ -1,0 +1,100 @@
+.columnList{
+  display: flex;
+  flex-wrap: wrap;
+  &__itemInner{
+    display: block;
+  }
+  &__item{
+    width: calc(33.33% - 7px);
+    margin-bottom: 15px;
+    &:nth-child(3n-1){
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  }
+  &__itemText{
+    margin-top: 5px;
+  }
+  &__itemDate{
+    font-size: 9px;
+    margin-bottom: 3px;
+    color: $textColor;
+  }
+  &__itemTitle{
+    font-size: 0.9rem;
+    // font-weight: bold;
+    line-height: 1.3;
+  }
+  &__itemLede{
+    color: $textColor;
+    font-size: 10px;
+    // display: none;
+  }
+  @media all and (min-width: $breakpoint + 1){
+    &__itemInner{
+      @include hover;
+    }
+    &__item{
+      width: calc(33.33% - 10px);
+      margin-bottom: 15px;
+      &:nth-child(3n-1){
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+    }
+    &__itemText{
+      margin-top: 10px;
+    }
+    &__itemDate{
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+    &__itemTitle{
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    &__itemLede{
+      font-size: 1rem;
+    }
+  }
+}
+
+.sideColumnList{
+  margin-top: 15px;
+  &__item{
+    &:not(:last-child){
+      margin-bottom: 15px;
+    }
+  }
+  &__itemInner{
+    display: flex;
+    color: inherit;
+  }
+  &__itemEyecatch{
+    width: 80px;
+    height: 80px;
+    background-position: center;
+    background-size: cover;
+  }
+  &__itemText{
+    flex: 1;
+    padding-left: 15px;
+  }
+  &__itemDate{
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+  }
+  &__itemTitle{
+    line-height: 1.5;
+  }
+  @media all and (min-width: $breakpoint + 1){
+    &__itemInner{
+      @include hover;
+    }
+    &__itemEyecatch{
+      width: 100px;
+      height: 100px;
+    }
+  }
+}
