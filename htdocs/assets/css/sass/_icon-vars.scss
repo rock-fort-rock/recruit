@@ -4,6 +4,10 @@ $icons: (
 	"instagram": unquote("\"\e803\""),
 	"arrow": unquote("\"\e804\""),
 	"menu": unquote("\"\e805\""),
+	"hatena": unquote("\"\e806\""),
+	"line": unquote("\"\e807\""),
+	"pocket": unquote("\"\e808\""),
+	"rss": unquote("\"\e809\""),
 );
 
 @function getIconContent( $key ) {
@@ -56,7 +60,6 @@ $icons: (
 
 		/* For With CJK Text =========== */
 		position: relative;
-		top: -0.1em;
 	}
 
 	.Icon.-twitter:before {
@@ -73,5 +76,17 @@ $icons: (
 	}
 	.Icon.-menu:before {
 		content: unquote("\"\e805\"");
+	}
+	.Icon.-hatena:before {
+		content: unquote("\"\e806\"");
+	}
+	.Icon.-line:before {
+		content: unquote("\"\e807\"");
+	}
+	.Icon.-pocket:before {
+		content: unquote("\"\e808\"");
+	}
+	.Icon.-rss:before {
+		content: unquote("\"\e809\"");
 	}
 }

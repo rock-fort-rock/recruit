@@ -14,8 +14,6 @@
     margin-right: 10px;
     .Icon{
       color: #fff;
-      // font-size: 12px;
-      top: 0;
     }
   }
   &__num{
@@ -48,7 +46,247 @@
   }
 }
 
-.qaListContainer{
+
+/*---------------------------------
+記事詳細
+---------------------------------*/
+.article{
+  background-color: #fff;
+  position: relative;
+  &__eyecatch{
+    position: relative;
+  }
+  &__eyecatchImg{
+    width: 100%;
+  }
+  &__category{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #5360db;
+    color: #fff;
+    font-size: 11px;
+    line-height: 1;
+    padding: 7px 15px;
+  }
+  &__container{
+    padding: 15px;
+    position: relative;
+  }
+  &__clip{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    transform: translateY(-100%);
+    background-color: #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 5px 10px;
+  }
+
+  &__date{
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+  }
+  &__title{
+    font-size: 1.15rem;
+    line-height: 1.3;
+    font-weight: bold;
+    margin-bottom: 10px;
+    // color: #53a7db;
+    position: relative;
+    padding-left: 1.3em;
+    &::before{
+      content: 'Q:';
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+
+	&__lede{
+		margin-bottom: 20px;
+	}
+
+  &__viewAnswer{
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  &__answer{
+    font-size: 1.15rem;
+    line-height: 1.3;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #e891be;
+    position: relative;
+    padding-left: 1.3em;
+    &::before{
+      content: 'A:';
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+  &__body{
+    h1{
+      padding: 5px 10px;
+      background-color: #eae8e8;
+      // font-size: 1.05rem;
+      line-height: 1.3;
+      font-weight: bold;
+      border-radius: 3px;
+      margin-bottom: 5px;
+      &:not(:first-child){
+        margin-top: 30px;
+      }
+    }
+    table{
+      width: 100%;
+      border-collapse: collapse;
+      th,td{
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+    }
+  }
+	&__bodyFooter{
+		margin-top: 30px;
+	}
+	&__bodyFooterCategory{
+		background-color: #fafafa;
+		padding: 10px 15px;
+		display: flex;
+		li{
+			&:not(:last-child){
+				margin-right: 10px;
+			}
+			a{
+				color: #666;
+				font-size: 0.9rem;
+				.Icon{
+					margin-right: 5px;
+				}
+			}
+		}
+	}
+
+	&__footer{
+		border-top: 1px solid #ededed;
+		// border-bottom: 1px solid #ededed;
+		padding: 20px 5px;
+	}
+
+  @media all and (min-width: $breakpoint + 1){
+    &__category{
+      font-size: 0.85rem;
+      padding: 10px 20px;
+    }
+    &__container{
+      padding: 30px;
+    }
+    &__title{
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+		&__lede{
+			margin-bottom: 40px;
+		}
+    &__answer{
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+    &__body{
+      h1{
+        padding: 5px 10px;
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        &:not(:first-child){
+          margin-top: 40px;
+        }
+      }
+    }
+		&__bodyFooter{
+			margin-top: 50px;
+		}
+		&__bodyFooterCategory{
+			padding: 30px 20px;
+			li{
+				a{
+					@include hover;
+				}
+			}
+		}
+		&__footer{
+			padding: 50px 15px;
+		}
+  }
+}
+
+.articlePagination{
+	display: flex;
+	&__button{
+		width: 50%;
+		color: inherit;
+		@include hover;
+	}
+	&__buttonInner{
+		display: flex;
+		align-items: center;
+	}
+	.Icon{
+		width: 20px;
+		height: 20px;
+		transform: rotate(-90deg);
+		color: #999;
+		text-align: center;
+	}
+	&__eyecatch{
+		// align-self: flex-start;
+		width: 40px;
+		height: 40px;
+		background-size: cover;
+		background-position: center;
+	}
+	&__title{
+		// width: calc(100% - 40px);
+		flex: 1;
+		padding: 0 10px;
+		color: inherit;
+		font-size: 10px;
+		line-height: 1.2;
+	}
+
+	&__button--prev{
+		.articlePagination__title{
+			text-align: right;
+		}
+		.Icon{
+			transform: rotate(90deg);
+		}
+	}
+	@media all and (min-width: $breakpoint + 1){
+		.Icon{
+			width: 30px;
+			height: 30px;
+			font-size: 20px;
+		}
+		&__eyecatch{
+			width: 80px;
+			height: 80px;
+		}
+		&__title{
+			padding: 0 15px;
+			font-size: 0.9rem;
+		}
+	}
+}
+
+
+/*---------------------------------
+記事リスト
+---------------------------------*/
+.articleListContainer{
   .viewMore{
     margin-top: 15px;
   }
@@ -61,10 +299,10 @@
   }
 }
 
-//Q&Aリスト
-.qaList{
+.articleList{
   &__item{
     border: 1px solid #ccc;
+    background-color: #fff;
     &:not(:last-child){
       margin-bottom: 15px;
     }
@@ -172,77 +410,10 @@
   }
 }
 
-//Q&A詳細
-.qaArticle{
-  background-color: #fff;
-  position: relative;
-  &__category{
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: #5360db;
-    color: #fff;
-    font-size: 11px;
-    line-height: 1;
-    padding: 7px 15px;
-  }
-  &__eyecatchImg{
-    width: 100%;
-  }
-  &__body{
-    padding: 15px;
-    position: relative;
-  }
-  &__clip{
-    position: absolute;
-    top: 0;
-    right: 10px;
-    transform: translateY(-100%);
-    background-color: #fff;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    padding: 5px 10px;
-  }
 
-  &__date{
-    font-size: 0.85rem;
-    margin-bottom: 15px;
-  }
-  &__question{
-    font-size: 1.15rem;
-    line-height: 1.3;
-    font-weight: bold;
-    margin-bottom: 10px;
-    // color: #53a7db;
-    position: relative;
-    padding-left: 1.3em;
-    &::before{
-      content: 'Q:';
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
-  }
-  &__viewAnswer{
-    margin-top: 20px;
-    text-align: center;
-  }
-  @media all and (min-width: $breakpoint + 1){
-    &__category{
-      font-size: 0.85rem;
-      padding: 10px 20px;
-    }
-    &__body{
-      padding: 30px;
-    }
-    &__question{
-      font-size: 20px;
-      margin-bottom: 15px;
-    }
-  }
-}
-
-//ランキング
+/*---------------------------------
+質問ランキング
+---------------------------------*/
 .ranking{
   border: 3px solid #bcbaba;
   background-color: #fff;

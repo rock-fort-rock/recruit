@@ -111,6 +111,26 @@
     <div class="container__main">
       <section class="container__mainSection">
         <div class="article">
+          <ul class="shareList">
+            <li class="shareList__item">
+              <a href="#" target="_blank"><span class="Icon -line"></span><span class="shareList__itemText">Share</span></a>
+            </li>
+            <li class="shareList__item">
+              <a href="#" target="_blank"><span class="Icon -twitter"></span><span class="shareList__itemText">Tweet</span></a>
+            </li>
+            <li class="shareList__item">
+              <a href="#" target="_blank"><span class="Icon -facebook"></span><span class="shareList__itemText">Share</span></a>
+            </li>
+            <li class="shareList__item">
+              <a href="#" target="_blank"><span class="Icon -pocket"></span><span class="shareList__itemText">Pocket</span></a>
+            </li>
+            <li class="shareList__item">
+              <a href="#" target="_blank"><span class="Icon -hatena"></span><span class="shareList__itemText">Hatena</span></a>
+            </li>
+            <li class="shareList__item">
+              <a href="#" target="_blank"><span class="Icon -rss"></span><span class="shareList__itemText">RSS</span></a>
+            </li>
+          </ul>
           <div class="article__eyecatch">
             <img src="/assets/images/sample.jpg" class="article__eyecatchImg" alt="">
             <div class="article__category" style="background-color: #5360db;">休暇申請</div>
@@ -126,24 +146,159 @@
             </div>
 
             <div class="article__date">2019.06.01</div>
-            <h2 class="article__title">育児休暇はもらえますか？またその条件はありますか</h2>
+            <h1 class="article__title">育児休暇はもらえますか？またその条件はありますか</h1>
             <div class="article__lede">
               ミュゼプラチナムで正社員で勤務した場合勤続から何年目から育児休暇の取得が可能になりますか？<br>
               また、途中で社員から契約社員、あるいはパート勤務に変わった場合など、取得できる日数や、あるいは条件が変わることなどありますか？
             </div>
-            <div class="article__viewAnswer">
-              <a href="#" class="button">
-                <div class="button__inner button__inner--arrow">回答を見る</div>
-              </a>
-            </div>
+
+            <h2 class="article__answer">ミュゼは女性の働きやすい環境づくりを目指しています</h2>
+            <section class="article__body">
+              <h1>福利厚生</h1>
+              <p>
+                ミュゼプラチナムは女性に優しい福利厚生が充実しています。
+              </p>
+              <p>
+                女性が多いミュゼプラチナムでは、<br>
+                結婚・出産などを経験した先輩スタッフがたくさんいます。
+              </p>
+
+              <h1>ミュゼプラチナムで正社員で勤務した場合</h1>
+              <p>
+                女性が多いミュゼプラチナムでは、<br>
+                結婚・出産などを経験した先輩スタッフがたくさんいます。
+              </p>
+              <table>
+                <tr>
+                  <td>
+                    子供が18歳になるまで1人につき毎月5,000円、3人目からは毎月1万円を支給
+                  </td>
+                  <td>
+                    子供が18歳になるまで1人につき毎月5,000円、3人目からは毎月1万円を支給
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    子供が18歳になるまで1人につき毎月5,000円、3人目からは毎月1万円を支給
+                  </td>
+                  <td>
+                    子供が18歳になるまで1人につき毎月5,000円、3人目からは毎月1万円を支給
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    子供が18歳になるまで1人につき毎月5,000円、3人目からは毎月1万円を支給
+                  </td>
+                  <td>
+                    子供が18歳になるまで1人につき毎月5,000円、3人目からは毎月1万円を支給
+                  </td>
+                </tr>
+              </table>
+
+              <div class="article__bodyFooter">
+                <div class="contentBlock">
+                  <div class="contentBlock__title">
+                    この質問は役に立ちましたか？
+                  </div>
+                  <ul class="buttonList">
+                    <li class="buttonList__item">
+                      <a href="#" class="button button--pink">
+                        <div class="button__inner">クリップする</div>
+                      </a>
+                    </li>
+                    <li class="buttonList__item">
+                      <a href="#" class="button">
+                        <div class="button__inner">Web応募する</div>
+                      </a>
+                    </li>
+                    <li class="buttonList__item">
+                      <a href="#" class="button button--green">
+                        <div class="button__inner">新たに質問する</div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="contentBlock">
+                  <div class="contentBlock__title">
+                    過去の質問をキーワードで検索もできます
+                  </div>
+                  <div class="searchForm">
+                    <div class="searchForm__inner">
+                      <div class="searchForm__text">
+                        Q&Aをキーワードを入力して検索する
+                      </div>
+                      <form action="/" method="get" class="searchForm__form" autocomplete="off">
+                				<input type="text" name="s" value="">
+                				<button>検索</button>
+                			</form>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="contentBlock">
+                  <ul class="tagCloud--small">
+                    <li class="tagCloud__tag">
+                      <a href="#">タグ</a>
+                    </li>
+                    <li class="tagCloud__tag">
+                      <a href="#">タグタグタグタグ</a>
+                    </li>
+                    <li class="tagCloud__tag">
+                      <a href="#">タグ</a>
+                    </li>
+                    <li class="tagCloud__tag">
+                      <a href="#">タグタグタグタグ</a>
+                    </li>
+                    <li class="tagCloud__tag">
+                      <a href="#">タグ</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="contentBlock">
+                  <ul class="article__bodyFooterCategory">
+                    <li>
+                      <a href="#"><span class="Icon -twitter"></span>休暇申請について</a>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+
+
+            </section>
+          </div>
+          <div class="article__footer">
+            <nav class="articlePagination">
+            		<a class="articlePagination__button articlePagination__button--next" href="#" rel="next">
+                  <div class="articlePagination__buttonInner">
+                    <span class="Icon -arrow"></span>
+                    <div class="articlePagination__eyecatch" style="background-image:url(/assets/images/sample.jpg)"></div>
+                    <div class="articlePagination__title">
+                      お知らせテスト_20190605
+                    </div>
+                  </div>
+                </a>
+
+            		<a class="articlePagination__button articlePagination__button--prev" href="#" rel="prev">
+                  <div class="articlePagination__buttonInner">
+                    <div class="articlePagination__title">
+                      お知らせテスト_20190605
+                    </div>
+                    <div class="articlePagination__eyecatch" style="background-image:url(/assets/images/sample.jpg)"></div>
+                    <span class="Icon -arrow"></span>
+                  </div>
+                </a>
+            </nav>
           </div>
         </div>
       </section>
 
       <section class="container__mainSection">
         <div class="contentTitle">
-          <h2 class="contentTitle__main">最新の質問</h2>
-          <div class="contentTitle__caption">新しく寄せられた質問にお答えいたします。</div>
+          <h2 class="contentTitle__main">関連する質問</h2>
+          <div class="contentTitle__caption">この質問に関連する質問はこちら</div>
         </div>
         <div class="articleListContainer">
           <ul class="articleList">
@@ -269,14 +424,8 @@
             </li>
           </ul>
           <div class="viewMore">
-            <a href="#" class="viewMore__button viewMore__button--large">質問の一覧をみる</a>
+            <a href="#" class="viewMore__button viewMore__button--large">休暇申請に関する質問の一覧をみる</a>
           </div>
-        </div>
-      </section>
-
-      <section class="container__mainSection">
-        <div class="adBlock">
-          <a href="#" target="_blank"><img src="/assets/images/ad.jpg" class="adBlock__img"></a>
         </div>
       </section>
 
@@ -335,51 +484,6 @@
           </div>
         </div>
       </section>
-
-      <section class="container__mainSection">
-        <div class="contentTitle">
-          <h2 class="contentTitle__main">企業コラム</h2>
-          <div class="contentTitle__button"><a href="#">コラム一覧</a></div>
-        </div>
-        <ul class="columnList">
-          <li class="columnList__item">
-            <a href="#" class="columnList__itemInner">
-              <div class="columnList__itemEyecatch">
-                <img src="/assets/images/sample.jpg" class="columnList__itemEyecatchImg">
-              </div>
-              <div class="columnList__itemText">
-                <div class="columnList__itemDate">2019.06.01</div>
-                <h2 class="columnList__itemTitle">新卒説明会のお知らせ</h2>
-                <div class="columnList__itemLede">ミュゼ新卒説明会が6月15日ABC会議室にて行われる。詳細日程…</div>
-              </div>
-            </a>
-          </li>
-          <li class="columnList__item">
-            <a href="#" class="columnList__itemInner">
-              <div class="columnList__itemEyecatch">
-                <img src="/assets/images/sample.jpg" class="columnList__itemEyecatchImg">
-              </div>
-              <div class="columnList__itemText">
-                <div class="columnList__itemDate">2019.06.01</div>
-                <h2 class="columnList__itemTitle">新卒説明会のお知らせ</h2>
-                <div class="columnList__itemLede">ミュゼ新卒説明会が6月15日ABC会議室にて行われる。詳細日程…</div>
-              </div>
-            </a>
-          </li>
-          <li class="columnList__item">
-            <a href="#" class="columnList__itemInner">
-              <div class="columnList__itemEyecatch">
-                <img src="/assets/images/sample.jpg" class="columnList__itemEyecatchImg">
-              </div>
-              <div class="columnList__itemText">
-                <div class="columnList__itemDate">2019.06.01</div>
-                <h2 class="columnList__itemTitle">新卒説明会のお知らせ</h2>
-                <div class="columnList__itemLede">ミュゼ新卒説明会が6月15日ABC会議室にて行われる。詳細日程…</div>
-              </div>
-            </a>
-          </li>
-        </ul>
-      </section>
     </div>
 
     <div class="container__side">
@@ -426,73 +530,10 @@
 
       <section class="container__sideSection container__sideSection--border">
         <div class="container__sideSectionTitle--small">株式会社ミュゼプラチナム</div>
-        <div class="companyData">
-          <div class="genderRatio">
-            <div class="companyData__title">年齢・男女比</div>
-            <div class="genderRatio">
-              <ul class="genderRatio__icon">
-                <li class="genderRatio__iconItem genderRatio__iconItem--male"></li>
-                <li class="genderRatio__iconItem genderRatio__iconItem--male"></li>
-                <li class="genderRatio__iconItem genderRatio__iconItem--male"></li>
-                <li class="genderRatio__iconItem genderRatio__iconItem--female"></li>
-                <li class="genderRatio__iconItem genderRatio__iconItem--female"></li>
-                <li class="genderRatio__iconItem genderRatio__iconItem--female"></li>
-                <li class="genderRatio__iconItem genderRatio__iconItem--female"></li>
-                <li class="genderRatio__iconItem genderRatio__iconItem--female"></li>
-                <li class="genderRatio__iconItem genderRatio__iconItem--female"></li>
-                <li class="genderRatio__iconItem genderRatio__iconItem--female"></li>
-              </ul>
-              <div class="genderRatio__percent">
-                <div class="genderRatio__percentNum genderRatio__percentNum--male" style="width: 30%;">
-                  <strong>30</strong>%
-                </div>
-                <div class="genderRatio__percentNum genderRatio__percentNum--female">
-                  <strong>70</strong>%
-                </div>
-              </div>
-            </div>
-
-          </div>
-          <div class="averageAge">
-            <div class="averageAge__speechBubble">
-              平均年齢<strong>22</strong>歳
-            </div>
-          </div>
-
-          <div class="extraData">
-            <div class="companyData__title">女性社員の産休・育休取得率</div>
-            <div class="extraData__number">100%</div>
-            <div class="extraData__graph">
-              <div class="extraData__graphBar" style="width: 50%;"></div>
-              <div class="extraData__graphLine">
-                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-              </div>
-            </div>
-          </div>
-
-          <div class="extraData">
-            <div class="companyData__title">残業時間(月間)</div>
-            <div class="extraData__number">21.1h</div>
-            <div class="extraData__graph">
-              <div class="extraData__graphBar" style="width: 21.1%;"></div>
-              <div class="extraData__graphLine">
-                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-              </div>
-            </div>
-          </div>
-
-          <div class="extraData">
-            <div class="companyData__title">有給休暇消化率</div>
-            <div class="extraData__number">44.6%</div>
-            <div class="extraData__graph">
-              <div class="extraData__graphBar" style="width: 44.6%;"></div>
-              <div class="extraData__graphLine">
-                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-              </div>
-            </div>
-          </div>
-        </div>
-
+        年齢・男女比<br>
+        女性社員の産休・育休取得率<br>
+        残業時間(月間)<br>
+        有給休暇消化率
       </section>
 
       <section class="container__sideSection container__sideSection--border">

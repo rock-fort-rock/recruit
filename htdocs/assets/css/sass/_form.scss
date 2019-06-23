@@ -1,0 +1,278 @@
+.formStatus{
+  display: flex;
+  &__step{
+    flex: 1;
+    position: relative;
+    height: 50px;
+    display: flex;
+    // justify-content: center;
+    padding-left: 30px;
+    align-items: center;
+    background-color: #e7e6e6;
+    &:not(:first-child){
+      border-left: 3px solid #fff;
+    }
+    &:first-child{
+      flex: 1.7;
+      padding-left: 10px;
+    }
+    &:not(:last-child){
+      &::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -40px;
+        height: 0;
+        width: 0;
+        border: 25px solid transparent;
+        border-left: 15px solid #e7e6e6;
+        z-index: 5;
+
+      }
+      &::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -43px;
+        height: 0;
+        width: 0;
+        border: 25px solid transparent;
+        border-left: 15px solid #fff;
+        z-index: 4;
+      }
+    }
+
+    &--current{
+      color: #fff;
+    }
+  }
+  &__stepInner{
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.2;
+    span{
+      display: block;
+      font-size: 0.85rem;
+    }
+  }
+
+  @media all and (min-width: $breakpoint + 1){
+    &__step{
+      height: 70px;
+      padding-left: 50px;
+      &:not(:first-child){
+        border-left: 5px solid #fff;
+      }
+      &:first-child{
+        flex: 1;
+        padding-left: 20px;
+      }
+      &:not(:last-child){
+        &::after{
+          right: -60px;
+          border: 35px solid transparent;
+          border-left: 25px solid #e7e6e6;
+
+        }
+        &::before{
+          content: '';
+          right: -65px;
+          border: 35px solid transparent;
+          border-left: 25px solid #fff;
+
+        }
+      }
+    }
+    &__stepInner{
+      font-size: 18px;
+      span{
+        display: block;
+        font-size: 1rem;
+        margin-bottom: 3px;
+      }
+    }
+  }
+}
+
+.formContainer{
+  &__title{
+    border-left-width: 5px;
+    border-left-style: solid;
+    padding: 3px 0 3px 8px;
+    font-size: 1.1rem;
+    line-height: 1.2;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  &__agreement{
+    padding: 15px;
+    text-align: center;
+    span{
+      font-weight: bold;
+    }
+
+  }
+  &__textBlock{
+    border: 1px solid #999;
+    padding: 10px;
+    height: 200px;
+    font-size: 0.9rem;
+    overflow-y: scroll;
+    margin-bottom: 20px;
+  }
+  &__buttons{
+    margin-top: 20px;
+    p{
+      font-size: 0.85rem;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  }
+  &__primaryButton{
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 360px;
+    height: 50px;
+    border-radius: 25px;
+    background: #7cb716;
+    transition: all .2s;
+    display: block;
+    color: #fff;
+    margin: 0 auto;
+    border: none;
+    appearance: button;
+  }
+
+  @media all and (min-width: $breakpoint + 1){
+    &__title{
+      border-left-width: 9px;
+      font-size: 22px;
+      padding: 5px 0 5px 10px;
+      margin-bottom: 20px;
+    }
+    .searchForm,.tagCloud--small{
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    &__agreement{
+      padding: 30px;
+    }
+    &__textBlock{
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+    &__buttons{
+      margin-top: 40px;
+      p{
+        font-size: 1rem;
+        margin-bottom: 40px;
+      }
+    }
+    &__primaryButton{
+      font-size: 18px;
+      height: 60px;
+      border-radius: 30px;
+    }
+  }
+}
+
+.popularQuestion{
+  border: 1px solid #ccc;
+  padding: 10px 10px 2px;
+  list-style-type: disc;
+  padding-left: 2em;
+  margin-bottom: 30px;
+  &__item{
+    font-size: 0.85rem;
+    line-height: 1.3;
+    margin-bottom: 8px;
+    a{
+      color: inherit;
+    }
+  }
+  @media all and (min-width: $breakpoint + 1){
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 15px 30px 5px;
+    margin-bottom: 50px;
+    &__item{
+      width: calc(50% - 15px);
+      margin-bottom: 10px;
+      a{
+        @include hover;
+      }
+    }
+  }
+}
+
+.formTable{
+  width: 100%;
+  border-collapse:collapse;
+  th,td{
+    border: 1px solid #ccc;
+    padding: 10px;
+    line-height: 1.3;
+    font-size: 0.9rem;
+  }
+  th{
+    width: 120px;
+    text-align: left;
+    vertical-align:top;
+    position: relative;
+  }
+  &__require{
+    display: block;
+    margin-top: 5px;
+  }
+  &__requireTag{
+    color: #fff;
+    padding: 4px 10px;
+    line-height: 1;
+    font-size: 11px;
+    font-weight: bold;
+    background-color: #ea5308;
+  }
+  &__caption{
+    font-size: 10px;
+    margin: 5px;
+  }
+  &__textInput,
+  &__multilineInput{
+    display: block;
+    max-width: 680px;
+    font-size: 16px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  @media all and (min-width: $breakpoint + 1){
+    th,td{
+      padding: 20px;
+      font-size: 1rem;
+    }
+    th{
+      width: 230px;
+    }
+    &__require{
+      margin-top: 0;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    &__requireTag{
+      padding: 4px 10px;
+      font-size: 12px;
+    }
+  }
+}

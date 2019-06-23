@@ -5,6 +5,7 @@
 $siteColor: hsl(203,62,65);
 $siteColor--dark: hsl(203,62,45);
 $siteColor--light: hsl(203,62,92);
+$siteColor--exlight: hsl(203,62,95);
 
 a {
   color: $siteColor;
@@ -16,6 +17,10 @@ a {
       width: 212px;
     }
   }
+  /*フォームページ等のタイトル*/
+  &__title{
+		background-color: $siteColor;
+	}
 }
 
 .globalNavi{
@@ -49,13 +54,16 @@ a {
     color: $siteColor;
   }
 }
-.qaArticle{
-  &__question{
+.article{
+  &__title{
     color: $siteColor;
+  }
+  &__answer{
+    /*変える必要があれば*/
   }
 }
 .button{
-  &:not(.button--entry){
+  &:not(.button--entry):not(.button--green):not(.button--pink){
     background-color: $siteColor;
     border-bottom-color: $siteColor--dark;
   }
@@ -88,4 +96,55 @@ a {
 }
 .postQuestion{
 	border-color: $siteColor;
+}
+.glossaryNavi{
+  &__item{
+    a{
+      &::after{
+        background-color: $siteColor;
+      }
+    }
+  }
+}
+.glossaryList{
+  &__catTitle{
+    color: $siteColor;
+  }
+  &__word{
+    a{
+      &::before{
+        border-left-color: $siteColor;
+      }
+    }
+  }
+}
+.glossaryDetail{
+  &__title{
+    color: $siteColor;
+  }
+}
+.formStatus{
+  &__step{
+    &--current{
+      background-color: $siteColor--dark;
+      &:not(:last-child){
+        &::after{
+          border-left-color: $siteColor--dark;
+        }
+      }
+    }
+  }
+}
+.formContainer{
+  &__title{
+    border-left-color: $siteColor--dark;
+  }
+  &__agreement{
+    background-color: $siteColor--exlight;
+  }
+}
+.formTable{
+  th{
+    background-color: $siteColor--exlight;
+  }
 }

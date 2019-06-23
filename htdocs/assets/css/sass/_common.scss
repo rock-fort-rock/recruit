@@ -137,6 +137,14 @@ HEADER
       }
     }
   }
+	/*フォームページ等のタイトル*/
+	&__title{
+		color: #fff;
+		font-size: 18px;
+		font-weight: bold;
+		padding: 5px;
+		text-align: center;
+	}
 
 	@media all and (min-width: $breakpoint + 1){
 		box-shadow: none;
@@ -174,6 +182,12 @@ HEADER
     &__hamburger{
       display: none;
     }
+
+		&__title{
+			margin-top: 30px;
+			font-size: 30px;
+			padding: 10px;
+		}
 	}
 }
 
@@ -406,7 +420,7 @@ HEADER
 MAIN
 ---------------------------------*/
 .container{
-	max-width: $contentWidth;
+	max-width: 500px;
 	margin: 0 auto;
 	padding: 20px 0;
 	&__main{
@@ -415,6 +429,12 @@ MAIN
 	&__mainSection{
 		&:not(:last-child){
 			margin-bottom: 30px;
+		}
+		&--wht{
+			background-color: #fff;
+		}
+		&--padding{
+			padding: 15px;
 		}
 	}
 	// &__mainSectionInner{
@@ -453,6 +473,7 @@ MAIN
 	@media all and (min-width: $breakpoint + 1){
 		display: flex;
 		padding: 40px 15px;
+		max-width: $contentWidth;
 		&__main{
 			flex: 1;
 			padding: 0;
@@ -461,6 +482,9 @@ MAIN
 		&__mainSection{
 			&:not(:last-child){
 				margin-bottom: 50px;
+			}
+			&--padding{
+				padding: 30px;
 			}
 		}
 		&__side{
@@ -561,6 +585,37 @@ MAIN
 	}
 }
 
+.contentBlock{
+	margin-bottom: 20px;
+	&__title{
+		text-align: center;
+		font-weight: bold;
+		line-height: 1.3;
+	}
+	@media all and (min-width: $breakpoint + 1){
+		margin-bottom: 30px;
+		&__title{
+			font-size: 1.15rem;
+			margin-bottom: 5px;
+		}
+	}
+}
+
+/*---------------------------------
+パーツ
+---------------------------------*/
+.adBlock{
+	a{
+		@include hover;
+	}
+	&__img{
+		width: 100%;
+	}
+}
+.buttonContainer{
+	text-align: center;
+	margin: 20px auto;
+}
 .button{
 	border-radius: 5px;
 	display: inline-block;
@@ -569,19 +624,40 @@ MAIN
 	background-color: #53a7db;
 	border-bottom: 4px solid #3d80aa;
 	padding: 8px 15px;
-
 	&__inner{
 		font-size: 1.1rem;
-		// font-weight: bold;
+		font-weight: bold;
 		line-height: 1.2;
+		// text-align: center;
 		display: inline-block;
 		text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 		&--arrow{
 			background: url('../../images/arrow.svg') left center/18px auto no-repeat;
 			padding-left: 25px;
 		}
+		&--back{
+			padding-left: 25px;
+			position: relative;
+			&::before{
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 20px;
+				height: 20px;
+				background: url('../../images/arrow.svg') left center/18px auto no-repeat;
+				transform: rotate(180deg);
+			}
+		}
 	}
-
+	&--pink{
+		background-color: #e17bbe;
+		border-bottom: 4px solid #dc45a8;
+	}
+	&--green{
+		background-color: #00bb33;
+		border-bottom: 4px solid #009629;
+	}
 	&--coursor{
 		background-image: url('../../images/coursor.png');
 		background-position: right bottom;
@@ -631,6 +707,89 @@ MAIN
 				background: url('../../images/arrow.svg') left center/24px auto no-repeat;
 				padding-left: 35px;
 			}
+			&--back{
+				padding-left: 35px;
+				&::before{
+					width: 24px;
+					height: 24px;
+					background: url('../../images/arrow.svg') left center/24px auto no-repeat;
+				}
+			}
+		}
+	}
+}
+
+/*横並びボタン*/
+.buttonList{
+	display: flex;
+	justify-content: center;
+	&__item{
+		flex: 1;
+		margin: 10px 2px;
+	}
+	.button{
+		width: 100%;
+		text-align: center;
+		padding-right:8px;
+		padding-left:8px;
+		&__inner{
+			font-size: 11px;
+			font-weight: bold;
+		}
+	}
+	@media all and (min-width: $breakpoint + 1){
+		&__item{
+			flex: 1;
+			margin: 10px 5px;
+		}
+		.button{
+			&__inner{
+				font-size: 1.1rem;
+			}
+		}
+	}
+}
+.shareList{
+	padding: 15px 0;
+	display: flex;
+	justify-content: center;
+	&__item{
+		margin: 0 4px;
+		a{
+			display: inline-block;
+			line-height: 1;
+			padding: 5px 10px;
+			color: inherit;
+			border-radius: 3px;
+			border: 1px solid #ccc;
+			background-color: #fafafa;
+			@include hover;
+			.Icon{
+				margin-right: 3px;
+				font-size: 16px;
+				display: inline-block;
+			}
+		}
+	}
+	&__itemText{
+		font-size: 0.9rem;
+	}
+	@media all and (max-width: $breakpoint){
+		padding: 15px;
+		&__item{
+			flex:1;
+			margin: 0 2px;
+			a{
+				text-align: center;
+				display: block;
+				padding: 3px 10px;
+				.Icon{
+					margin-right: 0;
+				}
+			}
+		}
+		&__itemText{
+			display: none;
 		}
 	}
 }
@@ -669,7 +828,7 @@ MAIN
 	display: inline-block;
 	position: relative;
 
-	@media all and (max-width: $breakpoint){
+	// @media all and (max-width: $breakpoint){
 		&::after{
 			content: '';
 			position: absolute;
@@ -685,18 +844,151 @@ MAIN
 			appearance: none;
 			border-radius: 2px;
 			border: 1px solid #666;
+			background-color: #fff;
 			padding: 3px 25px 3px 5px;
 		}
-	}
+	// }
 }
 
 
 /*---------------------------------
 SIDE
 ---------------------------------*/
+.companyData{
+	&__title{
+		color: #999;
+		font-weight: bold;
+	}
+}
+.genderRatio{
+	&__icon{
+		display: flex;
+		justify-content: center;
+		max-width: 300px;
+		margin: 0 auto;
+		// border: 1px solid #f00;
+	}
+	&__iconItem{
+		flex:1;
+		height: 65px;
+		background-size: 100% auto;
+		// background-size: contain;
+		background-position: center bottom;
+		background-repeat: no-repeat;
+		&--male{
+			background-image: url('../../images/male.png');
+		}
+		&--female{
+			background-image: url('../../images/female.png');
+		}
+	}
+
+	&__percent{
+		display: flex;
+		max-width: 300px;
+		margin: 5px auto 0;
+	}
+	&__percentNum{
+		text-align: center;
+		font-weight: bold;
+		strong{
+			font-size: 24px;
+			margin: 0 3px 0 0.5em;
+			letter-spacing: -0.1em;
+			line-height: 1;
+		}
+		&--male{
+			color: #399ddc;
+
+		}
+		&--female{
+			flex: 1;
+			color: #ea7dab;
+
+		}
+	}
+}
+.averageAge{
+	max-width: 300px;
+	margin: 0 auto;
+	background: url('../../images/people.png') left center/45px auto no-repeat;
+	padding-left: 60px;
+	margin-top: 10px;
+	&__speechBubble{
+		background-color: #eee;
+		border-radius: 10px;
+		text-align: center;
+		line-height: 1.2;
+		padding: 5px 10px;
+		position: relative;
+		font-size: 0.9rem;
+		strong{
+			font-size: 24px;
+			margin: 0 3px;
+		}
+		&::after{
+			content: '';
+			position: absolute;
+			left: -10px;
+			top: 50%;
+			width: 0;
+			height: 0;
+			margin-top: -5px;
+			border: 5px solid transparent;
+			border-right: 5px solid #eee;
+		}
+	}
+}
+
+
+.extraData{
+	position: relative;
+	margin-top: 15px;
+	.companyData__title{
+		margin-bottom: 5px;
+	}
+	&__number{
+		position: absolute;
+		top: 0;
+		right: 0;
+		color: #999;
+		font-weight: bold;
+	}
+	&__graph{
+		height: 5px;
+		background-color: #eee;
+		position: relative;
+	}
+	&__graphBar{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-color: #aad2ec;
+		z-index: 1;
+	}
+	&__graphLine{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		display: flex;
+		z-index: 2;
+		span{
+			flex: 1;
+			&:not(:last-child){
+				border-right: 1px solid #fff;
+			}
+		}
+	}
+}
+
 .companyInfo{
 	font-size: 0.85rem;
 	border-spacing: 0;
+	width: 100%;
 	th{
 		border-right: 1px solid #ccc;
 		border-bottom: 1px solid #ccc;
@@ -885,6 +1177,16 @@ SIDE
 			color: $textColor;
 		}
 	}
+	&--small{
+		text-align: center;
+		.tagCloud__tag{
+			a{
+				font-size: 10px;
+				background-color: #fafafa;
+				border-color: #ccc;
+			}
+		}
+	}
 	@media all and (min-width: $breakpoint + 1){
 		&__tag{
 			margin-right: 5px;
@@ -893,6 +1195,13 @@ SIDE
 				padding: 10px;
 				font-size: 0.85rem;
 				@include hover;
+			}
+		}
+		&--small{
+			.tagCloud__tag{
+				a{
+					font-size: 12px;
+				}
 			}
 		}
 	}
