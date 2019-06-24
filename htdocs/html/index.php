@@ -31,13 +31,13 @@
         <div class="siteInfo">
           <ul class="siteInfo__sns">
             <li class="siteInfo__snsList">
-              <a href="#"><span class="Icon -facebook"></a>
+              <a href="#"><span class="Icon -facebook"></span></a>
             </li>
             <li class="siteInfo__snsList">
-              <a href="#"><span class="Icon -twitter"></a>
+              <a href="#"><span class="Icon -twitter"></span></a>
             </li>
             <li class="siteInfo__snsList">
-              <a href="#"><span class="Icon -instagram"></a>
+              <a href="#"><span class="Icon -instagram"></span></a>
             </li>
           </ul>
           <div class="siteInfo__data">
