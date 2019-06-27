@@ -8,6 +8,19 @@ $icons: (
 	"line": unquote("\"\e807\""),
 	"pocket": unquote("\"\e808\""),
 	"rss": unquote("\"\e809\""),
+	"home": unquote("\"\e810\""),
+	"clip": unquote("\"\e811\""),
+	"clipranking": unquote("\"\e812\""),
+	"question": unquote("\"\e813\""),
+	"search": unquote("\"\e814\""),
+	"star": unquote("\"\e815\""),
+	"folder": unquote("\"\e816\""),
+	"mail": unquote("\"\e817\""),
+	"comment": unquote("\"\e818\""),
+	"bright": unquote("\"\e819\""),
+	"bell": unquote("\"\e820\""),
+	"list": unquote("\"\e821\""),
+	"bookmark": unquote("\"\e822\""),
 );
 
 @function getIconContent( $key ) {
@@ -88,5 +101,44 @@ $icons: (
 	}
 	.Icon.-rss:before {
 		content: unquote("\"\e809\"");
+	}
+	.Icon.-home:before {
+		content: unquote("\"\e810\"");
+	}
+	.Icon.-clip:before {
+		content: unquote("\"\e811\"");
+	}
+	.Icon.-clipranking:before {
+		content: unquote("\"\e812\"");
+	}
+	.Icon.-question:before {
+		content: unquote("\"\e813\"");
+	}
+	.Icon.-search:before {
+		content: unquote("\"\e814\"");
+	}
+	.Icon.-star:before {
+		content: unquote("\"\e815\"");
+	}
+	.Icon.-folder:before {
+		content: unquote("\"\e816\"");
+	}
+	.Icon.-mail:before {
+		content: unquote("\"\e817\"");
+	}
+	.Icon.-comment:before {
+		content: unquote("\"\e818\"");
+	}
+	.Icon.-bright:before {
+		content: unquote("\"\e819\"");
+	}
+	.Icon.-bell:before {
+		content: unquote("\"\e820\"");
+	}
+	.Icon.-list:before {
+		content: unquote("\"\e821\"");
+	}
+	.Icon.-bookmark:before {
+		content: unquote("\"\e822\"");
 	}
 }

@@ -10,7 +10,7 @@
 					<div class="article__clip">
 						<div class="clipCounter">
 							<div class="clipCounter__icon">
-								<span class="Icon -facebook"></span>
+								<span class="Icon -clip"></span>
 							</div>
 							<div class="clipCounter__num">255</div>
 						</div>
@@ -46,7 +46,7 @@
 									<div class="articleList__itemClip">
 										<div class="clipCounter">
 											<div class="clipCounter__icon">
-												<span class="Icon -facebook"></span>
+												<span class="Icon -clip"></span>
 											</div>
 											<div class="clipCounter__num">255</div>
 										</div>
@@ -61,7 +61,7 @@
 										<div class="articleList__itemClip">
 											<div class="clipCounter">
 												<div class="clipCounter__icon">
-													<span class="Icon -facebook"></span>
+													<span class="Icon -clip"></span>
 												</div>
 												<div class="clipCounter__num">255</div>
 											</div>
@@ -86,7 +86,7 @@
 									<div class="articleList__itemClip">
 										<div class="clipCounter">
 											<div class="clipCounter__icon">
-												<span class="Icon -facebook"></span>
+												<span class="Icon -clip"></span>
 											</div>
 											<div class="clipCounter__num">255</div>
 										</div>
@@ -101,7 +101,7 @@
 										<div class="articleList__itemClip">
 											<div class="clipCounter">
 												<div class="clipCounter__icon">
-													<span class="Icon -facebook"></span>
+													<span class="Icon -clip"></span>
 												</div>
 												<div class="clipCounter__num">255</div>
 											</div>
@@ -126,7 +126,7 @@
 									<div class="articleList__itemClip">
 										<div class="clipCounter">
 											<div class="clipCounter__icon">
-												<span class="Icon -facebook"></span>
+												<span class="Icon -clip"></span>
 											</div>
 											<div class="clipCounter__num">255</div>
 										</div>
@@ -141,7 +141,7 @@
 										<div class="articleList__itemClip">
 											<div class="clipCounter">
 												<div class="clipCounter__icon">
-													<span class="Icon -facebook"></span>
+													<span class="Icon -clip"></span>
 												</div>
 												<div class="clipCounter__num">255</div>
 											</div>

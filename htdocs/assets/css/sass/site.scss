@@ -23,6 +23,29 @@ a {
 	}
 }
 
+.siteLinks{
+  &__itemInner{
+    color: $siteColor;
+  }
+}
+
+.spNavi{
+  &__logo{
+    width: 90px;
+  }
+}
+.spGlobalNavi{
+	&__itemInner{
+		color: $siteColor;
+    &--hasSubNavi{
+			position: relative;
+			&::after{
+        border-top-color: $siteColor;
+      }
+    }
+	}
+}
+
 .globalNavi{
   background-color: $siteColor;
   color: #fff;

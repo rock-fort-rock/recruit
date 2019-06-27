@@ -9,11 +9,13 @@
 	</a>
 </section>
 
+<?php /*
 <section class="container__sideSection">
 	<div class="embedTwitterTimeline">
 		<a class="twitter-timeline" data-lang="ja" data-height="380" href="https://twitter.com/MUSEE_PLATINUM?ref_src=twsrc%5Etfw">Tweets by MUSEE_PLATINUM</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 	</div>
 </section>
+*/ ?>
 
 <section class="container__sideSection">
 	<div class="container__sideSectionTitle">企業コラム</div>
@@ -153,7 +155,7 @@
 		</li>
 		<li class="qaData__item">
 			<div class="qaData__itemHeadline">
-				<span class="Icon -facebook"></span>全クリップ数
+				<span class="Icon -clip"></span>全クリップ数
 			</div>
 			<div class="qaData__itemValue">
 				<em>1082</em>件
@@ -184,30 +186,19 @@
 
 <section class="container__sideSection container__sideSection--wht">
 	<div class="container__sideSectionTitle--small">タグクラウド</div>
+
+	<?php
+	$args = array(
+		'orderby' => 'count',
+		'order' => 'DESC',
+		'number' => 10,
+	);
+	$tags = get_tags($args);
+	// print_r($tags);
+	?>
 	<ul class="tagCloud">
-		<li class="tagCloud__tag">
-			<a href="#">タグ</a>
-		</li>
-		<li class="tagCloud__tag">
-			<a href="#">タグタグタグタグ</a>
-		</li>
-		<li class="tagCloud__tag">
-			<a href="#">タグ</a>
-		</li>
-		<li class="tagCloud__tag">
-			<a href="#">タグタグタグタグ</a>
-		</li>
-		<li class="tagCloud__tag">
-			<a href="#">タグ</a>
-		</li>
-		<li class="tagCloud__tag">
-			<a href="#">タグタグタグタグ</a>
-		</li>
-		<li class="tagCloud__tag">
-			<a href="#">タグ</a>
-		</li>
-		<li class="tagCloud__tag">
-			<a href="#">タグタグ</a>
-		</li>
+	<?php foreach($tags as $value): ?>
+		<li class="tagCloud__tag"><a href="<?php echo get_tag_link($value->term_id); ?>"><?php echo $value->name; ?></a></li>
+	<?php endforeach; ?>
 	</ul>
 </section>

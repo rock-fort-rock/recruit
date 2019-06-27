@@ -8,30 +8,28 @@ $cat = array(
   'desc'=>$the_terms[0]->description,
   'color'=>get_field('category_color', 'category_'.$the_terms[0]->term_id)
 );
-// echo $cat['color'];
 
-$eyecatchId = get_post_thumbnail_id($post_id);
-$eyecatch = wp_get_attachment_image_src( $eyecatchId, 'medium_large' );
-$eyecatchSrc = $eyecatch[0];
+//アイキャッチ
+$eyecatchSrc = getEyecatch($post_id, 'medium_large');
 ?>
 <div class="container__main">
   <section class="container__mainSection">
     <div class="article">
       <ul class="shareList">
         <li class="shareList__item">
-          <a href="#" target="_blank"><span class="Icon -line"></span><span class="shareList__itemText">Share</span></a>
+          <a href="https://twitter.com/intent/tweet?text=<?php the_title(); ?>%0D%0A&amp;url=<?php the_permalink(); ?>" target="_blank" class="twitter"><span class="Icon -twitter"></span><span class="shareList__itemText">Tweet</span></a>
         </li>
         <li class="shareList__item">
-          <a href="#" target="_blank"><span class="Icon -twitter"></span><span class="shareList__itemText">Tweet</span></a>
+          <a href="https://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>" target="_blank" class="facebook"><span class="Icon -facebook"></span><span class="shareList__itemText">Share</span></a>
         </li>
         <li class="shareList__item">
-          <a href="#" target="_blank"><span class="Icon -facebook"></span><span class="shareList__itemText">Share</span></a>
+          <a href="line://msg/text/<?php the_title(); ?>%0D%0A<?php the_permalink(); ?>" target="_blank" class="line"><span class="Icon -line"></span><span class="shareList__itemText">Share</span></a>
         </li>
         <li class="shareList__item">
-          <a href="#" target="_blank"><span class="Icon -pocket"></span><span class="shareList__itemText">Pocket</span></a>
+          <a href="https://getpocket.com/edit?url=<?php the_permalink(); ?>&title=<?php the_title(); ?>" target="_blank" class="pocket"><span class="Icon -pocket"></span><span class="shareList__itemText">Pocket</span></a>
         </li>
         <li class="shareList__item">
-          <a href="#" target="_blank"><span class="Icon -hatena"></span><span class="shareList__itemText">Hatena</span></a>
+          <a href="https://b.hatena.ne.jp/add?url=<?php the_permalink(); ?>" target="_blank" class="hatena"><span class="Icon -hatena"></span><span class="shareList__itemText">Hatena</span></a>
         </li>
         <!-- <li class="shareList__item">
           <a href="#" target="_blank"><span class="Icon -rss"></span><span class="shareList__itemText">RSS</span></a>
@@ -45,7 +43,7 @@ $eyecatchSrc = $eyecatch[0];
         <div class="article__clip">
           <div class="clipCounter">
             <div class="clipCounter__icon">
-              <span class="Icon -facebook"></span>
+              <span class="Icon -clip"></span>
             </div>
             <div class="clipCounter__num">255</div>
           </div>
@@ -57,48 +55,9 @@ $eyecatchSrc = $eyecatch[0];
           <?php the_post(); the_content(); ?>
         </div>
 
-        <h2 class="article__answer">ミュゼは女性の働きやすい環境づくりを目指しています</h2>
+        <h2 class="article__answer"><?php the_field('qa_answer'); ?></h2>
         <section class="article__body">
-          <h1>福利厚生</h1>
-          <p>
-            ミュゼプラチナムは女性に優しい福利厚生が充実しています。
-          </p>
-          <p>
-            女性が多いミュゼプラチナムでは、<br>
-            結婚・出産などを経験した先輩スタッフがたくさんいます。
-          </p>
-
-          <h1>ミュゼプラチナムで正社員で勤務した場合</h1>
-          <p>
-            女性が多いミュゼプラチナムでは、<br>
-            結婚・出産などを経験した先輩スタッフがたくさんいます。
-          </p>
-          <table>
-            <tr>
-              <td>
-                子供が18歳になるまで1人につき毎月5,000円、3人目からは毎月1万円を支給
-              </td>
-              <td>
-                子供が18歳になるまで1人につき毎月5,000円、3人目からは毎月1万円を支給
-              </td>
-            </tr>
-            <tr>
-              <td>
-                子供が18歳になるまで1人につき毎月5,000円、3人目からは毎月1万円を支給
-              </td>
-              <td>
-                子供が18歳になるまで1人につき毎月5,000円、3人目からは毎月1万円を支給
-              </td>
-            </tr>
-            <tr>
-              <td>
-                子供が18歳になるまで1人につき毎月5,000円、3人目からは毎月1万円を支給
-              </td>
-              <td>
-                子供が18歳になるまで1人につき毎月5,000円、3人目からは毎月1万円を支給
-              </td>
-            </tr>
-          </table>
+          <?php the_field('qa_answerDescription'); ?>
 
           <div class="article__bodyFooter">
             <div class="contentBlock">
@@ -141,30 +100,23 @@ $eyecatchSrc = $eyecatch[0];
               </div>
             </div>
 
+            <?php $posttags = get_the_tags(); ?>
+            <?php if($posttags): ?>
             <div class="contentBlock">
               <ul class="tagCloud--small">
+                <?php foreach ( $posttags as $value ): ?>
                 <li class="tagCloud__tag">
-                  <a href="#">タグ</a>
+                  <a href="<?php echo get_tag_link($value->term_id); ?>"><?php echo $value->name; ?></a>
                 </li>
-                <li class="tagCloud__tag">
-                  <a href="#">タグタグタグタグ</a>
-                </li>
-                <li class="tagCloud__tag">
-                  <a href="#">タグ</a>
-                </li>
-                <li class="tagCloud__tag">
-                  <a href="#">タグタグタグタグ</a>
-                </li>
-                <li class="tagCloud__tag">
-                  <a href="#">タグ</a>
-                </li>
+              <?php endforeach; ?>
               </ul>
             </div>
+            <?php endif; ?>
 
             <div class="contentBlock">
               <ul class="article__bodyFooterCategory">
                 <li>
-                  <a href="#"><span class="Icon -twitter"></span>休暇申請について</a>
+                  <a href="/category/<?php echo $cat['slug']; ?>/"><span class="Icon -twitter"></span><?php echo $cat['desc']; ?></a>
                 </li>
               </ul>
             </div>
@@ -176,30 +128,43 @@ $eyecatchSrc = $eyecatch[0];
       </div>
       <div class="article__footer">
         <nav class="articlePagination">
-            <a class="articlePagination__button articlePagination__button--next" href="#" rel="next">
-              <div class="articlePagination__buttonInner">
-                <span class="Icon -arrow"></span>
-                <div class="articlePagination__eyecatch" style="background-image:url(/assets/images/sample.jpg)"></div>
-                <div class="articlePagination__title">
-                  お知らせテスト_20190605
-                </div>
+          <?php
+            $next_post = get_next_post();
+            $prev_post  = get_previous_post();
+          ?>
+          <?php if (!empty($next_post)): ?>
+          <?php $eyecatchNext = getEyecatch($next_post->ID, 'medium'); ?>
+          <a class="articlePagination__button articlePagination__button--next" href="<?php the_permalink($next_post->ID); ?>" rel="next">
+            <div class="articlePagination__buttonInner">
+              <span class="Icon -arrow"></span>
+              <div class="articlePagination__eyecatch" style="background-image:url(<?php echo $eyecatchNext; ?>)"></div>
+              <div class="articlePagination__title">
+                <?php echo get_the_title($next_post->ID); ?>
               </div>
-            </a>
+            </div>
+          </a>
+          <?php endif; ?>
 
-            <a class="articlePagination__button articlePagination__button--prev" href="#" rel="prev">
-              <div class="articlePagination__buttonInner">
-                <div class="articlePagination__title">
-                  お知らせテスト_20190605
-                </div>
-                <div class="articlePagination__eyecatch" style="background-image:url(/assets/images/sample.jpg)"></div>
-                <span class="Icon -arrow"></span>
+          <?php if (!empty($prev_post)): ?>
+          <?php $eyecatchPrev = getEyecatch($prev_post->ID, 'medium'); ?>
+          <a class="articlePagination__button articlePagination__button--prev" href="<?php the_permalink($prev_post->ID); ?>" rel="next">
+            <div class="articlePagination__buttonInner">
+              <div class="articlePagination__title">
+                <?php echo get_the_title($prev_post->ID); ?>
               </div>
-            </a>
+              <div class="articlePagination__eyecatch" style="background-image:url(<?php echo $eyecatchPrev; ?>)"></div>
+              <span class="Icon -arrow"></span>
+            </div>
+          </a>
+          <?php endif; ?>
         </nav>
       </div>
     </div>
   </section>
 
+  <?php /*
+  同一カテゴリから自身のIDを除外したもの
+  */ ?>
   <section class="container__mainSection">
     <div class="contentTitle">
       <h2 class="contentTitle__main">関連する質問</h2>
@@ -215,7 +180,7 @@ $eyecatchSrc = $eyecatch[0];
                 <div class="articleList__itemClip">
                   <div class="clipCounter">
                     <div class="clipCounter__icon">
-                      <span class="Icon -facebook"></span>
+                      <span class="Icon -clip"></span>
                     </div>
                     <div class="clipCounter__num">255</div>
                   </div>
@@ -230,7 +195,7 @@ $eyecatchSrc = $eyecatch[0];
                   <div class="articleList__itemClip">
                     <div class="clipCounter">
                       <div class="clipCounter__icon">
-                        <span class="Icon -facebook"></span>
+                        <span class="Icon -clip"></span>
                       </div>
                       <div class="clipCounter__num">255</div>
                     </div>
@@ -255,7 +220,7 @@ $eyecatchSrc = $eyecatch[0];
                 <div class="articleList__itemClip">
                   <div class="clipCounter">
                     <div class="clipCounter__icon">
-                      <span class="Icon -facebook"></span>
+                      <span class="Icon -clip"></span>
                     </div>
                     <div class="clipCounter__num">255</div>
                   </div>
@@ -270,7 +235,7 @@ $eyecatchSrc = $eyecatch[0];
                   <div class="articleList__itemClip">
                     <div class="clipCounter">
                       <div class="clipCounter__icon">
-                        <span class="Icon -facebook"></span>
+                        <span class="Icon -clip"></span>
                       </div>
                       <div class="clipCounter__num">255</div>
                     </div>
@@ -295,7 +260,7 @@ $eyecatchSrc = $eyecatch[0];
                 <div class="articleList__itemClip">
                   <div class="clipCounter">
                     <div class="clipCounter__icon">
-                      <span class="Icon -facebook"></span>
+                      <span class="Icon -clip"></span>
                     </div>
                     <div class="clipCounter__num">255</div>
                   </div>
@@ -310,7 +275,7 @@ $eyecatchSrc = $eyecatch[0];
                   <div class="articleList__itemClip">
                     <div class="clipCounter">
                       <div class="clipCounter__icon">
-                        <span class="Icon -facebook"></span>
+                        <span class="Icon -clip"></span>
                       </div>
                       <div class="clipCounter__num">255</div>
                     </div>

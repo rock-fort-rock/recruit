@@ -52,7 +52,7 @@ add_filter( 'wp_resource_hints', 'remove_dns_prefetch', 10, 2 );
 
 function my_scripts() {
   wp_enqueue_style( 'style', home_url().'/assets/css/style.css', array(), '1.0');
-  wp_enqueue_style( 'localstyle', get_bloginfo('stylesheet_url'), array(), '1.0');
+  // wp_enqueue_style( 'localstyle', get_bloginfo('stylesheet_url'), array(), '1.0');
   wp_enqueue_script('script', home_url().'/assets/js/bundle.js', array(), '1.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'my_scripts' );
@@ -321,26 +321,13 @@ function stopWpautop(){
 add_action('wp','stopWpautop');
 
 
+function getEyecatch($postid, $size='medium_large'){
+  $eyecatchId = get_post_thumbnail_id($postid);
+  $eyecatch = wp_get_attachment_image_src( $eyecatchId, $size );
+  return $eyecatch[0];
+}
 
-//previous_post_link() と next_post_link() にクラス付加
-add_filter( 'previous_post_link', 'add_prev_post_link_class' );
-function add_prev_post_link_class($output) {
-  if(is_singular('news') || is_singular('case')){
-    $class = 'ArticlePagination__Prev';
-  }else if(is_singular('report')){
-    $class = 'PaginationButtons__Prev';
-  }
-  return str_replace('<a href=', '<a class="'.$class.'" href=', $output);
-}
-add_filter( 'next_post_link', 'add_next_post_link_class' );
-function add_next_post_link_class($output) {
-  if(is_singular('news')|| is_singular('case')){
-    $class = 'ArticlePagination__Next';
-  }else if(is_singular('report')){
-    $class = 'PaginationButtons__Next';
-  }
-  return str_replace('<a href=', '<a class="'.$class.'" href=', $output);
-}
+
 
 //お問い合わせ
 function mwform_form_class() {
@@ -385,4 +372,28 @@ function mwform_form_class() {
 lazysizes.unveilhooks.jsが読み込まれ、背景画像も設定可能に
 */
 
+
+//カスタムフィールド設定用
+// $path = trim( get_blog_status( $blog_id, 'path' ), '/' );
+// if($path != "series/base"){//親テーマ「大会ベース」以外はナビゲーションから「カスタムフィールド」を非表示
+//   define( 'ACF_LITE', true );
+// }
+//
+// add_action( 'init', 'setTerm', 999 );
+// function setTerm(){
+//     $topvisualId = get_term_by('slug','setting_visual','settingcat')->term_id;
+//     $entrybuttonId = get_term_by('slug','setting_entry','settingcat')->term_id;
+//     $pickuptopicsId = get_term_by('slug','setting_pickup','settingcat')->term_id;
+//     $mapinitId = get_term_by('slug','setting_map','settingcat')->term_id;
+//     $importantId = get_term_by('slug','setting_info','settingcat')->term_id;
+//     $partnerId = get_term_by('slug','setting_partner','settingcat')->term_id;
+//
+//     //親テーマ「大会ベース」のみ反映させたくない。
+//     $path = trim( get_blog_status( $blog_id, 'path' ), '/' );
+//     if($path != "series/base"){
+//       if(function_exists("register_field_group")){
+//           include_once('acf.php');
+//       }
+//     }
+// }
 ?>

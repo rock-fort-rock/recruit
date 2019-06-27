@@ -229,6 +229,9 @@
 		width: 50%;
 		color: inherit;
 		@include hover;
+    &--prev{
+      margin-left: auto;
+    }
 	}
 	&__buttonInner{
 		display: flex;

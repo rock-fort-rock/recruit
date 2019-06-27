@@ -7,16 +7,10 @@
 	<div class="globalFooter__inner">
 		<ul class="globalFooter__nav">
 				<li class="globalFooter__navItem">
-					<a href="/company/">会社概要</a>
+					<a href="#" target="_blank">コーポレートサイト</a>
 				</li>
 				<li class="globalFooter__navItem">
-					<a href="/privacy/">個人情報保護方針</a>
-				</li>
-				<li class="globalFooter__navItem">
-					<a href="/copyright/">コピーライト・免責事項</a>
-				</li>
-				<li class="globalFooter__navItem">
-					<a href="/terms/">応募規約・プライバシーポリシー</a>
+					<a href="/privacy/">プライバシーポリシー</a>
 				</li>
 
 		</ul>
@@ -28,20 +22,33 @@
 
 	<div class="onlySmall">
 	<div class="spFooter">
-		<ul class="siteLinks">
-			<li class="siteLinks__item">
-				<a href="/"><span class="Icon -facebook"></span>TOP</a>
-			</li>
-			<li class="siteLinks__item">
-				<a href="#"><span class="Icon -facebook"></span>クリップした質問</a>
-			</li>
-			<li class="siteLinks__item">
-				<a href="#"><span class="Icon -facebook"></span>質問をする</a>
-			</li>
-			<li class="siteLinks__item">
-				<a href="#"><span class="Icon -facebook"></span>公式サイト</a>
-			</li>
-		</ul>
+		<div class="spFooter__navi">
+			<ul class="siteLinks">
+				<li class="siteLinks__item siteLinks__item--narrow">
+					<a href="/" class="siteLinks__itemInner"><span class="Icon -home"></span>TOP</a>
+				</li>
+				<li class="siteLinks__item siteLinks__item--wide">
+					<a href="#" class="siteLinks__itemInner"><span class="Icon -clip"></span>クリップした質問</a>
+				</li>
+				<li class="siteLinks__item">
+					<a href="#" class="siteLinks__itemInner"><span class="Icon -question"></span>質問をする</a>
+				</li>
+				<li class="siteLinks__item">
+					<a href="#" class="siteLinks__itemInner"><span class="Icon -star"></span>公式サイト</a>
+				</li>
+				<li class="siteLinks__item">
+					<span class="siteLinks__itemInner siteLinks__itemInner--search"><span class="Icon -search"></span>検索する</span>
+				</li>
+			</ul>
+		</div>
+		<div class="spFooter__search">
+			<div class="keywordSearch">
+				<form action="/" method="get" class="keywordSearch__form" autocomplete="off">
+					<span class="Icon -search"></span>
+					<input type="text" name="s" value="" class="keywordSearch__input" placeholder="求人に関するキーワード">
+				</form>
+			</div>
+		</div>
 	</div>
 </div>
 
