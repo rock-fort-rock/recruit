@@ -3,6 +3,8 @@
 bloginfo('template_directory');ベーステンプレートフォルダ
 bloginfo('stylesheet_directory');子テーマフォルダ
 */
+global $officialSite;
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -32,7 +34,7 @@ functions.phpのlocalstyleを無効化　→　調整　→　吐き出された
             <a href="#" class="siteLinks__itemInner"><span class="Icon -question"></span>質問をする</a>
           </li>
           <li class="siteLinks__item">
-            <a href="#" target="_blank" class="siteLinks__itemInner"><span class="Icon -star"></span>公式サイト</a>
+            <a href="<?php echo $officialSite; ?>" target="_blank" class="siteLinks__itemInner"><span class="Icon -star"></span>公式サイト</a>
           </li>
         </ul>
 
@@ -48,8 +50,12 @@ functions.phpのlocalstyleを無効化　→　調整　→　吐き出された
               <a href="#"><span class="Icon -instagram"></span></a>
             </li>
           </ul>
+          <?php
+            //echo date('Y年m月d日 H時i分s秒');
+            // the_modified_date('Y年n月j日');
+          ?>
           <div class="siteInfo__data">
-            2019年6月1日現在　Q&A数：<em>650</em>件
+            <?php echo date('Y年n月j日'); ?>現在　Q&A数：<em><?php echo wp_count_posts('post')->publish; ?></em>件
           </div>
         </div>
       </div>
@@ -66,7 +72,11 @@ functions.phpのlocalstyleを無効化　→　調整　→　吐き出された
       </div>
     </div>
 
-    <h1 class="globalHeader__catch<?php if(!is_home())echo ' exceptSmall'; ?>">あなたもミュゼプラチナムの一員として一緒に成長してみませんか？</h1>
+    <?php if(is_home()): ?>
+      <h1 class="globalHeader__catch">あなたもミュゼプラチナムの一員として一緒に成長してみませんか？</h1>
+    <?php else: ?>
+      <div class="globalHeader__catch exceptSmall">あなたもミュゼプラチナムの一員として一緒に成長してみませんか？</div>
+    <?php endif; ?>
 		<?php
 			// echo '全カテゴリ';
 			$allcat = get_categories(array('hide_empty'=> 0));

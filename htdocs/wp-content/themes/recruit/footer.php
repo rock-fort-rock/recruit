@@ -1,3 +1,7 @@
+<?php
+	global $officialSite;
+?>
+
 		<div class="container__side">
 			<?php get_sidebar(); ?>
 		</div>
@@ -34,7 +38,7 @@
 					<a href="#" class="siteLinks__itemInner"><span class="Icon -question"></span>質問をする</a>
 				</li>
 				<li class="siteLinks__item">
-					<a href="#" class="siteLinks__itemInner"><span class="Icon -star"></span>公式サイト</a>
+					<a href="<?php echo $officialSite; ?>" target="_blank" class="siteLinks__itemInner"><span class="Icon -star"></span>公式サイト</a>
 				</li>
 				<li class="siteLinks__item">
 					<span class="siteLinks__itemInner siteLinks__itemInner--search"><span class="Icon -search"></span>検索する</span>

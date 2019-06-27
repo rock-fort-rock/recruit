@@ -84,6 +84,12 @@ function remove_menus(){
     // $restricted = array();
     $restricted = array(__('コメント'));
   }
+
+  if (current_user_can('administrator') || current_user_can('editor')){
+    // echo '管理者・編集者のみ';
+    setOption();
+  }
+
 	end ($menu);
 	while (prev($menu)){
 		$value = explode(' ',$menu[key($menu)][0]);
@@ -274,7 +280,42 @@ function cpt_glossary_init()
 ・企業データ
 ・企業情報
 ・SNS（フォロー用）
+・バナー（サイド・トップ・スマホナビ）
 */
+
+function setOption(){
+  if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page(array(
+      'page_title'  => 'サイト設定',
+      'menu_title'  => 'サイト設定',
+      'menu_slug'   => 'theme-options',
+      'capability'  => 'edit_posts',
+      'parent_slug' => '',
+      'position'  => 8,
+      'redirect'  => false,
+    ));
+
+    // acf_add_options_page(array(
+    //   'page_title'  => 'サロンランキング',
+    //   'menu_title'  => 'サロンランキング',
+    //   'menu_slug'   => 'theme-options-ranking',
+    //   'capability'  => 'edit_posts',
+    //   'parent_slug' => '',
+    //   'position'  => 8,
+    //   'redirect'  => false,
+    // ));
+    // acf_add_options_sub_page(array( //サブページ
+    //   'page_title'  => 'トップページ用',
+    //   'menu_title'  => 'トップページ用',
+    //   'menu_slug'   => 'theme-options-topRank',
+    //   'capability'  => 'edit_posts',
+    //   'parent_slug' => 'theme-options-ranking', //親ページのスラッグ
+    //   'position'  => false,
+    // ));
+  }
+}
+$officialSite = get_field('sitesetting_official', 'option');
+// print_r($officialSite);
 
 // 表示件数set
 add_filter('pre_get_posts', 'custom_posts_query');
