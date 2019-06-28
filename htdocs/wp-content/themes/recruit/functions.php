@@ -54,6 +54,11 @@ function my_scripts() {
   wp_enqueue_style( 'style', home_url().'/assets/css/style.css', array(), '1.0');
   // wp_enqueue_style( 'localstyle', get_bloginfo('stylesheet_url'), array(), '1.0');
   wp_enqueue_script('script', home_url().'/assets/js/bundle.js', array(), '1.0', true );
+
+  if(is_archive()){
+    wp_enqueue_script('j', 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js', array(), '1.0' );
+    wp_enqueue_script('infinite-scroll', 'https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js', array(), '1.0', true );
+  }
 }
 add_action( 'wp_enqueue_scripts', 'my_scripts' );
 
@@ -144,7 +149,7 @@ function imagesizeSet() {
   update_option( 'medium_large_size_w', 800 );
   update_option( 'medium_large_size_h', 0 );
 
-	update_option( 'large_size_w', 1600 );
+	update_option( 'large_size_w', 1200 );
 	update_option( 'large_size_h', 0 );
 }
 
@@ -157,6 +162,45 @@ function custom_admin_post_thumbnail_html( $content ) {
   return $content;
 }
 add_filter('admin_post_thumbnail_html', 'custom_admin_post_thumbnail_html');
+
+
+/* 「投稿」名称変更 */
+function Change_menulabel() {
+	global $menu;
+	global $submenu;
+	$name = '質問';
+	$menu[5][0] = $name;
+	$submenu['edit.php'][5][0] = $name.'一覧';
+	$submenu['edit.php'][10][0] = '新しい'.$name;
+}
+function Change_objectlabel() {
+	global $wp_post_types;
+	$name = '質問';
+	$labels = &$wp_post_types['post']->labels;
+	$labels->name = $name;
+	$labels->singular_name = $name;
+	$labels->add_new = _x('追加', $name);
+	$labels->add_new_item = $name.'の新規追加';
+	$labels->edit_item = $name.'の編集';
+	$labels->new_item = '新規'.$name;
+	$labels->view_item = $name.'を表示';
+	$labels->search_items = $name.'を検索';
+	$labels->not_found = $name.'が見つかりませんでした';
+	$labels->not_found_in_trash = 'ゴミ箱に'.$name.'は見つかりませんでした';
+}
+add_action( 'init', 'Change_objectlabel' );
+add_action( 'admin_menu', 'Change_menulabel' );
+
+
+/* 投稿アーカイブページの作成 */
+function post_has_archive( $args, $post_type ) {
+	if ( 'post' == $post_type ) {
+		$args['rewrite'] = true;
+		$args['has_archive'] = 'qa'; //任意のスラッグ名
+	}
+	return $args;
+}
+add_filter( 'register_post_type_args', 'post_has_archive', 10, 2 );
 
 
 /**
@@ -322,7 +366,9 @@ add_filter('pre_get_posts', 'custom_posts_query');
 function custom_posts_query() {
   global $wp_query;
   if(!is_admin()){
-    if(is_post_type_archive('news') || is_tax('newscat')){
+    if(is_archive()){
+      $wp_query -> query_vars['posts_per_page'] = 2;
+    }elseif(is_post_type_archive('news') || is_tax('newscat')){
       $wp_query -> query_vars['posts_per_page'] = 16;
     }elseif(is_post_type_archive('produce')){
       $wp_query -> query_vars['posts_per_page'] = 8;
@@ -334,22 +380,21 @@ function custom_posts_query() {
   }
 }
 
-
-//同一カテゴリ一覧へ戻るため
-function setSession($wpq) {
-    session_start();
-    if (is_tax('newscat') || is_tax('casecat')) {
-      // echo 'ニュース or 事例カテゴリ一覧:';
-      $term = $wpq->queried_object;
-      // $tax = $term->taxonomy;
-      $array = ['slug'=>$term->slug, 'name'=>$term->name];
-      $_SESSION['category'] = $array;
-      // echo $_SESSION['category'];
-    } elseif (!is_singular('news') && !is_singular('case')) {
-        // echo 'ニュース or 事例詳細以外';
-        session_destroy();
-    }
+function change_mainQuery( $query ) {
+  //TOP
+  if ( $query->is_home() && $query->is_main_query() ) {
+    $args = array(
+      'posts_per_page'   => 1,
+      'post_type'        => 'post',
+    );
+    $topPost = get_posts( $args );
+    // print_r($topPost[0]->ID);
+    //最上部の記事を除外
+    $query->set( 'post__not_in', array( $topPost[0]->ID ) );
+    $query->set( 'posts_per_page', 3 );
+  }
 }
+add_action( 'pre_get_posts', 'change_mainQuery' );
 
 
 

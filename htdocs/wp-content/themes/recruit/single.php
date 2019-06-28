@@ -10,7 +10,7 @@ $cat = array(
 );
 
 //アイキャッチ
-$eyecatchSrc = getEyecatch($post_id, 'medium_large');
+$eyecatchSrc = getEyecatch($post->ID, 'medium_large');
 ?>
 <div class="container__main">
   <section class="container__mainSection">
