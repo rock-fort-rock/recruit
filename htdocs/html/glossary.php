@@ -141,250 +141,253 @@
           <li class="glossaryNavi__item">
             <a href="#">わ行</a>
           </li>
-          <li class="glossaryNavi__item">
+          <!-- <li class="glossaryNavi__item glossaryNavi__item--wide">
             <a href="#">アルファベット・数字</a>
-          </li>
+          </li> -->
         </ul>
 
         <ul class="glossaryList">
           <li class="glossaryList__cat" id="groupA">
             <div class="glossaryList__catTitle">あ行</div>
             <ul class="glossaryList__wordList">
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word -active">用語</div>
+                <div class="glossaryList__wordDescription -active">
+                  用語の説明が入ります。用語の説明が入ります。用語の説明が入ります。用語の説明が入ります。用語の説明が入ります。用語の説明が入ります。用語の説明が入ります。用語の説明が入ります。用語の説明が入ります。用語の説明が入ります。用語の説明が入ります。
+                </div>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
             </ul>
           </li>
           <li class="glossaryList__cat">
             <div class="glossaryList__catTitle">か行</div>
             <ul class="glossaryList__wordList">
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
             </ul>
           </li>
           <li class="glossaryList__cat">
             <div class="glossaryList__catTitle">さ行</div>
             <ul class="glossaryList__wordList">
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
             </ul>
           </li>
           <li class="glossaryList__cat">
             <div class="glossaryList__catTitle">た行</div>
             <ul class="glossaryList__wordList">
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
             </ul>
           </li>
           <li class="glossaryList__cat">
             <div class="glossaryList__catTitle">な行</div>
             <ul class="glossaryList__wordList">
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
             </ul>
           </li>
           <li class="glossaryList__cat">
             <div class="glossaryList__catTitle">は行</div>
             <ul class="glossaryList__wordList">
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
             </ul>
           </li>
           <li class="glossaryList__cat">
             <div class="glossaryList__catTitle">ま行</div>
             <ul class="glossaryList__wordList">
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
             </ul>
           </li>
           <li class="glossaryList__cat">
             <div class="glossaryList__catTitle">や行</div>
             <ul class="glossaryList__wordList">
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
             </ul>
           </li>
           <li class="glossaryList__cat">
             <div class="glossaryList__catTitle">ら行</div>
             <ul class="glossaryList__wordList">
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
             </ul>
           </li>
           <li class="glossaryList__cat">
             <div class="glossaryList__catTitle">わ行</div>
             <ul class="glossaryList__wordList">
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語</a>
               </li>
             </ul>
           </li>
           <li class="glossaryList__cat">
             <div class="glossaryList__catTitle">アルファベット・数字</div>
             <ul class="glossaryList__wordList">
-              <li class="glossaryList__word">
-                <a href="#">用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語</a>
               </li>
-              <li class="glossaryList__word">
-                <a href="#">用語用語用語用語用語用語用語用語用語用語用語用語用語用語用語用語用語用語用語用語用語</a>
+              <li class="glossaryList__wordItem">
+                <div class="glossaryList__word">用語用語用語用語用語用語用語用語用語用語用語用語用語用語用語用語用語用語用語用語用語</a>
               </li>
             </ul>
           </li>

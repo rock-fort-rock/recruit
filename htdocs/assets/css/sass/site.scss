@@ -134,10 +134,8 @@ a {
     color: $siteColor;
   }
   &__word{
-    a{
-      &::before{
-        border-left-color: $siteColor;
-      }
+    &::before{
+      border-left-color: $siteColor;
     }
   }
 }

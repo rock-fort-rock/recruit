@@ -1,70 +1,90 @@
+<?php
+global $applyPage;
+?>
 <section class="container__sideSection">
-	<a href="#" class="button button--entry">
+	<a href="<?php echo $applyPage; ?>" target="_blank" class="button button--entry">
 		<div class="button__inner"><em>Web応募する</em>簡単な入力情報で応募できます</div>
 	</a>
 </section>
-<section class="container__sideSection">
-	<a href="#">
-		<img src="/assets/images/ad_musee.jpg" class="container__sideBanner">
-	</a>
-</section>
 
-<?php /*
+<?php
+	$sidebarBanner = get_field('bannersettion_sidebar', 'option');
+	if($sidebarBanner):
+?>
+<section class="container__sideSection">
+	<ul class="adBlock">
+		<?php
+		foreach($sidebarBanner as $value):
+			$imgObj = $value['bannersettion_sidebar_image'];
+			$img = $imgObj['sizes']['medium_large'];
+		?>
+		<li class="adBlock__item">
+			<a href="<?php echo $value['bannersettion_sidebar_link']; ?>" target="_blank"><img src="<?php echo $img; ?>" class="adBlock__img"></a>
+		</li>
+		<?php endforeach; ?>
+	</ul>
+</section>
+<?php endif; ?>
+
+
 <section class="container__sideSection">
 	<div class="embedTwitterTimeline">
-		<a class="twitter-timeline" data-lang="ja" data-height="380" href="https://twitter.com/MUSEE_PLATINUM?ref_src=twsrc%5Etfw">Tweets by MUSEE_PLATINUM</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+		<a class="twitter-timeline" data-lang="ja" data-height="380" href="<?php the_field('sitesetting_twitter', 'option'); ?>?ref_src=twsrc%5Etfw"></a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 	</div>
 </section>
-*/ ?>
 
 <section class="container__sideSection">
 	<div class="container__sideSectionTitle">企業コラム</div>
+	<?php
+	$args = array(
+		'posts_per_page'   => 3,
+		'post_type'        => 'column',
+	);
+	$columnPosts = get_posts( $args );
+	?>
 	<ul class="sideColumnList">
+		<?php foreach($columnPosts as $value): ?>
+		<?php
+			$eyecatchSrc = getEyecatch($value->ID, 'medium');
+		?>
 		<li class="sideColumnList__item">
-			<a href="#" class="sideColumnList__itemInner">
-				<div class="sideColumnList__itemEyecatch" style="background-image:url('/assets/images/sample.jpg')"></div>
+			<a href="<?php the_permalink($value->ID); ?>" class="sideColumnList__itemInner">
+				<div class="sideColumnList__itemEyecatch" style="background-image:url('<?php echo $eyecatchSrc; ?>')"></div>
 				<div class="sideColumnList__itemText">
-					<div class="sideColumnList__itemDate">2019.06.01</div>
-					<h2 class="sideColumnList__itemTitle">就職説明会にスーツで行ったほうがいいかの議論について考えてみた</h2>
+					<div class="sideColumnList__itemDate"><?php echo get_the_time('Y.m.d', $value->ID); ?></div>
+					<h2 class="sideColumnList__itemTitle"><?php echo get_the_title($value->ID); ?></h2>
 				</div>
 			</a>
 		</li>
-		<li class="sideColumnList__item">
-			<a href="#" class="sideColumnList__itemInner">
-				<div class="sideColumnList__itemEyecatch" style="background-image:url('/assets/images/sample.jpg')"></div>
-				<div class="sideColumnList__itemText">
-					<div class="sideColumnList__itemDate">2019.06.01</div>
-					<h2 class="sideColumnList__itemTitle">就職説明会にスーツで行ったほうがいいかの議論について考えてみた</h2>
-				</div>
-			</a>
-		</li>
+	<?php endforeach; ?>
 	</ul>
 </section>
 
 <section class="container__sideSection container__sideSection--border">
+	<?php
+	$companyData = get_field('sitesetting_companyData', 'option');
+	// print_r($companyData);
+	?>
 	<div class="container__sideSectionTitle--small">株式会社ミュゼプラチナム</div>
 	<div class="companyData">
 		<div class="genderRatio">
 			<div class="companyData__title">年齢・男女比</div>
 			<div class="genderRatio">
 				<ul class="genderRatio__icon">
-					<li class="genderRatio__iconItem genderRatio__iconItem--male"></li>
-					<li class="genderRatio__iconItem genderRatio__iconItem--male"></li>
-					<li class="genderRatio__iconItem genderRatio__iconItem--male"></li>
-					<li class="genderRatio__iconItem genderRatio__iconItem--female"></li>
-					<li class="genderRatio__iconItem genderRatio__iconItem--female"></li>
-					<li class="genderRatio__iconItem genderRatio__iconItem--female"></li>
-					<li class="genderRatio__iconItem genderRatio__iconItem--female"></li>
-					<li class="genderRatio__iconItem genderRatio__iconItem--female"></li>
-					<li class="genderRatio__iconItem genderRatio__iconItem--female"></li>
-					<li class="genderRatio__iconItem genderRatio__iconItem--female"></li>
+					<?php for($i=0; $i<10; $i++){
+						if($i < $companyData['sitesetting_gender']/10){
+							echo '<li class="genderRatio__iconItem genderRatio__iconItem--male"></li>';
+						}else{
+							echo '<li class="genderRatio__iconItem genderRatio__iconItem--female"></li>';
+						}
+					} ?>
 				</ul>
 				<div class="genderRatio__percent">
-					<div class="genderRatio__percentNum genderRatio__percentNum--male" style="width: 30%;">
-						<strong>30</strong>%
+					<div class="genderRatio__percentNum genderRatio__percentNum--male" style="width: <?php echo $companyData['sitesetting_gender']; ?>%;">
+						<strong><?php echo $companyData['sitesetting_gender']; ?></strong>%
 					</div>
 					<div class="genderRatio__percentNum genderRatio__percentNum--female">
-						<strong>70</strong>%
+						<strong><?php echo 100 - $companyData['sitesetting_gender']; ?></strong>%
 					</div>
 				</div>
 			</div>
@@ -72,15 +92,15 @@
 		</div>
 		<div class="averageAge">
 			<div class="averageAge__speechBubble">
-				平均年齢<strong>22</strong>歳
+				平均年齢<strong><?php echo $companyData['sitesetting_age']; ?></strong>歳
 			</div>
 		</div>
 
 		<div class="extraData">
 			<div class="companyData__title">女性社員の産休・育休取得率</div>
-			<div class="extraData__number">100%</div>
+			<div class="extraData__number"><?php echo $companyData['sitesetting_maternityLeave']; ?>%</div>
 			<div class="extraData__graph">
-				<div class="extraData__graphBar" style="width: 50%;"></div>
+				<div class="extraData__graphBar" style="width: <?php echo $companyData['sitesetting_maternityLeave']; ?>%;"></div>
 				<div class="extraData__graphLine">
 					<span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
 				</div>
@@ -89,9 +109,9 @@
 
 		<div class="extraData">
 			<div class="companyData__title">残業時間(月間)</div>
-			<div class="extraData__number">21.1h</div>
+			<div class="extraData__number"><?php echo $companyData['sitesetting_overtime']; ?>h</div>
 			<div class="extraData__graph">
-				<div class="extraData__graphBar" style="width: 21.1%;"></div>
+				<div class="extraData__graphBar" style="width: <?php echo $companyData['sitesetting_overtime']; ?>%;"></div>
 				<div class="extraData__graphLine">
 					<span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
 				</div>
@@ -100,9 +120,9 @@
 
 		<div class="extraData">
 			<div class="companyData__title">有給休暇消化率</div>
-			<div class="extraData__number">44.6%</div>
+			<div class="extraData__number"><?php echo $companyData['sitesetting_paidHolidays']; ?>%</div>
 			<div class="extraData__graph">
-				<div class="extraData__graphBar" style="width: 44.6%;"></div>
+				<div class="extraData__graphBar" style="width: <?php echo $companyData['sitesetting_paidHolidays']; ?>%;"></div>
 				<div class="extraData__graphLine">
 					<span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
 				</div>
@@ -114,32 +134,7 @@
 
 <section class="container__sideSection container__sideSection--border">
 	<div class="container__sideSectionTitle--small">企業情報</div>
-	<table class="companyInfo">
-		<tr>
-			<th>業界</th>
-			<td>美容、エステ、リラクゼーション、日用品、化粧品</td>
-		</tr>
-		<tr>
-			<th>URL</th>
-			<td><a href="https://musee-pla.com" target="_blank">https://musee-pla.com</a></td>
-		</tr>
-		<tr>
-			<th>業界</th>
-			<td>美容、エステ、リラクゼーション</td>
-		</tr>
-		<tr>
-			<th>業界</th>
-			<td>美容、エステ、リラクゼーション</td>
-		</tr>
-		<tr>
-			<th>業界</th>
-			<td>美容、エステ、リラクゼーション</td>
-		</tr>
-		<tr>
-			<th>業界</th>
-			<td>美容、エステ、リラクゼーション</td>
-		</tr>
-	</table>
+	<?php the_field('sitesetting_companyInfo', 'option'); ?>
 </section>
 
 <section class="container__sideSection">
@@ -150,7 +145,7 @@
 				<span class="qIcon">Q</span>全質問数
 			</div>
 			<div class="qaData__itemValue">
-				<em>256</em>件
+				<em><?php echo wp_count_posts('post')->publish; ?></em>件
 			</div>
 		</li>
 		<li class="qaData__item">

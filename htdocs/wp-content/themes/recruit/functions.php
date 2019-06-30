@@ -55,12 +55,39 @@ function my_scripts() {
   // wp_enqueue_style( 'localstyle', get_bloginfo('stylesheet_url'), array(), '1.0');
   wp_enqueue_script('script', home_url().'/assets/js/bundle.js', array(), '1.0', true );
 
-  if(is_archive()){
-    wp_enqueue_script('j', 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js', array(), '1.0' );
+  if(is_post_type_archive( 'post' ) || is_category() || is_post_type_archive( 'column' ) || is_tax('columncat')){
+    // wp_enqueue_script('j', 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js', array(), '1.0', true );
     wp_enqueue_script('infinite-scroll', 'https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js', array(), '1.0', true );
   }
 }
 add_action( 'wp_enqueue_scripts', 'my_scripts' );
+
+
+//無限ロード  https://infinite-scroll.com/api.html
+function local_script() {
+  if(is_post_type_archive( 'post' ) || is_category() || is_post_type_archive( 'column' ) || is_tax('columncat')){
+?>
+<script>
+var elem = document.querySelector('.articleList');
+var infScroll = new InfiniteScroll( elem, {
+  // options
+  path: '.next_posts_link a',
+  append: '.articleList__item',
+  hideNav: '.next_posts_link',
+  scrollThreshold: -50,
+  history: false,
+});
+
+infScroll.on( 'append', function( response, path, items ) {
+  [].forEach.call(items, ( element ) => {
+    element.classList.add('-active');
+  })
+});
+</script>
+<?php
+  }
+}
+add_action( 'wp_footer', 'local_script', 100 );
 
 
 //フッターでCSSを読み込む場合
@@ -155,7 +182,10 @@ function imagesizeSet() {
 
 
 //アイキャッチ有効化
-add_theme_support('post-thumbnails');
+add_theme_support('post-thumbnails', array(
+  'post',
+  'column'
+));
 
 function custom_admin_post_thumbnail_html( $content ) {
   $content .= '<p>1200px × 730px</p>';
@@ -339,15 +369,15 @@ function setOption(){
       'redirect'  => false,
     ));
 
-    // acf_add_options_page(array(
-    //   'page_title'  => 'サロンランキング',
-    //   'menu_title'  => 'サロンランキング',
-    //   'menu_slug'   => 'theme-options-ranking',
-    //   'capability'  => 'edit_posts',
-    //   'parent_slug' => '',
-    //   'position'  => 8,
-    //   'redirect'  => false,
-    // ));
+    acf_add_options_page(array(
+      'page_title'  => 'バナー設定',
+      'menu_title'  => 'バナー設定',
+      'menu_slug'   => 'theme-banner',
+      'capability'  => 'edit_posts',
+      'parent_slug' => '',
+      'position'  => 9,
+      'redirect'  => false,
+    ));
     // acf_add_options_sub_page(array( //サブページ
     //   'page_title'  => 'トップページ用',
     //   'menu_title'  => 'トップページ用',
@@ -360,20 +390,16 @@ function setOption(){
 }
 $officialSite = get_field('sitesetting_official', 'option');
 // print_r($officialSite);
+$applyPage = get_field('sitesetting_apply', 'option');
+
 
 // 表示件数set
 add_filter('pre_get_posts', 'custom_posts_query');
 function custom_posts_query() {
   global $wp_query;
   if(!is_admin()){
-    if(is_archive()){
+    if(is_post_type_archive( 'post' ) || is_category() || is_post_type_archive( 'column' ) || is_tax('columncat')){
       $wp_query -> query_vars['posts_per_page'] = 2;
-    }elseif(is_post_type_archive('news') || is_tax('newscat')){
-      $wp_query -> query_vars['posts_per_page'] = 16;
-    }elseif(is_post_type_archive('produce')){
-      $wp_query -> query_vars['posts_per_page'] = 8;
-    }elseif(is_post_type_archive('case') || is_tax('casecat')){
-        $wp_query -> query_vars['posts_per_page'] = 9;
     }else{
       $wp_query -> query_vars['posts_per_page'] = -1;
     }

@@ -16,6 +16,13 @@
 				  'color'=>get_field('category_color', 'category_'.$the_terms[0]->term_id)
 				);
 				$eyecatchSrc = getEyecatch($topPost_ID, 'medium_large');
+
+				$topDesc = strip_tags(get_the_content(null, false, $topPost_ID));
+				// $num = 100;
+				// $topDesc = mb_substr($raw_desc, 0, $num);
+				// if(mb_strlen($topDesc) >= $num){
+				// 	$topDesc .= '…';
+				// }
 			?>
 			<div class="article">
 				<div class="article__eyecatch">
@@ -33,9 +40,9 @@
 					</div>
 
 					<div class="article__date"><?php echo get_the_time('Y.m.d', $topPost_ID); ?></div>
-					<h2 class="article__title"><?php echo get_the_title($topPost_ID); ?></h2>
+					<h2 class="article__title article__title--question"><?php echo get_the_title($topPost_ID); ?></h2>
 					<div class="article__lede">
-						<?php echo get_the_content(null, false, $topPost_ID); ?>
+						<?php echo $topDesc; ?>
 					</div>
 					<div class="article__viewAnswer">
 						<a href="<?php the_permalink($topPost_ID); ?>" class="button">
@@ -62,9 +69,15 @@
 						  'name'=>$the_terms[0]->name,
 						  'color'=>get_field('category_color', 'category_'.$the_terms[0]->term_id)
 						);
-
 						//アイキャッチ
 						$eyecatchSrc = getEyecatch($post_id, 'medium_large');
+
+						$raw_desc = strip_tags(get_the_content());
+	  				$num = 100;
+	  				$desc = mb_substr($raw_desc, 0, $num);
+	          if(mb_strlen($desc) >= $num){
+	            $desc .= '…';
+	          }
 					?>
 					<li class="articleList__item">
 						<a href="<?php the_permalink(); ?>" class="articleList__itemInner">
@@ -98,96 +111,14 @@
 								</div>
 
 								<div class="articleList__date"><?php the_time('Y.m.d'); ?></div>
-								<h2 class="articleList__question"><?php the_title(); ?></h2>
-								<div class="articleList__questionDescription">
-									<?php the_content(); ?>
+								<h2 class="articleList__title articleList__title--question"><?php the_title(); ?></h2>
+								<div class="articleList__description">
+									<?php echo $desc; ?>
 								</div>
 							</div>
 						</a>
 					</li>
 					<?php endwhile; ?>
-					<?php /*
-					<li class="articleList__item">
-						<a href="#" class="articleList__itemInner">
-							<div class="articleList__itemEyecatch" style="background-image: url('/assets/images/sample.jpg');">
-								<div class="exceptSmall">
-									<div class="articleList__itemCategory" style="background-color: #5360db;">休暇申請</div>
-									<div class="articleList__itemClip">
-										<div class="clipCounter">
-											<div class="clipCounter__icon">
-												<span class="Icon -clip"></span>
-											</div>
-											<div class="clipCounter__num">255</div>
-										</div>
-									</div>
-								</div>
-								<!-- <img src="/assets/images/sample.jpg" class="articleList__itemEyecatchImg" alt=""> -->
-							</div>
-							<div class="articleList__textBlock">
-								<div class="onlySmall">
-									<div class="articleList__status">
-										<div class="articleList__itemCategory" style="background-color: #5360db;">休暇申請</div>
-										<div class="articleList__itemClip">
-											<div class="clipCounter">
-												<div class="clipCounter__icon">
-													<span class="Icon -clip"></span>
-												</div>
-												<div class="clipCounter__num">255</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="articleList__date">2019.06.01</div>
-								<h2 class="articleList__question">育児休暇はもらえますか？またその条件はありますか</h2>
-								<div class="articleList__questionDescription">
-									ミュゼプラチナムで正社員で勤務した場合勤続から何年目から育児休暇の取得が可能になりますか？<br>
-									また、途中で社員から契約社員、あるいはパート勤務に変わった場合など、取得できる日数や、あるいは条件が変わることなどありますか？
-								</div>
-							</div>
-						</a>
-					</li>
-					<li class="articleList__item">
-						<a href="#" class="articleList__itemInner">
-							<div class="articleList__itemEyecatch" style="background-image: url('/assets/images/sample.jpg');">
-								<div class="exceptSmall">
-									<div class="articleList__itemCategory" style="background-color: #5360db;">休暇申請</div>
-									<div class="articleList__itemClip">
-										<div class="clipCounter">
-											<div class="clipCounter__icon">
-												<span class="Icon -clip"></span>
-											</div>
-											<div class="clipCounter__num">255</div>
-										</div>
-									</div>
-								</div>
-								<!-- <img src="/assets/images/sample.jpg" class="articleList__itemEyecatchImg" alt=""> -->
-							</div>
-							<div class="articleList__textBlock">
-								<div class="onlySmall">
-									<div class="articleList__status">
-										<div class="articleList__itemCategory" style="background-color: #5360db;">休暇申請</div>
-										<div class="articleList__itemClip">
-											<div class="clipCounter">
-												<div class="clipCounter__icon">
-													<span class="Icon -clip"></span>
-												</div>
-												<div class="clipCounter__num">255</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="articleList__date">2019.06.01</div>
-								<h2 class="articleList__question">育児休暇はもらえますか？またその条件はありますか</h2>
-								<div class="articleList__questionDescription">
-									ミュゼプラチナムで正社員で勤務した場合勤続から何年目から育児休暇の取得が可能になりますか？<br>
-									また、途中で社員から契約社員、あるいはパート勤務に変わった場合など、取得できる日数や、あるいは条件が変わることなどありますか？
-								</div>
-							</div>
-						</a>
-					</li>
-					*/ ?>
 				</ul>
 				<div class="viewMore">
 					<a href="/qa/" class="viewMore__button viewMore__button--large">質問の一覧をみる</a>
@@ -196,11 +127,24 @@
 			<?php endif; ?>
 		</section>
 
+		<?php
+			$topBanner = get_field('bannersettion_top', 'option');
+			if($topBanner):
+		?>
 		<section class="container__mainSection">
-			<div class="adBlock">
-				<a href="#" target="_blank"><img src="/assets/images/ad.jpg" class="adBlock__img"></a>
-			</div>
+			<ul class="adBlock">
+				<?php
+				foreach($topBanner as $value):
+					$imgObj = $value['bannersettion_top_image'];
+					$img = $imgObj['sizes']['medium_large'];
+				?>
+				<li class="adBlock__item">
+					<a href="<?php echo $value['bannersettion_top_link']; ?>" target="_blank"><img src="<?php echo $img; ?>" class="adBlock__img"></a>
+				</li>
+				<?php endforeach; ?>
+			</ul>
 		</section>
+		<?php endif; ?>
 
 		<section class="container__mainSection">
 			<div class="contentTitle">
@@ -211,11 +155,12 @@
 				<div class="ranking__select">
 					カテゴリ
 					<div class="selectContainer">
-						<select class="categorySelect">
-							<option selected>全て</option>
-							<option value="#">休暇申請</option>
-							<option value="#">就業</option>
-							<option value="#">面接・選考</option>
+						<select class="categorySelect" onChange="location.href=value;">
+							<option selected>選択してください　クリップのランキング！</option>
+							<option value="/qa/">全て</option>
+							<?php foreach($allcat as $value): ?>
+							<option value="/category/<?php echo $value->slug; ?>/"><?php echo $value->name; ?></option>
+							<?php endforeach; ?>
 						</select>
 					</div>
 				</div>
@@ -261,45 +206,39 @@
 		<section class="container__mainSection">
 			<div class="contentTitle">
 				<h2 class="contentTitle__main">企業コラム</h2>
-				<div class="contentTitle__button"><a href="#">コラム一覧</a></div>
+				<div class="contentTitle__button"><a href="/column/">コラム一覧</a></div>
 			</div>
+			<?php
+			$args = array(
+				'posts_per_page'   => 3,
+				'post_type'        => 'column',
+			);
+			$columnPosts = get_posts( $args );
+			?>
 			<ul class="columnList">
+				<?php foreach($columnPosts as $value): ?>
+				<?php
+					$eyecatchSrc = getEyecatch($value->ID, 'medium');
+					$raw_desc = strip_tags(get_field('column_lede', $value->ID));
+					$num = 25;
+					$desc = mb_substr($raw_desc, 0, $num);
+					if(mb_strlen($desc) >= $num){
+						$desc .= '…';
+					}
+				?>
 				<li class="columnList__item">
-					<a href="#" class="columnList__itemInner">
+					<a href="<?php the_permalink($value->ID); ?>" class="columnList__itemInner">
 						<div class="columnList__itemEyecatch">
-							<img src="/assets/images/sample.jpg" class="columnList__itemEyecatchImg">
+							<img src="<?php echo $eyecatchSrc; ?>" class="columnList__itemEyecatchImg">
 						</div>
 						<div class="columnList__itemText">
-							<div class="columnList__itemDate">2019.06.01</div>
-							<h2 class="columnList__itemTitle">新卒説明会のお知らせ</h2>
-							<div class="columnList__itemLede">ミュゼ新卒説明会が6月15日ABC会議室にて行われる。詳細日程…</div>
+							<div class="columnList__itemDate"><?php echo get_the_time('Y.m.d', $value->ID); ?></div>
+							<h2 class="columnList__itemTitle"><?php echo get_the_title($value->ID); ?></h2>
+							<div class="columnList__itemLede"><?php echo $desc; ?></div>
 						</div>
 					</a>
 				</li>
-				<li class="columnList__item">
-					<a href="#" class="columnList__itemInner">
-						<div class="columnList__itemEyecatch">
-							<img src="/assets/images/sample.jpg" class="columnList__itemEyecatchImg">
-						</div>
-						<div class="columnList__itemText">
-							<div class="columnList__itemDate">2019.06.01</div>
-							<h2 class="columnList__itemTitle">新卒説明会のお知らせ</h2>
-							<div class="columnList__itemLede">ミュゼ新卒説明会が6月15日ABC会議室にて行われる。詳細日程…</div>
-						</div>
-					</a>
-				</li>
-				<li class="columnList__item">
-					<a href="#" class="columnList__itemInner">
-						<div class="columnList__itemEyecatch">
-							<img src="/assets/images/sample.jpg" class="columnList__itemEyecatchImg">
-						</div>
-						<div class="columnList__itemText">
-							<div class="columnList__itemDate">2019.06.01</div>
-							<h2 class="columnList__itemTitle">新卒説明会のお知らせ</h2>
-							<div class="columnList__itemLede">ミュゼ新卒説明会が6月15日ABC会議室にて行われる。詳細日程…</div>
-						</div>
-					</a>
-				</li>
+				<?php endforeach; ?>
 			</ul>
 		</section>
 	</div>

@@ -93,25 +93,39 @@ document.querySelector('.siteLinks__itemInner--search').addEventListener( 'click
 
 
 //HOME
-const homeSet = () => {
-	const homeHeroSwiper = new Swiper('.homeHero', {
-		slidesPerView: 1,
-		watchOverflow: true,
-		speed: 750,
-		pagination: {
-	    el: '.swiper-pagination',
-	    type: 'bullets',
-			clickable: true,
-	  },
-		autoplay: {
-	    delay: 5000,
-	    disableOnInteraction: false,
-	  },
-	});
-}
+// const homeSet = () => {
+// 	const homeHeroSwiper = new Swiper('.homeHero', {
+// 		slidesPerView: 1,
+// 		watchOverflow: true,
+// 		speed: 750,
+// 		pagination: {
+// 	    el: '.swiper-pagination',
+// 	    type: 'bullets',
+// 			clickable: true,
+// 	  },
+// 		autoplay: {
+// 	    delay: 5000,
+// 	    disableOnInteraction: false,
+// 	  },
+// 	});
+// }
 // if(document.querySelectorAll('.pageHome').length > 0){
 // 	homeSet();
 // }
+
+const glossarySet = () => {
+	const $word = document.querySelectorAll('.glossaryList__word');
+	[].forEach.call($word, ( element ) => {
+			element.addEventListener( 'click', ( event ) => {
+				console.log('click');
+				event.currentTarget.classList.toggle('-active');
+				event.currentTarget.nextElementSibling.classList.toggle('-active');
+			});
+	})
+}
+if(document.querySelectorAll('.glossaryList').length > 0){
+	glossarySet();
+}
 
 
 

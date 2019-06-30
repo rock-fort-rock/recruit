@@ -3,6 +3,7 @@
 $the_terms = get_the_terms($post->ID, 'category');
 //カテゴリは単一選択
 $cat = array(
+  'id'=>$the_terms[0]->term_id,
   'name'=>$the_terms[0]->name,
   'slug'=>$the_terms[0]->slug,
   'desc'=>$the_terms[0]->description,
@@ -50,7 +51,7 @@ $eyecatchSrc = getEyecatch($post->ID, 'medium_large');
         </div>
 
         <div class="article__date"><?php the_time('Y.m.d'); ?></div>
-        <h1 class="article__title"><?php the_title(); ?></h1>
+        <h1 class="article__title article__title--question"><?php the_title(); ?></h1>
         <div class="article__lede">
           <?php the_post(); the_content(); ?>
         </div>
@@ -71,7 +72,7 @@ $eyecatchSrc = getEyecatch($post->ID, 'medium_large');
                   </a>
                 </li>
                 <li class="buttonList__item">
-                  <a href="#" class="button">
+                  <a href="<?php echo $applyPage; ?>" target="_blank" class="button">
                     <div class="button__inner">Web応募する</div>
                   </a>
                 </li>
@@ -116,7 +117,7 @@ $eyecatchSrc = getEyecatch($post->ID, 'medium_large');
             <div class="contentBlock">
               <ul class="article__bodyFooterCategory">
                 <li>
-                  <a href="/category/<?php echo $cat['slug']; ?>/"><span class="Icon -twitter"></span><?php echo $cat['desc']; ?></a>
+                  <a href="/category/<?php echo $cat['slug']; ?>/"><span class="Icon -folder"></span><?php echo $cat['desc']; ?></a>
                 </li>
               </ul>
             </div>
@@ -162,9 +163,18 @@ $eyecatchSrc = getEyecatch($post->ID, 'medium_large');
     </div>
   </section>
 
-  <?php /*
-  同一カテゴリから自身のIDを除外したもの
-  */ ?>
+  <?php /*  同一カテゴリから自身のIDを除外したもの  */
+  $args = array(
+    'posts_per_page' => 3,
+    'post_type' => 'post',
+    'category' => $cat['id'],
+    'exclude' => $post->ID,
+  );
+  $relatePosts = get_posts( $args );
+  // print_r($relatePosts);
+   ?>
+
+  <?php if(!empty($relatePosts)): ?>
   <section class="container__mainSection">
     <div class="contentTitle">
       <h2 class="contentTitle__main">関連する質問</h2>
@@ -172,11 +182,28 @@ $eyecatchSrc = getEyecatch($post->ID, 'medium_large');
     </div>
     <div class="articleListContainer">
       <ul class="articleList">
+        <?php foreach($relatePosts as $value): ?>
+        <?php
+          $rp_id = $value->ID;
+          $rp_eyecatchSrc = getEyecatch($rp_id, 'medium');
+          $rp_terms = get_the_terms($rp_id, 'category');
+          $rp_cat = array(
+            'name'=>$rp_terms[0]->name,
+            'color'=>get_field('category_color', 'category_'.$rp_terms[0]->term_id)
+          );
+
+          $raw_desc = strip_tags(get_the_content(null, false, $rp_id));
+  				$num = 100;
+  				$rp_desc = mb_substr($raw_desc, 0, $num);
+          if(mb_strlen($rp_desc) >= $num){
+            $rp_desc .= '…';
+          }
+        ?>
         <li class="articleList__item">
-          <a href="#" class="articleList__itemInner">
-            <div class="articleList__itemEyecatch" style="background-image: url('/assets/images/sample.jpg');">
+          <a href="<?php the_permalink($rp_id); ?>" class="articleList__itemInner">
+            <div class="articleList__itemEyecatch" style="background-image: url('<?php echo $rp_eyecatchSrc; ?>');">
               <div class="exceptSmall">
-                <div class="articleList__itemCategory" style="background-color: #5360db;">休暇申請</div>
+                <div class="articleList__itemCategory" style="background-color: <?php echo $rp_cat['color']; ?>;"><?php echo $rp_cat['name']; ?></div>
                 <div class="articleList__itemClip">
                   <div class="clipCounter">
                     <div class="clipCounter__icon">
@@ -191,7 +218,7 @@ $eyecatchSrc = getEyecatch($post->ID, 'medium_large');
             <div class="articleList__textBlock">
               <div class="onlySmall">
                 <div class="articleList__status">
-                  <div class="articleList__itemCategory" style="background-color: #5360db;">休暇申請</div>
+                  <div class="articleList__itemCategory" style="background-color: <?php echo $rp_cat['color']; ?>;"><?php echo $rp_cat['name']; ?></div>
                   <div class="articleList__itemClip">
                     <div class="clipCounter">
                       <div class="clipCounter__icon">
@@ -203,101 +230,22 @@ $eyecatchSrc = getEyecatch($post->ID, 'medium_large');
                 </div>
               </div>
 
-              <div class="articleList__date">2019.06.01</div>
-              <h2 class="articleList__question">育児休暇はもらえますか？またその条件はありますか</h2>
-              <div class="articleList__questionDescription">
-                ミュゼプラチナムで正社員で勤務した場合勤続から何年目から育児休暇の取得が可能になりますか？<br>
-                また、途中で社員から契約社員、あるいはパート勤務に変わった場合など、取得できる日数や、あるいは条件が変わることなどありますか？
+              <div class="articleList__date"><?php echo get_the_time('Y.m.d', $rp_id); ?></div>
+              <h2 class="articleList__title articleList__title--question"><?php echo get_the_title($rp_id); ?></h2>
+              <div class="articleList__description">
+                <?php echo $rp_desc; ?>
               </div>
             </div>
           </a>
         </li>
-        <li class="articleList__item">
-          <a href="#" class="articleList__itemInner">
-            <div class="articleList__itemEyecatch" style="background-image: url('/assets/images/sample.jpg');">
-              <div class="exceptSmall">
-                <div class="articleList__itemCategory" style="background-color: #5360db;">休暇申請</div>
-                <div class="articleList__itemClip">
-                  <div class="clipCounter">
-                    <div class="clipCounter__icon">
-                      <span class="Icon -clip"></span>
-                    </div>
-                    <div class="clipCounter__num">255</div>
-                  </div>
-                </div>
-              </div>
-              <!-- <img src="/assets/images/sample.jpg" class="articleList__itemEyecatchImg" alt=""> -->
-            </div>
-            <div class="articleList__textBlock">
-              <div class="onlySmall">
-                <div class="articleList__status">
-                  <div class="articleList__itemCategory" style="background-color: #5360db;">休暇申請</div>
-                  <div class="articleList__itemClip">
-                    <div class="clipCounter">
-                      <div class="clipCounter__icon">
-                        <span class="Icon -clip"></span>
-                      </div>
-                      <div class="clipCounter__num">255</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="articleList__date">2019.06.01</div>
-              <h2 class="articleList__question">育児休暇はもらえますか？またその条件はありますか</h2>
-              <div class="articleList__questionDescription">
-                ミュゼプラチナムで正社員で勤務した場合勤続から何年目から育児休暇の取得が可能になりますか？<br>
-                また、途中で社員から契約社員、あるいはパート勤務に変わった場合など、取得できる日数や、あるいは条件が変わることなどありますか？
-              </div>
-            </div>
-          </a>
-        </li>
-        <li class="articleList__item">
-          <a href="#" class="articleList__itemInner">
-            <div class="articleList__itemEyecatch" style="background-image: url('/assets/images/sample.jpg');">
-              <div class="exceptSmall">
-                <div class="articleList__itemCategory" style="background-color: #5360db;">休暇申請</div>
-                <div class="articleList__itemClip">
-                  <div class="clipCounter">
-                    <div class="clipCounter__icon">
-                      <span class="Icon -clip"></span>
-                    </div>
-                    <div class="clipCounter__num">255</div>
-                  </div>
-                </div>
-              </div>
-              <!-- <img src="/assets/images/sample.jpg" class="articleList__itemEyecatchImg" alt=""> -->
-            </div>
-            <div class="articleList__textBlock">
-              <div class="onlySmall">
-                <div class="articleList__status">
-                  <div class="articleList__itemCategory" style="background-color: #5360db;">休暇申請</div>
-                  <div class="articleList__itemClip">
-                    <div class="clipCounter">
-                      <div class="clipCounter__icon">
-                        <span class="Icon -clip"></span>
-                      </div>
-                      <div class="clipCounter__num">255</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="articleList__date">2019.06.01</div>
-              <h2 class="articleList__question">育児休暇はもらえますか？またその条件はありますか</h2>
-              <div class="articleList__questionDescription">
-                ミュゼプラチナムで正社員で勤務した場合勤続から何年目から育児休暇の取得が可能になりますか？<br>
-                また、途中で社員から契約社員、あるいはパート勤務に変わった場合など、取得できる日数や、あるいは条件が変わることなどありますか？
-              </div>
-            </div>
-          </a>
-        </li>
+        <?php endforeach; ?>
       </ul>
       <div class="viewMore">
-        <a href="#" class="viewMore__button viewMore__button--large">休暇申請に関する質問の一覧をみる</a>
+        <a href="/category/<?php echo $cat['slug']; ?>/" class="viewMore__button viewMore__button--large"><?php echo $cat['name']; ?>に関する質問の一覧をみる</a>
       </div>
     </div>
   </section>
+  <?php endif; ?>
 
   <section class="container__mainSection">
     <div class="contentTitle">

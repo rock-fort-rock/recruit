@@ -770,6 +770,7 @@ MAIN
 	@media all and (min-width: $breakpoint + 1){
 		display: flex;
 		align-items: center;
+		margin-bottom: 15px;
 		&__main{
 			font-size: 24px;
 		}
@@ -806,6 +807,11 @@ MAIN
 パーツ
 ---------------------------------*/
 .adBlock{
+	&__item{
+		&:not(:last-child){
+			margin-bottom: 20px;
+		}
+	}
 	a{
 		@include hover;
 	}
@@ -849,6 +855,12 @@ MAIN
 				background: url('../../images/arrow.svg') left center/18px auto no-repeat;
 				transform: rotate(180deg);
 			}
+		}
+	}
+	&--small{
+		padding: 5px 12px;
+		.button__inner{
+			font-size: 0.9rem;
 		}
 	}
 	&--pink{
@@ -925,6 +937,12 @@ MAIN
 					height: 24px;
 					background: url('../../images/arrow.svg') left center/24px auto no-repeat;
 				}
+			}
+		}
+		&--small{
+			padding: 5px 20px;
+			.button__inner{
+				font-size: 1rem;
 			}
 		}
 	}
@@ -1024,14 +1042,14 @@ MAIN
 	// margin-top: 20px;
 	text-align: center;
 	&__button{
-		padding: 10px 20px;
+		padding: 15px 10px;
 		background-color: #e8e8e8;
 		line-height: 1;
 		font-weight: bold;
 		color: #666;
 		display: inline-block;
 		&--large{
-			font-size: 1.15rem;
+			font-size: 1.05rem;
 			width: 100%;
 		}
 	}
@@ -1072,6 +1090,8 @@ MAIN
 			border: 1px solid #666;
 			background-color: #fff;
 			padding: 3px 25px 3px 5px;
+			color: $textColor;
+
 		}
 	// }
 }

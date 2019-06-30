@@ -95,12 +95,15 @@
     margin-bottom: 10px;
     // color: #53a7db;
     position: relative;
-    padding-left: 1.3em;
-    &::before{
-      content: 'Q:';
-      position: absolute;
-      left: 0;
-      top: 0;
+
+    &--question{
+      padding-left: 1.3em;
+      &::before{
+        content: 'Q:';
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
     }
   }
 
@@ -144,6 +147,8 @@
     table{
       width: 100%;
       border-collapse: collapse;
+      line-height: 1.3;
+      font-size: 0.9rem;
       th,td{
         padding: 10px;
         border: 1px solid #ccc;
@@ -204,6 +209,9 @@
         &:not(:first-child){
           margin-top: 40px;
         }
+      }
+      table{
+        font-size: 0.95rem;
       }
     }
 		&__bodyFooter{
@@ -309,6 +317,9 @@
     &:not(:last-child){
       margin-bottom: 15px;
     }
+    &.-active{
+      animation: fadeIn .6s;
+    }
   }
   &__itemInner{
     color: inherit;
@@ -345,21 +356,23 @@
     font-size: 0.8rem;
     margin-bottom: 3px;
   }
-  &__question{
+  &__title{
     line-height: 1.3;
     font-size: 1.05rem;
     font-weight: 700;
     // color: #53a7db;
     position: relative;
-    padding-left: 1.3em;
-    &::before{
-      content: "Q:";
-      position: absolute;
-      left: 0;
-      top: 0;
+    &--question{
+      padding-left: 1.3em;
+      &::before{
+        content: "Q:";
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
     }
   }
-  &__questionDescription{
+  &__description{
     display: none;
   }
   @media all and (min-width: $breakpoint + 1){
@@ -403,11 +416,11 @@
     &__date{
       margin-bottom: 10px;
     }
-    &__question{
+    &__title{
       font-size: 20px;
       margin-bottom: 10px;
     }
-    &__questionDescription{
+    &__description{
       display: block;
     }
   }

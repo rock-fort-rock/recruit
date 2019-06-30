@@ -4,6 +4,8 @@ bloginfo('template_directory');ベーステンプレートフォルダ
 bloginfo('stylesheet_directory');子テーマフォルダ
 */
 global $officialSite;
+global $applyPage;
+global $allcat;
 
 ?>
 <!DOCTYPE HTML>
@@ -28,10 +30,10 @@ functions.phpのlocalstyleを無効化　→　調整　→　吐き出された
             <a href="/" class="siteLinks__itemInner"><span class="Icon -home"></span>TOP</a>
           </li>
           <li class="siteLinks__item">
-            <a href="#" class="siteLinks__itemInner"><span class="Icon -clip"></span>クリップした質問</a>
+            <a href="/clipped/" class="siteLinks__itemInner"><span class="Icon -clip"></span>クリップした質問</a>
           </li>
           <li class="siteLinks__item">
-            <a href="#" class="siteLinks__itemInner"><span class="Icon -question"></span>質問をする</a>
+            <a href="/question/" class="siteLinks__itemInner"><span class="Icon -question"></span>質問をする</a>
           </li>
           <li class="siteLinks__item">
             <a href="<?php echo $officialSite; ?>" target="_blank" class="siteLinks__itemInner"><span class="Icon -star"></span>公式サイト</a>
@@ -40,15 +42,21 @@ functions.phpのlocalstyleを無効化　→　調整　→　吐き出された
 
         <div class="siteInfo">
           <ul class="siteInfo__sns">
+            <?php if(get_field('sitesetting_facebook', 'option')): ?>
             <li class="siteInfo__snsList">
-              <a href="#"><span class="Icon -facebook"></span></a>
+              <a href="<?php the_field('sitesetting_facebook', 'option'); ?>" target="_blank"><span class="Icon -facebook"></span></a>
             </li>
+            <?php endif; ?>
+            <?php if(get_field('sitesetting_twitter', 'option')): ?>
             <li class="siteInfo__snsList">
-              <a href="#"><span class="Icon -twitter"></span></a>
+              <a href="<?php the_field('sitesetting_twitter', 'option'); ?>" target="_blank"><span class="Icon -twitter"></span></a>
             </li>
+            <?php endif; ?>
+            <?php if(get_field('sitesetting_instagram', 'option')): ?>
             <li class="siteInfo__snsList">
-              <a href="#"><span class="Icon -instagram"></span></a>
+              <a href="<?php the_field('sitesetting_instagram', 'option'); ?>" target="_blank"><span class="Icon -instagram"></span></a>
             </li>
+            <?php endif; ?>
           </ul>
           <?php
             //echo date('Y年m月d日 H時i分s秒');
@@ -79,7 +87,8 @@ functions.phpのlocalstyleを無効化　→　調整　→　吐き出された
     <?php endif; ?>
 		<?php
 			// echo '全カテゴリ';
-			$allcat = get_categories(array('hide_empty'=> 0));
+			// $allcat = get_categories(array('hide_empty'=> 0));
+      $allcat = get_categories();
 		?>
     <nav class="globalNavi<?php if(!is_home())echo ' exceptSmall'; ?>">
       <ul class="globalNavi__list">
@@ -94,16 +103,16 @@ functions.phpのlocalstyleを無効化　→　調整　→　吐き出された
           </ul>
         </li>
         <li class="globalNavi__item">
-          <a href="/about/"><span class="Icon -list"></span>用語集</a>
+          <a href="/glossary/"><span class="Icon -list"></span>用語集</a>
         </li>
         <li class="globalNavi__item">
-          <a href="/shop/"><span class="Icon -bookmark"></span>関心が高い</a>
+          <a href="/popular/"><span class="Icon -bookmark"></span>関心が高い</a>
         </li>
         <li class="globalNavi__item globalNavi__item--wide">
-          <a href="/news/"><span class="Icon -clipranking"></span>クリップランキング</a>
+          <a href="/clipranking/"><span class="Icon -clipranking"></span>クリップランキング</a>
         </li>
         <li class="globalNavi__item">
-          <a href="/recruit/"><span class="Icon -mail"></span>応募する</a>
+          <a href="<?php echo $applyPage; ?>" target="_blank"><span class="Icon -mail"></span>応募する</a>
         </li>
       </ul>
     </nav>
@@ -148,7 +157,7 @@ functions.phpのlocalstyleを無効化　→　調整　→　吐き出された
               <a href="/" class="spGlobalNavi__itemInner"><span class="Icon -home"></span>TOP</a>
             </li>
             <li class="spGlobalNavi__item">
-              <a href="#" class="spGlobalNavi__itemInner"><span class="Icon -bell"></span>お知らせ</a>
+              <a href="/news/" class="spGlobalNavi__itemInner"><span class="Icon -bell"></span>お知らせ</a>
             </li>
             <li class="spGlobalNavi__item">
               <div class="spGlobalNavi__itemInner spGlobalNavi__itemInner--hasSubNavi"><span class="Icon -folder"></span>カテゴリー検索</div>
@@ -161,34 +170,48 @@ functions.phpのlocalstyleを無効化　→　調整　→　吐き出された
               </ul>
             </li>
             <li class="spGlobalNavi__item">
-              <a href="#" class="spGlobalNavi__itemInner"><span class="Icon -clip"></span>クリップした質問</a>
+              <a href="/clipped/" class="spGlobalNavi__itemInner"><span class="Icon -clip"></span>クリップした質問</a>
             </li>
             <li class="spGlobalNavi__item">
-              <a href="#" class="spGlobalNavi__itemInner"><span class="Icon -list"></span>用語集</a>
+              <a href="/glossary/" class="spGlobalNavi__itemInner"><span class="Icon -list"></span>用語集</a>
             </li>
             <li class="spGlobalNavi__item">
-              <a href="#" class="spGlobalNavi__itemInner"><span class="Icon -bookmark"></span>関心が高い質問</a>
+              <a href="/popular/" class="spGlobalNavi__itemInner"><span class="Icon -bookmark"></span>関心が高い質問</a>
             </li>
             <li class="spGlobalNavi__item">
-              <a href="#" class="spGlobalNavi__itemInner"><span class="Icon -clipranking"></span>クリップランキング</a>
+              <a href="/clipranking/" class="spGlobalNavi__itemInner"><span class="Icon -clipranking"></span>クリップランキング</a>
             </li>
             <li class="spGlobalNavi__item">
-              <a href="#" class="spGlobalNavi__itemInner"><span class="Icon -mail"></span>応募する</a>
+              <a href="<?php echo $applyPage; ?>" target="_blank" class="spGlobalNavi__itemInner"><span class="Icon -mail"></span>応募する</a>
             </li>
           </ul>
           <ul class="spNavi__bannerBlock">
             <li class="spNavi__bannerBlockItem">
-              <a href="#" class="button button--entry button--entrySmall">
+              <a href="<?php echo $applyPage; ?>" target="_blank" class="button button--entry button--entrySmall">
             		<div class="button__inner"><em>Web応募する</em>簡単な入力情報で応募できます</div>
             	</a>
             </li>
-            <li class="spNavi__bannerBlockItem">
-              <a href="#" target="_blank"><img src="/assets/images/ad.jpg" class="adBlock__img"></a>
-            </li>
+
+            <?php
+            	$spnaviBanner = get_field('bannersettion_spnavi', 'option');
+            	if($spnaviBanner):
+            ?>
+            <?php
+        		foreach($spnaviBanner as $value):
+        			$imgObj = $value['bannersettion_spnavi_image'];
+        			$img = $imgObj['sizes']['medium'];
+        		?>
+        		<li class="spNavi__bannerBlockItem">
+        			<a href="<?php echo $value['bannersettion_spnavi_link']; ?>" target="_blank"><img src="<?php echo $img; ?>" class="adBlock__img"></a>
+        		</li>
+        		<?php endforeach; ?>
+
+            <?php endif; ?>
+
           </ul>
           <ul class="spEtcNavi">
             <li class="spEtcNavi__item">
-    					<a href="#" target="_blank">コーポレートサイト</a>
+    					<a href="<?php echo $officialSite; ?>" target="_blank">コーポレートサイト</a>
     				</li>
     				<li class="spEtcNavi__item">
     					<a href="/privacy/">プライバシーポリシー</a>

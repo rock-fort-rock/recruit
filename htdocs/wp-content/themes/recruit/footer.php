@@ -11,7 +11,7 @@
 	<div class="globalFooter__inner">
 		<ul class="globalFooter__nav">
 				<li class="globalFooter__navItem">
-					<a href="#" target="_blank">コーポレートサイト</a>
+					<a href="<?php echo $officialSite; ?>" target="_blank">コーポレートサイト</a>
 				</li>
 				<li class="globalFooter__navItem">
 					<a href="/privacy/">プライバシーポリシー</a>
@@ -32,10 +32,10 @@
 					<a href="/" class="siteLinks__itemInner"><span class="Icon -home"></span>TOP</a>
 				</li>
 				<li class="siteLinks__item siteLinks__item--wide">
-					<a href="#" class="siteLinks__itemInner"><span class="Icon -clip"></span>クリップした質問</a>
+					<a href="/clipped/" class="siteLinks__itemInner"><span class="Icon -clip"></span>クリップした質問</a>
 				</li>
 				<li class="siteLinks__item">
-					<a href="#" class="siteLinks__itemInner"><span class="Icon -question"></span>質問をする</a>
+					<a href="/question/" class="siteLinks__itemInner"><span class="Icon -question"></span>質問をする</a>
 				</li>
 				<li class="siteLinks__item">
 					<a href="<?php echo $officialSite; ?>" target="_blank" class="siteLinks__itemInner"><span class="Icon -star"></span>公式サイト</a>
