@@ -345,18 +345,6 @@ function cpt_glossary_init()
   register_taxonomy('glossarycat', 'glossary', $args);
 }
 
-/*
-■オプション
-・公式サイトURL
-・応募URL
-・ヘッダコピー
-・twitterタイムライン
-・企業データ
-・企業情報
-・SNS（フォロー用）
-・バナー（サイド・トップ・スマホナビ）
-*/
-
 function setOption(){
   if( function_exists('acf_add_options_page') ) {
     acf_add_options_page(array(
@@ -399,7 +387,7 @@ function custom_posts_query() {
   global $wp_query;
   if(!is_admin()){
     if(is_post_type_archive( 'post' ) || is_category() || is_post_type_archive( 'column' ) || is_tax('columncat')){
-      $wp_query -> query_vars['posts_per_page'] = 2;
+      $wp_query -> query_vars['posts_per_page'] = 10;
     }else{
       $wp_query -> query_vars['posts_per_page'] = -1;
     }
@@ -423,6 +411,13 @@ function change_mainQuery( $query ) {
 add_action( 'pre_get_posts', 'change_mainQuery' );
 
 
+//クリップボタンカスタマイズ
+function custom_favorites_button_css_classes($classes, $post_id, $site_id){
+  $classes .= ' button button--pink';
+	return $classes;
+}
+add_filter( 'favorites/button/css_classes', 'custom_favorites_button_css_classes', 10, 3 );
+
 
 //固定ページのみ本文に自動で<br><p>が入るのをとめる
 function stopWpautop(){
@@ -439,6 +434,34 @@ function getEyecatch($postid, $size='medium_large'){
   return $eyecatch[0];
 }
 
+
+function getClipRanking($catID = null){
+  $args = array(
+    'posts_per_page' => -1,
+    'post_type' => 'post',
+  );
+  if($catID){
+    $args = array_merge($args, array('category'=>$catID));
+  }
+  $allposts = get_posts( $args );
+  // print_r($allposts);
+  $rankPosts = [];
+  foreach($allposts as $value){
+    // print_r($value);
+    // $value->ID
+    $temp['id'] = $value->ID;
+    $temp['favorite'] = strip_tags(get_favorites_count($value->ID));
+    array_push($rankPosts, $temp);
+  }
+
+  foreach ((array) $rankPosts as $key => $value) {
+    $sort[$key] = $value['favorite'];
+  }
+
+  array_multisort($sort, SORT_DESC, $rankPosts);
+  // print_r($rankPosts);
+  return $rankPosts;
+}
 
 
 //お問い合わせ

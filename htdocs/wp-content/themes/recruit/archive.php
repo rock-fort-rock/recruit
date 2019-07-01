@@ -33,6 +33,13 @@
 					'color'=>get_field('category_color', 'category_'.$the_terms[0]->term_id)
 				);
 				$eyecatchSrc = getEyecatch($post_id, 'medium');
+
+				$raw_desc = strip_tags(get_the_content());
+				$num = 100;
+				$desc = mb_substr($raw_desc, 0, $num);
+				if(mb_strlen($desc) >= $num){
+					$desc .= '…';
+				}
 			?>
 			<li class="articleList__item">
 				<a href="<?php the_permalink(); ?>" class="articleList__itemInner">
@@ -44,7 +51,7 @@
 									<div class="clipCounter__icon">
 										<span class="Icon -clip"></span>
 									</div>
-									<div class="clipCounter__num">255</div>
+									<div class="clipCounter__num"><?php the_favorites_count($post_id); ?></div>
 								</div>
 							</div>
 						</div>
@@ -59,16 +66,16 @@
 										<div class="clipCounter__icon">
 											<span class="Icon -clip"></span>
 										</div>
-										<div class="clipCounter__num">255</div>
+										<div class="clipCounter__num"><?php the_favorites_count($post_id); ?></div>
 									</div>
 								</div>
 							</div>
 						</div>
 
 						<div class="articleList__date"><?php the_time('Y.m.d'); ?></div>
-						<h2 class="articleList__question"><?php the_title(); ?></h2>
-						<div class="articleList__questionDescription">
-							<?php the_content(); ?>
+						<h2 class="articleList__title"><?php the_title(); ?></h2>
+						<div class="articleList__description">
+							<?php echo $desc; ?>
 						</div>
 					</div>
 				</a>

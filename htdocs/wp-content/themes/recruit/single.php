@@ -46,7 +46,7 @@ $eyecatchSrc = getEyecatch($post->ID, 'medium_large');
             <div class="clipCounter__icon">
               <span class="Icon -clip"></span>
             </div>
-            <div class="clipCounter__num">255</div>
+            <div class="clipCounter__num"><?php the_favorites_count($post->ID); ?></div>
           </div>
         </div>
 
@@ -67,9 +67,10 @@ $eyecatchSrc = getEyecatch($post->ID, 'medium_large');
               </div>
               <ul class="buttonList">
                 <li class="buttonList__item">
-                  <a href="#" class="button button--pink">
+                  <?php echo get_favorites_button($post->ID); ?>
+                  <!-- <a href="#" class="button button--pink">
                     <div class="button__inner">クリップする</div>
-                  </a>
+                  </a> -->
                 </li>
                 <li class="buttonList__item">
                   <a href="<?php echo $applyPage; ?>" target="_blank" class="button">
@@ -209,7 +210,7 @@ $eyecatchSrc = getEyecatch($post->ID, 'medium_large');
                     <div class="clipCounter__icon">
                       <span class="Icon -clip"></span>
                     </div>
-                    <div class="clipCounter__num">255</div>
+                    <div class="clipCounter__num"><?php the_favorites_count($rp_id); ?></div>
                   </div>
                 </div>
               </div>
@@ -224,7 +225,7 @@ $eyecatchSrc = getEyecatch($post->ID, 'medium_large');
                       <div class="clipCounter__icon">
                         <span class="Icon -clip"></span>
                       </div>
-                      <div class="clipCounter__num">255</div>
+                      <div class="clipCounter__num"><?php the_favorites_count($rp_id); ?></div>
                     </div>
                   </div>
                 </div>

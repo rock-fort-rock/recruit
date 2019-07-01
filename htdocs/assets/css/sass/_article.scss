@@ -375,6 +375,18 @@
   &__description{
     display: none;
   }
+
+  &__itemClipButton{
+    margin: 0 15px 10px;
+    text-align: right;
+    .simplefavorite-button{
+      padding: 0;
+      .button__inner{
+        font-size: 0.9rem;
+        padding: 7px 10px;
+      }
+    }
+  }
   @media all and (min-width: $breakpoint + 1){
     &__item{
       border: none;

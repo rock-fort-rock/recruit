@@ -35,7 +35,7 @@
 							<div class="clipCounter__icon">
 								<span class="Icon -clip"></span>
 							</div>
-							<div class="clipCounter__num">255</div>
+							<div class="clipCounter__num"><?php the_favorites_count($topPost_ID); ?></div>
 						</div>
 					</div>
 
@@ -89,7 +89,7 @@
 											<div class="clipCounter__icon">
 												<span class="Icon -clip"></span>
 											</div>
-											<div class="clipCounter__num">255</div>
+											<div class="clipCounter__num"><?php the_favorites_count($post_id); ?></div>
 										</div>
 									</div>
 								</div>
@@ -104,7 +104,7 @@
 												<div class="clipCounter__icon">
 													<span class="Icon -clip"></span>
 												</div>
-												<div class="clipCounter__num">255</div>
+												<div class="clipCounter__num"><?php the_favorites_count($post_id); ?></div>
 											</div>
 										</div>
 									</div>

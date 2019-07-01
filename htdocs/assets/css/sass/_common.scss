@@ -693,6 +693,11 @@ MAIN
 			padding: 0;
 			width: 300px;
 		}
+		&__sideSection{
+			.searchForm{
+				background-color: #fff;
+			}
+		}
 	}
 }
 
@@ -921,8 +926,19 @@ MAIN
 			}
 		}
 	}
+
+	&.simplefavorite-button.active{
+		background-color: #999;
+		border-bottom-color: #666;
+	}
+	&.simplefavorite-button.loading{
+		background-color: transparent;
+		border-bottom-color: transparent;
+		color: #ccc;
+	}
 	@media all and (min-width: $breakpoint + 1){
 		padding: 12px 40px;
+		cursor: pointer;
 		@include hover;
 		&__inner{
 			font-size: 20px;
@@ -967,6 +983,8 @@ MAIN
 		}
 	}
 	@media all and (min-width: $breakpoint + 1){
+		max-width: 600px;
+		margin: 0 auto;
 		&__item{
 			flex: 1;
 			margin: 10px 5px;
@@ -1359,7 +1377,9 @@ SIDE
 	@media all and (min-width: $breakpoint + 1){
 		margin: 0;
 		padding: 10px;
-		background-color: #fff;
+		max-width: 600px;
+		margin: 0 auto;
+		// background-color: #fff;
 		&__inner{
 
 		}
@@ -1444,6 +1464,8 @@ SIDE
 			}
 		}
 		&--small{
+			max-width: 600px;
+			margin: 0 auto;
 			.tagCloud__tag{
 				a{
 					font-size: 12px;

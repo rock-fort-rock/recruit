@@ -153,7 +153,7 @@ global $applyPage;
 				<span class="Icon -clip"></span>全クリップ数
 			</div>
 			<div class="qaData__itemValue">
-				<em>1082</em>件
+				<em><?php the_total_favorites_count(); ?></em>件
 			</div>
 		</li>
 	</ul>
