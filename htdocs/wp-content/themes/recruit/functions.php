@@ -394,6 +394,7 @@ function custom_posts_query() {
   }
 }
 
+//メインクエリ変更
 function change_mainQuery( $query ) {
   //TOP
   if ( $query->is_home() && $query->is_main_query() ) {
@@ -411,7 +412,7 @@ function change_mainQuery( $query ) {
 add_action( 'pre_get_posts', 'change_mainQuery' );
 
 
-//クリップボタンカスタマイズ
+//お気に入りボタンカスタマイズ
 function custom_favorites_button_css_classes($classes, $post_id, $site_id){
   $classes .= ' button button--pink';
 	return $classes;
@@ -427,14 +428,14 @@ function stopWpautop(){
 }
 add_action('wp','stopWpautop');
 
-
+//アイキャッチ取得
 function getEyecatch($postid, $size='medium_large'){
   $eyecatchId = get_post_thumbnail_id($postid);
   $eyecatch = wp_get_attachment_image_src( $eyecatchId, $size );
   return $eyecatch[0];
 }
 
-
+//お気に入りランキング取得
 function getClipRanking($catID = null){
   $args = array(
     'posts_per_page' => -1,
@@ -462,6 +463,30 @@ function getClipRanking($catID = null){
   // print_r($rankPosts);
   return $rankPosts;
 }
+
+//アクセスランキング出力カスタム
+function my_custom_single_popular_post( $post_html, $p, $instance ){
+    // $output = '<li><a href="' . get_the_permalink($p->id) . '" class="my-custom-title-class" title="' . esc_attr($p->title) . '">' . $p->title . '</a> <div class="my-custom-date-class">' . date( 'Y-m-d', strtotime($p->date) ) . '</div></li>';
+    
+    $the_terms = get_the_terms($p->id, 'category');
+    //カテゴリは単一選択
+    $cat = array(
+      // 'id'=>$the_terms[0]->term_id,
+      'name'=>$the_terms[0]->name,
+      // 'slug'=>$the_terms[0]->slug,
+      // 'desc'=>$the_terms[0]->description,
+      // 'color'=>get_field('category_color', 'category_'.$the_terms[0]->term_id)
+    );
+
+    $output = '<li class="ranking__listItem">';
+    $output .= '<a href="'. get_the_permalink($p->id) . '">';
+    $output .= $p->title.'<span class="ranking__listItemCategory">['.$cat['name'].']</span>';
+    $output .= '</a>';
+    $output .= '</li>';
+    return $output;
+}
+add_filter( 'wpp_post', 'my_custom_single_popular_post', 10, 3 );
+
 
 
 //お問い合わせ

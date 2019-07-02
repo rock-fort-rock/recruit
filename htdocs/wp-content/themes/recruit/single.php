@@ -253,55 +253,7 @@ $eyecatchSrc = getEyecatch($post->ID, 'medium_large');
       <h2 class="contentTitle__main">Q&Aクリップランキング</h2>
       <div class="contentTitle__caption">求職者からクリップを集めている質問のランキングです</div>
     </div>
-    <div class="ranking">
-      <div class="ranking__select">
-        カテゴリ
-        <div class="selectContainer">
-          <select class="categorySelect">
-            <option selected>全て</option>
-            <option value="#">休暇申請</option>
-            <option value="#">就業</option>
-            <option value="#">面接・選考</option>
-          </select>
-        </div>
-      </div>
-      <ol class="ranking__list">
-        <li class="ranking__listItem">
-          <a href="#">育児休暇はいつから取得できますか育児休暇はいつから取得できますか<span class="ranking__listItemCategory">[休暇]</span></a>
-        </li>
-        <li class="ranking__listItem">
-          <a href="#">育児休暇はいつから取得できますか<span class="ranking__listItemCategory">[休暇]</span></a>
-        </li>
-        <li class="ranking__listItem">
-          <a href="#">育児休暇はいつから取得できますか<span class="ranking__listItemCategory">[休暇]</span></a>
-        </li>
-        <li class="ranking__listItem">
-          <a href="#">育児休暇はいつから取得できますか<span class="ranking__listItemCategory">[休暇]</span></a>
-        </li>
-        <li class="ranking__listItem">
-          <a href="#">育児休暇はいつから取得できますか<span class="ranking__listItemCategory">[休暇]</span></a>
-        </li>
-        <li class="ranking__listItem">
-          <a href="#">育児休暇はいつから取得できますか<span class="ranking__listItemCategory">[休暇]</span></a>
-        </li>
-        <li class="ranking__listItem">
-          <a href="#">育児休暇はいつから取得できますか<span class="ranking__listItemCategory">[休暇]</span></a>
-        </li>
-        <li class="ranking__listItem">
-          <a href="#">育児休暇はいつから取得できますか<span class="ranking__listItemCategory">[休暇]</span></a>
-        </li>
-        <li class="ranking__listItem">
-          <a href="#">育児休暇はいつから取得できますか<span class="ranking__listItemCategory">[休暇]</span></a>
-        </li>
-        <li class="ranking__listItem">
-          <a href="#">育児休暇はいつから取得できますか<span class="ranking__listItemCategory">[休暇]</span></a>
-        </li>
-      </ol>
-
-      <div class="viewMore">
-        <a href="#" class="viewMore__button">全てのランキングをみる</a>
-      </div>
-    </div>
+    <?php get_template_part('part-clipranking'); ?>
   </section>
 </div>
 <?php get_footer(); ?>

@@ -81,9 +81,9 @@ functions.phpのlocalstyleを無効化　→　調整　→　吐き出された
     </div>
 
     <?php if(is_home()): ?>
-      <h1 class="globalHeader__catch">あなたもミュゼプラチナムの一員として一緒に成長してみませんか？</h1>
+      <h1 class="globalHeader__catch"><?php bloginfo( 'description' ); ?></h1>
     <?php else: ?>
-      <div class="globalHeader__catch exceptSmall">あなたもミュゼプラチナムの一員として一緒に成長してみませんか？</div>
+      <div class="globalHeader__catch exceptSmall"><?php bloginfo( 'description' ); ?></div>
     <?php endif; ?>
 		<?php
 			// echo '全カテゴリ';
