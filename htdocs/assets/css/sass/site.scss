@@ -72,6 +72,9 @@ a {
     background-color: $siteColor;
 	}
 }
+.pageTitle{
+  color: $siteColor;
+}
 .qaList{
   &__question{
     color: $siteColor;
@@ -143,6 +146,10 @@ a {
   &__title{
     color: $siteColor;
   }
+}
+
+.formTitle{
+  background-color: $siteColor;
 }
 .formStatus{
   &__step{

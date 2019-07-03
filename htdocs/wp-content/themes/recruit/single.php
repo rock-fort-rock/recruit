@@ -78,7 +78,7 @@ $eyecatchSrc = getEyecatch($post->ID, 'medium_large');
                   </a>
                 </li>
                 <li class="buttonList__item">
-                  <a href="#" class="button button--green">
+                  <a href="/question/" class="button button--green">
                     <div class="button__inner">新たに質問する</div>
                   </a>
                 </li>

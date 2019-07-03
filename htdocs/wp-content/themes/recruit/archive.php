@@ -6,7 +6,7 @@
 ?>
 <div class="container__main">
 	<div class="contentTitle">
-		<h2 class="contentTitle__main"><?php echo $title; ?></h2>
+		<h1 class="contentTitle__main"><?php echo $title; ?></h1>
 
 		<div class="contentTitle__button exceptSmall">
 			<div class="selectContainer">

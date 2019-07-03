@@ -7,7 +7,7 @@ Template Name: クリップした質問
 <div class="container__main">
   <section class="container__mainSection">
     <div class="contentTitle">
-  		<h2 class="contentTitle__main">クリップした質問</h2>
+  		<h1 class="contentTitle__main">クリップした質問</h1>
   	</div>
     <?php
       $favorites = get_user_favorites();

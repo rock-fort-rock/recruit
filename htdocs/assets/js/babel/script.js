@@ -127,6 +127,23 @@ if(document.querySelectorAll('.glossaryList').length > 0){
 	glossarySet();
 }
 
+const questionForm = () => {
+	if(!document.querySelector('.agreeCheck').checked){
+		document.querySelector('.formContainer__primaryButton').disabled = true;
+	}
+	document.querySelector('.agreeCheck').addEventListener( 'click', ( event ) => {
+		document.querySelector('.formContainer__primaryButton').disabled = !document.querySelector('.formContainer__primaryButton').disabled;
+	});
+	const $required = document.querySelectorAll('.required');
+	[].forEach.call($required, ( element ) => {
+		element.required = true;
+	})
+
+
+}
+if(document.querySelectorAll('.mw_wp_form_input').length > 0){
+	questionForm();
+}
 
 
 //スムーススクロール

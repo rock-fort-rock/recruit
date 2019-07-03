@@ -15,7 +15,7 @@ Template Name: アクセスランキング
       }
     ?>
     <div class="contentTitle">
-  		<h2 class="contentTitle__main"><?php echo $cat_name; ?>アクセスランキング</h2>
+  		<h1 class="contentTitle__main"><?php echo $cat_name; ?>アクセスランキング</h1>
   	</div>
 
     <div class="contentBlock">
@@ -51,7 +51,7 @@ Template Name: アクセスランキング
           </div>
         </div>
 
-        <ol class="ranking__list">
+        <!-- <ol class="ranking__list"> -->
         <?php
           if (function_exists('wpp_get_mostpopular')) {
             $arg = array (
@@ -66,7 +66,7 @@ Template Name: アクセスランキング
             wpp_get_mostpopular($arg);
           }
         ?>
-        </ol>
+        <!-- </ol> -->
         <?php if(!isset($_GET['all']) && $count > 10): ?>
         <div class="viewMore">
           <?php

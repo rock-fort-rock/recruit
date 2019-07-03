@@ -626,6 +626,9 @@ MAIN
 	padding: 20px 0;
 	&__main{
 		padding: 0 15px;
+		&--top{//ナビゲーション等がない場合
+			margin-top: $sp_headerHight;
+		}
 	}
 	&__mainSection{
 		&:not(:last-child){
@@ -638,8 +641,7 @@ MAIN
 			padding: 15px;
 		}
 	}
-	// &__mainSectionInner{
-	// }
+
 	&__side{
 		margin-top: 20px;
 		padding: 0 15px;
@@ -679,6 +681,9 @@ MAIN
 			flex: 1;
 			padding: 0;
 			margin-right: 35px;
+			&--top{
+				margin-top: 0;
+			}
 		}
 		&__mainSection{
 			&:not(:last-child){
@@ -688,6 +693,7 @@ MAIN
 				padding: 30px;
 			}
 		}
+
 		&__side{
 			margin-top: 0;
 			padding: 0;
@@ -743,6 +749,35 @@ MAIN
 // 	}
 // }
 
+.pageTitle{
+	font-size: 1.2rem;
+	font-weight: bold;
+	margin-bottom: 15px;
+	@media all and (min-width: $breakpoint + 1){
+		font-size: 24px;
+	}
+}
+.pageSubTitle{
+	font-size: 1.05rem;
+	font-weight: bold;
+	padding-bottom: 5px;
+	border-bottom: 1px dotted #999;
+	margin-bottom: 15px;
+	@media all and (min-width: $breakpoint + 1){
+		font-size: 1.2rem;
+	}
+}
+
+.paragraph{
+	&:not(:last-child){
+		margin-bottom: 20px;
+	}
+	@media all and (min-width: $breakpoint + 1){
+		&:not(:last-child){
+			margin-bottom: 40px;
+		}
+	}
+}
 //コンテンツタイトル
 .contentTitle{
 	margin-bottom: 5px;

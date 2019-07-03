@@ -15,7 +15,7 @@ Template Name: クリップランキング
       }
     ?>
     <div class="contentTitle">
-  		<h2 class="contentTitle__main"><?php echo $cat_name; ?>クリップランキング</h2>
+  		<h1 class="contentTitle__main"><?php echo $cat_name; ?>クリップランキング</h1>
   	</div>
 
     <div class="contentBlock">

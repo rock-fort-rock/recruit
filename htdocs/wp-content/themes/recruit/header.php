@@ -80,11 +80,22 @@ functions.phpのlocalstyleを無効化　→　調整　→　吐き出された
       </div>
     </div>
 
+    <?php /*スマホでH1がなくなる
+    <?php if(is_single() || is_singular('column')): ?>
+      <div class="globalHeader__catch exceptSmall"><?php bloginfo( 'description' ); ?></div>
+    <?php else: ?>
+      <h1 class="globalHeader__catch"><?php bloginfo( 'description' ); ?></h1>
+    <?php endif; ?>
+    */ ?>
+
     <?php if(is_home()): ?>
       <h1 class="globalHeader__catch"><?php bloginfo( 'description' ); ?></h1>
     <?php else: ?>
       <div class="globalHeader__catch exceptSmall"><?php bloginfo( 'description' ); ?></div>
     <?php endif; ?>
+
+    <?php /*質問フォーム以外------------------------------------*/ ?>
+    <?php if(!is_page('question') && is_parent_slug() !== 'question'): ?>
 		<?php
 			// echo '全カテゴリ';
 			// $allcat = get_categories(array('hide_empty'=> 0));
@@ -141,6 +152,9 @@ functions.phpのlocalstyleを無効化　→　調整　→　吐き出された
       </div>
     </div>
     <?php endif; ?>
+
+  <?php endif; ?>
+  <?php /*--------------------------------------質問フォーム以外*/ ?>
   </header>
 
   <div class="onlySmall">
@@ -160,6 +174,9 @@ functions.phpのlocalstyleを無効化　→　調整　→　吐き出された
               <a href="/news/" class="spGlobalNavi__itemInner"><span class="Icon -bell"></span>お知らせ</a>
             </li>
             <li class="spGlobalNavi__item">
+              <a href="/clipped/" class="spGlobalNavi__itemInner"><span class="Icon -clip"></span>クリップした質問</a>
+            </li>
+            <li class="spGlobalNavi__item">
               <div class="spGlobalNavi__itemInner spGlobalNavi__itemInner--hasSubNavi"><span class="Icon -folder"></span>カテゴリー検索</div>
               <ul class="spGlobalNavi__subNavi">
                 <?php foreach($allcat as $value): ?>
@@ -170,19 +187,22 @@ functions.phpのlocalstyleを無効化　→　調整　→　吐き出された
               </ul>
             </li>
             <li class="spGlobalNavi__item">
-              <a href="/clipped/" class="spGlobalNavi__itemInner"><span class="Icon -clip"></span>クリップした質問</a>
-            </li>
-            <li class="spGlobalNavi__item">
-              <a href="/glossary/" class="spGlobalNavi__itemInner"><span class="Icon -list"></span>用語集</a>
-            </li>
-            <li class="spGlobalNavi__item">
               <a href="/popular/" class="spGlobalNavi__itemInner"><span class="Icon -bookmark"></span>関心が高い質問</a>
             </li>
             <li class="spGlobalNavi__item">
               <a href="/clipranking/" class="spGlobalNavi__itemInner"><span class="Icon -clipranking"></span>クリップランキング</a>
             </li>
             <li class="spGlobalNavi__item">
-              <a href="<?php echo $applyPage; ?>" target="_blank" class="spGlobalNavi__itemInner"><span class="Icon -mail"></span>応募する</a>
+              <a href="/glossary/" class="spGlobalNavi__itemInner"><span class="Icon -list"></span>用語集</a>
+            </li>
+            <li class="spGlobalNavi__item">
+              <a href="/question/" class="spGlobalNavi__itemInner"><span class="Icon -question"></span>質問をする</a>
+            </li>
+            <li class="spGlobalNavi__item">
+              <a href="/column/" class="spGlobalNavi__itemInner"><span class="Icon -comment"></span>企業コラム</a>
+            </li>
+            <li class="spGlobalNavi__item">
+              <a href="<?php echo $officialSite; ?>" target="_blank" class="spGlobalNavi__itemInner"><span class="Icon -star"></span>公式サイト</a>
             </li>
           </ul>
           <ul class="spNavi__bannerBlock">

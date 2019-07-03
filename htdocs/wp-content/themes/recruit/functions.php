@@ -50,12 +50,22 @@ function remove_dns_prefetch( $hints, $relation_type ) {
 add_filter( 'wp_resource_hints', 'remove_dns_prefetch', 10, 2 );
 // add_filter( 'emoji_svg_url', '__return_false' );//絵文字だけの
 
+
+//無限ロードするページ
+function is_infiniteLoad(){
+  if(is_post_type_archive( 'post' ) || is_category() || is_post_type_archive( 'column' ) || is_tax('columncat') || is_search()){
+    return true;
+  }else{
+    return false;
+  }
+}
+
 function my_scripts() {
   wp_enqueue_style( 'style', home_url().'/assets/css/style.css', array(), '1.0');
   // wp_enqueue_style( 'localstyle', get_bloginfo('stylesheet_url'), array(), '1.0');
   wp_enqueue_script('script', home_url().'/assets/js/bundle.js', array(), '1.0', true );
 
-  if(is_post_type_archive( 'post' ) || is_category() || is_post_type_archive( 'column' ) || is_tax('columncat')){
+  if(is_infiniteLoad()){
     // wp_enqueue_script('j', 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js', array(), '1.0', true );
     wp_enqueue_script('infinite-scroll', 'https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js', array(), '1.0', true );
   }
@@ -65,7 +75,7 @@ add_action( 'wp_enqueue_scripts', 'my_scripts' );
 
 //無限ロード  https://infinite-scroll.com/api.html
 function local_script() {
-  if(is_post_type_archive( 'post' ) || is_category() || is_post_type_archive( 'column' ) || is_tax('columncat')){
+  if(is_infiniteLoad()){
 ?>
 <script>
 var elem = document.querySelector('.articleList');
@@ -74,7 +84,7 @@ var infScroll = new InfiniteScroll( elem, {
   path: '.next_posts_link a',
   append: '.articleList__item',
   hideNav: '.next_posts_link',
-  scrollThreshold: -50,
+  scrollThreshold: 0,
   history: false,
 });
 
@@ -386,7 +396,7 @@ add_filter('pre_get_posts', 'custom_posts_query');
 function custom_posts_query() {
   global $wp_query;
   if(!is_admin()){
-    if(is_post_type_archive( 'post' ) || is_category() || is_post_type_archive( 'column' ) || is_tax('columncat')){
+    if(is_infiniteLoad()){
       $wp_query -> query_vars['posts_per_page'] = 10;
     }else{
       $wp_query -> query_vars['posts_per_page'] = -1;
@@ -467,26 +477,93 @@ function getClipRanking($catID = null){
 //アクセスランキング出力カスタム
 function my_custom_single_popular_post( $post_html, $p, $instance ){
     // $output = '<li><a href="' . get_the_permalink($p->id) . '" class="my-custom-title-class" title="' . esc_attr($p->title) . '">' . $p->title . '</a> <div class="my-custom-date-class">' . date( 'Y-m-d', strtotime($p->date) ) . '</div></li>';
-    
-    $the_terms = get_the_terms($p->id, 'category');
-    //カテゴリは単一選択
-    $cat = array(
-      // 'id'=>$the_terms[0]->term_id,
-      'name'=>$the_terms[0]->name,
-      // 'slug'=>$the_terms[0]->slug,
-      // 'desc'=>$the_terms[0]->description,
-      // 'color'=>get_field('category_color', 'category_'.$the_terms[0]->term_id)
-    );
 
-    $output = '<li class="ranking__listItem">';
-    $output .= '<a href="'. get_the_permalink($p->id) . '">';
-    $output .= $p->title.'<span class="ranking__listItemCategory">['.$cat['name'].']</span>';
-    $output .= '</a>';
-    $output .= '</li>';
+    // print_r($instance['markup']['wpp-start']);
+    if(is_page('question')){//質問投稿フォームページの場合
+      // $instance['markup']['wpp-start'] = '<ul class="popularQuestion">';
+      $output = '<li class="popularQuestion__item">';
+      $output .= '<a href="'. get_the_permalink($p->id) . '">';
+      $output .= $p->title;
+      $output .= '</a>';
+      $output .= '</li>';
+    }else{
+      $the_terms = get_the_terms($p->id, 'category');
+      //カテゴリは単一選択
+      $cat = array(
+        // 'id'=>$the_terms[0]->term_id,
+        'name'=>$the_terms[0]->name,
+        // 'slug'=>$the_terms[0]->slug,
+        // 'desc'=>$the_terms[0]->description,
+        // 'color'=>get_field('category_color', 'category_'.$the_terms[0]->term_id)
+      );
+      $output = '<li class="ranking__listItem">';
+      $output .= '<a href="'. get_the_permalink($p->id) . '">';
+      $output .= $p->title.'<span class="ranking__listItemCategory">['.$cat['name'].']</span>';
+      $output .= '</a>';
+      $output .= '</li>';
+    }
     return $output;
 }
-add_filter( 'wpp_post', 'my_custom_single_popular_post', 10, 3 );
+// add_filter( 'wpp_post', 'my_custom_single_popular_post', 10, 3 );
 
+
+function my_custom_popular_posts_html_list( $mostpopular, $instance ){
+
+  if(is_page('question')){//質問投稿フォームページの場合
+    // print_r($mostpopular);
+    $output = '<ul class="popularQuestion">';
+    foreach( $mostpopular as $p ) {
+      $output .= '<li class="popularQuestion__item">';
+      $output .= '<a href="'. get_the_permalink($p->id) . '">';
+      $output .= $p->title;
+      $output .= '</a>';
+      $output .= '</li>';
+    }
+    $output .= '</ul>';
+  }else{
+    $output = '<ol class="ranking__list">';
+    foreach( $mostpopular as $p ) {
+      $the_terms = get_the_terms($p->id, 'category');
+      //カテゴリは単一選択
+      $cat = array(
+        // 'id'=>$the_terms[0]->term_id,
+        'name'=>$the_terms[0]->name,
+        // 'slug'=>$the_terms[0]->slug,
+        // 'desc'=>$the_terms[0]->description,
+        // 'color'=>get_field('category_color', 'category_'.$the_terms[0]->term_id)
+      );
+      $output .= '<li class="ranking__listItem">';
+      $output .= '<a href="'. get_the_permalink($p->id) . '">';
+      $output .= $p->title.'<span class="ranking__listItemCategory">['.$cat['name'].']</span>';
+      $output .= '</a>';
+      $output .= '</li>';
+    }
+    $output .= '</ol>';
+  }
+  return $output;
+}
+add_filter( 'wpp_custom_html', 'my_custom_popular_posts_html_list', 10, 2 );
+
+
+
+/**
+ * 検索でカスタム投稿タイプの投稿を検索対象から除きます。
+ */
+function search_exclude_custom_post_type( $query ) {
+	if ( $query->is_search() && $query->is_main_query() && ! is_admin() ) {
+		$query->set( 'post_type', array( 'post' ) );
+	}
+}
+add_filter( 'pre_get_posts', 'search_exclude_custom_post_type' );
+
+//親ページのslugを返す
+function is_parent_slug() {
+  global $post;
+  if ($post->post_parent) {
+    $post_data = get_post($post->post_parent);
+    return $post_data->post_name;
+  }
+}
 
 
 //お問い合わせ

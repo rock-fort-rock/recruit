@@ -2,9 +2,11 @@
 	global $officialSite;
 ?>
 
+		<?php if(!is_page('question') && is_parent_slug() !== 'question'): ?>
 		<div class="container__side">
 			<?php get_sidebar(); ?>
 		</div>
+		<?php endif; ?>
 	</div><!--/container-->
 
 	<footer class="globalFooter">

@@ -173,7 +173,7 @@ global $applyPage;
 <section class="container__sideSection">
 	<div class="postQuestion">
 		<div class="postQuestion__text">求人に関する問題は解決しましたか？<br>解決しなければこちらにお寄せ下さい</div>
-		<a href="#" class="button button--coursor">
+		<a href="/question/" class="button button--coursor">
 			<div class="button__inner">新たに質問する</div>
 		</a>
 	</div>
