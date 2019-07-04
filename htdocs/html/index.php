@@ -12,36 +12,35 @@
   <header class="globalHeader">
     <div class="globalHeader__band exceptSmall">
       <div class="globalHeader__bandInner">
-
         <ul class="siteLinks">
           <li class="siteLinks__item">
-            <a href="/"><span class="Icon -facebook"></span>TOP</a>
+            <a href="/" class="siteLinks__itemInner"><span class="Icon -home"></span>TOP</a>
           </li>
           <li class="siteLinks__item">
-            <a href="#"><span class="Icon -facebook"></span>クリップした質問</a>
+            <a href="/clipped/" class="siteLinks__itemInner"><span class="Icon -clip"></span>クリップした質問</a>
           </li>
           <li class="siteLinks__item">
-            <a href="#"><span class="Icon -facebook"></span>質問をする</a>
+            <a href="/question/" class="siteLinks__itemInner"><span class="Icon -question"></span>質問をする</a>
           </li>
           <li class="siteLinks__item">
-            <a href="#"><span class="Icon -facebook"></span>公式サイト</a>
+            <a href="https://musee-pla.com/" target="_blank" class="siteLinks__itemInner"><span class="Icon -star"></span>公式サイト</a>
           </li>
         </ul>
 
         <div class="siteInfo">
           <ul class="siteInfo__sns">
-            <li class="siteInfo__snsList">
-              <a href="#"><span class="Icon -facebook"></span></a>
+                        <li class="siteInfo__snsList">
+              <a href="https://www.facebook.com/museeplatinum/" target="_blank"><span class="Icon -facebook"></span></a>
             </li>
-            <li class="siteInfo__snsList">
-              <a href="#"><span class="Icon -twitter"></span></a>
+                                    <li class="siteInfo__snsList">
+              <a href="https://twitter.com/MUSEE_PLATINUM" target="_blank"><span class="Icon -twitter"></span></a>
             </li>
-            <li class="siteInfo__snsList">
-              <a href="#"><span class="Icon -instagram"></span></a>
+                                    <li class="siteInfo__snsList">
+              <a href="https://www.instagram.com/museeplatinum_insta/?hl=ja" target="_blank"><span class="Icon -instagram"></span></a>
             </li>
-          </ul>
-          <div class="siteInfo__data">
-            2019年6月1日現在　Q&A数：<em>650</em>件
+                      </ul>
+                    <div class="siteInfo__data">
+            2019年7月4日現在　Q&A数：<em>10</em>件
           </div>
         </div>
       </div>
@@ -50,7 +49,7 @@
     <div class="globalHeader__header">
       <div class="globalHeader__logo">
         <a href="/">
-          <img src="/images/logo.png" alt="ミュゼプラチナム" class="globalHeader__logoImg">
+          <img src="http://localhost.recruit/wp-content/themes/musee/images/logo.png" alt="ミュゼプラチナム 採用Q&amp;A" class="globalHeader__logoImg">
         </a>
       </div>
       <div class="globalHeader__hamburger">
@@ -58,54 +57,140 @@
       </div>
     </div>
 
-    <h1 class="globalHeader__catch">あなたもミュゼプラチナムの一員として一緒に成長してみませんか？</h1>
 
-    <nav class="globalNavi">
+          <h1 class="globalHeader__catch">あなたもミュゼプラチナムの一員として一緒に成長してみませんか？</h1>
+
+        		    <nav class="globalNavi">
       <ul class="globalNavi__list">
         <li class="globalNavi__item globalNavi__item--hasChild">
-          <span><span class="Icon -facebook"></span>カテゴリー</span>
+          <span><span class="Icon -folder"></span>カテゴリー</span>
           <ul class="globalNavi__childList">
-            <li class="globalNavi__childItem">
-              <a href="#">応募/選考について<span>(5)</span></a>
+												<li class="globalNavi__childItem">
+              <a href="/category/job/">就業/仕事について<span>(2)</span></a>
             </li>
-            <li class="globalNavi__childItem">
-              <a href="#">就業/仕事について<span>(2)</span></a>
+												<li class="globalNavi__childItem">
+              <a href="/category/certification/">応募資格について<span>(3)</span></a>
             </li>
-            <li class="globalNavi__childItem">
-              <a href="#">応募資格について<span>(3)</span></a>
+												<li class="globalNavi__childItem">
+              <a href="/category/interview/">面接について<span>(1)</span></a>
             </li>
-            <li class="globalNavi__childItem">
-              <a href="#">面接について<span>(5)</span></a>
+												<li class="globalNavi__childItem">
+              <a href="/category/vacation/">休暇申請について<span>(1)</span></a>
             </li>
-            <li class="globalNavi__childItem">
-              <a href="#">給与について<span>(5)</span></a>
+												<li class="globalNavi__childItem">
+              <a href="/category/welfare/">福利厚生・制度について<span>(2)</span></a>
             </li>
-            <li class="globalNavi__childItem">
-              <a href="#">休暇申請について<span>(2)</span></a>
+												<li class="globalNavi__childItem">
+              <a href="/category/others/">その他<span>(1)</span></a>
             </li>
-            <li class="globalNavi__childItem">
-              <a href="#">福利厚生・制度について<span>(3)</span></a>
-            </li>
-            <li class="globalNavi__childItem">
-              <a href="#">その他<span>(5)</span></a>
-            </li>
-          </ul>
+						          </ul>
         </li>
         <li class="globalNavi__item">
-          <a href="/about/"><span class="Icon -twitter"></span>用語集</a>
+          <a href="/glossary/"><span class="Icon -list"></span>用語集</a>
         </li>
         <li class="globalNavi__item">
-          <a href="/shop/"><span class="Icon -instagram"></span>関心が高い</a>
+          <a href="/popular/"><span class="Icon -bookmark"></span>関心が高い</a>
         </li>
         <li class="globalNavi__item globalNavi__item--wide">
-          <a href="/news/"><span class="Icon -instagram"></span>クリップランキング</a>
+          <a href="/clipranking/"><span class="Icon -clipranking"></span>クリップランキング</a>
         </li>
         <li class="globalNavi__item">
-          <a href="/recruit/"><span class="Icon -facebook"></span>応募する</a>
+          <a href="https://musee-pla-saiyou.com/" target="_blank"><span class="Icon -mail"></span>応募する</a>
         </li>
       </ul>
     </nav>
-  </header>
+      </header>
+
+      <div class="onlySmall">
+    <div class="spNavi">
+      <nav class="spNavi__navi">
+        <div class="spNavi__naviContainer">
+          <div class="spNavi__logo">
+            <a href="/">
+              <img src="http://localhost.recruit/wp-content/themes/musee/images/logo.png" alt="ミュゼプラチナム 採用Q&amp;A" class="spNavi__logoImg">
+            </a>
+          </div>
+          <ul class="spGlobalNavi">
+            <li class="spGlobalNavi__item">
+              <a href="/" class="spGlobalNavi__itemInner"><span class="Icon -home"></span>TOP</a>
+            </li>
+            <li class="spGlobalNavi__item">
+              <a href="/news/" class="spGlobalNavi__itemInner"><span class="Icon -bell"></span>お知らせ</a>
+            </li>
+            <li class="spGlobalNavi__item">
+              <a href="/clipped/" class="spGlobalNavi__itemInner"><span class="Icon -clip"></span>クリップした質問</a>
+            </li>
+            <li class="spGlobalNavi__item">
+              <div class="spGlobalNavi__itemInner spGlobalNavi__itemInner--hasSubNavi"><span class="Icon -folder"></span>カテゴリー検索</div>
+              <ul class="spGlobalNavi__subNavi">
+                    						<li class="spGlobalNavi__subNaviItem">
+                  <a href="/category/job/">就業/仕事について</a>
+                </li>
+    						    						<li class="spGlobalNavi__subNaviItem">
+                  <a href="/category/certification/">応募資格について</a>
+                </li>
+    						    						<li class="spGlobalNavi__subNaviItem">
+                  <a href="/category/interview/">面接について</a>
+                </li>
+    						    						<li class="spGlobalNavi__subNaviItem">
+                  <a href="/category/vacation/">休暇申請について</a>
+                </li>
+    						    						<li class="spGlobalNavi__subNaviItem">
+                  <a href="/category/welfare/">福利厚生・制度について</a>
+                </li>
+    						    						<li class="spGlobalNavi__subNaviItem">
+                  <a href="/category/others/">その他</a>
+                </li>
+    						              </ul>
+            </li>
+            <li class="spGlobalNavi__item">
+              <a href="/popular/" class="spGlobalNavi__itemInner"><span class="Icon -bookmark"></span>関心が高い質問</a>
+            </li>
+            <li class="spGlobalNavi__item">
+              <a href="/clipranking/" class="spGlobalNavi__itemInner"><span class="Icon -clipranking"></span>クリップランキング</a>
+            </li>
+            <li class="spGlobalNavi__item">
+              <a href="/glossary/" class="spGlobalNavi__itemInner"><span class="Icon -list"></span>用語集</a>
+            </li>
+            <li class="spGlobalNavi__item">
+              <a href="/question/" class="spGlobalNavi__itemInner"><span class="Icon -question"></span>質問をする</a>
+            </li>
+            <li class="spGlobalNavi__item">
+              <a href="/column/" class="spGlobalNavi__itemInner"><span class="Icon -comment"></span>企業コラム</a>
+            </li>
+            <li class="spGlobalNavi__item">
+              <a href="https://musee-pla.com/" target="_blank" class="spGlobalNavi__itemInner"><span class="Icon -star"></span>公式サイト</a>
+            </li>
+          </ul>
+          <ul class="spNavi__bannerBlock">
+            <li class="spNavi__bannerBlockItem">
+              <a href="https://musee-pla-saiyou.com/" target="_blank" class="button button--entry button--entrySmall">
+            		<div class="button__inner"><em>Web応募する</em>簡単な入力情報で応募できます</div>
+            	</a>
+            </li>
+
+                                		<li class="spNavi__bannerBlockItem">
+        			<a href="https://www.facebook.com/museeplatinum/" target="_blank"><img src="http://localhost.recruit/wp-content/uploads/2019/06/ad-400x171.jpg" class="adBlock__img"></a>
+        		</li>
+        		        		<li class="spNavi__bannerBlockItem">
+        			<a href="https://www.instagram.com/museeplatinum_insta/?hl=ja" target="_blank"><img src="http://localhost.recruit/wp-content/uploads/2019/06/ad_musee.jpg" class="adBlock__img"></a>
+        		</li>
+
+
+          </ul>
+          <ul class="spEtcNavi">
+            <li class="spEtcNavi__item">
+    					<a href="https://musee-pla.com/" target="_blank">コーポレートサイト</a>
+    				</li>
+    				<li class="spEtcNavi__item">
+    					<a href="/privacy/">プライバシーポリシー</a>
+    				</li>
+          </ul>
+        </div>
+      </nav>
+      <div class="spNavi__bg"><span class="spNavi__close"></span></div>
+    </div>
+  </div>
 
   <div class="container">
     <div class="container__main">
@@ -600,48 +685,54 @@
   </div>
 
   <footer class="globalFooter">
-    <div class="globalFooter__inner">
-      <ul class="globalFooter__nav">
-          <li class="globalFooter__navItem">
-            <a href="/company/">会社概要</a>
-          </li>
-          <li class="globalFooter__navItem">
-            <a href="/privacy/">個人情報保護方針</a>
-          </li>
-          <li class="globalFooter__navItem">
-            <a href="/copyright/">コピーライト・免責事項</a>
-          </li>
-          <li class="globalFooter__navItem">
-            <a href="/terms/">応募規約・プライバシーポリシー</a>
-          </li>
+	<div class="globalFooter__inner">
+		<ul class="globalFooter__nav">
+				<li class="globalFooter__navItem">
+					<a href="https://musee-pla.com/" target="_blank">コーポレートサイト</a>
+				</li>
+				<li class="globalFooter__navItem">
+					<a href="/privacy/">プライバシーポリシー</a>
+				</li>
 
-      </ul>
-      <div class="globalFooter__copyright">
-        &copy; MUSEE PLATINUM All Rights Reserved.
-      </div>
-    </div>
-  </footer>
+		</ul>
+		<div class="globalFooter__copyright">
+			&copy; MUSEE PLATINUM All Rights Reserved.
+		</div>
+	</div>
+</footer>
 
-  <div class="onlySmall">
-    <div class="spFooter">
-      <ul class="siteLinks">
-        <li class="siteLinks__item">
-          <a href="/"><span class="Icon -facebook"></span>TOP</a>
-        </li>
-        <li class="siteLinks__item">
-          <a href="#"><span class="Icon -facebook"></span>クリップした質問</a>
-        </li>
-        <li class="siteLinks__item">
-          <a href="#"><span class="Icon -facebook"></span>質問をする</a>
-        </li>
-        <li class="siteLinks__item">
-          <a href="#"><span class="Icon -facebook"></span>公式サイト</a>
-        </li>
-      </ul>
-    </div>
-  </div>
+	<div class="onlySmall">
+	<div class="spFooter">
+		<div class="spFooter__navi">
+			<ul class="siteLinks">
+				<li class="siteLinks__item siteLinks__item--narrow">
+					<a href="/" class="siteLinks__itemInner"><span class="Icon -home"></span>TOP</a>
+				</li>
+				<li class="siteLinks__item siteLinks__item--wide">
+					<a href="/clipped/" class="siteLinks__itemInner"><span class="Icon -clip"></span>クリップした質問</a>
+				</li>
+				<li class="siteLinks__item">
+					<a href="/question/" class="siteLinks__itemInner"><span class="Icon -question"></span>質問をする</a>
+				</li>
+				<li class="siteLinks__item">
+					<a href="https://musee-pla.com/" target="_blank" class="siteLinks__itemInner"><span class="Icon -star"></span>公式サイト</a>
+				</li>
+				<li class="siteLinks__item">
+					<span class="siteLinks__itemInner siteLinks__itemInner--search"><span class="Icon -search"></span>検索する</span>
+				</li>
+			</ul>
+		</div>
+		<div class="spFooter__search">
+			<div class="keywordSearch">
+				<form action="/" method="get" class="keywordSearch__form" autocomplete="off">
+					<span class="Icon -search"></span>
+					<input type="text" name="s" value="" class="keywordSearch__input" placeholder="求人に関するキーワード">
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
 
-  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700,900&amp;subset=japanese" rel="stylesheet">
-  <script type='text/javascript' src='/assets/js/bundle.js'></script>
+<script type='text/javascript' src='/assets/js/bundle.js?ver=1.0'></script>
 </body>
 </html>

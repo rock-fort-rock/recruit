@@ -1,4 +1,8 @@
-<?php get_header(); ?>
+<?php
+if(!is_amp()){
+  get_header();
+}
+?>
 <?php
 $the_terms = get_the_terms($post->ID, 'columncat');
 //カテゴリは単一選択
@@ -10,7 +14,10 @@ $cat = array(
 );
 
 //アイキャッチ
-$eyecatchSrc = getEyecatch($post->ID, 'medium_large');
+$eyecatch = getEyecatchInfo($post->ID, 'medium_large');
+$eyecatchSrc = $eyecatch[0];
+$eyecatchWidth = $eyecatch[1];
+$eyecatchHeight = $eyecatch[2];
 ?>
 <div class="container__main">
   <section class="container__mainSection">
@@ -36,18 +43,34 @@ $eyecatchSrc = getEyecatch($post->ID, 'medium_large');
         </li> -->
       </ul>
       <div class="article__eyecatch">
-        <img src="<?php echo $eyecatchSrc; ?>" class="article__eyecatchImg" alt="<?php the_title(); ?>">
+        <?php if(is_amp()): ?>
+					<amp-img src="<?php echo $eyecatchSrc; ?>" width="<?php echo $eyecatchWidth; ?>" height="<?php echo $eyecatchHeight; ?>" layout="responsive" class="article__eyecatchImg" alt="<?php the_title(); ?>"></amp-img>
+				<?php else: ?>
+          <img src="<?php echo $eyecatchSrc; ?>" class="article__eyecatchImg" alt="<?php the_title(); ?>">
+        <?php endif; ?>
         <div class="article__category" style="background-color: <?php echo $cat['color']; ?>;"><?php echo $cat['name']; ?></div>
       </div>
       <div class="article__container">
         <div class="article__date"><?php the_time('Y.m.d'); ?></div>
         <h1 class="article__title"><?php the_title(); ?></h1>
         <div class="article__lede">
-          <?php the_field('column_lede'); ?>
+          <?php if(is_amp()): ?>
+            <?php echo convertImgToAmpImg(get_field('column_lede')); ?>
+          <?php else: ?>
+            <?php the_field('column_lede'); ?>
+          <?php endif; ?>
         </div>
 
         <section class="article__body">
-          <?php the_post(); the_content(); ?>
+          <?php //the_post(); the_content(); ?>
+          <?php the_post(); ?>
+          <?php
+          if(is_amp()){
+            echo convertImgToAmpImg(get_the_content());
+          }else{
+            the_content();
+          }
+          ?>
           <div class="article__bodyFooter">
             <div class="contentBlock">
               <ul class="article__bodyFooterCategory">
@@ -146,7 +169,6 @@ $eyecatchSrc = getEyecatch($post->ID, 'medium_large');
               <div class="exceptSmall">
                 <div class="articleList__itemCategory" style="background-color: <?php echo $rp_cat['color']; ?>;"><?php echo $rp_cat['name']; ?></div>
               </div>
-              <!-- <img src="/assets/images/sample.jpg" class="articleList__itemEyecatchImg" alt=""> -->
             </div>
             <div class="articleList__textBlock">
               <div class="onlySmall">
@@ -173,4 +195,8 @@ $eyecatchSrc = getEyecatch($post->ID, 'medium_large');
   <?php endif; ?>
 
 </div>
-<?php get_footer(); ?>
+<?php
+if(!is_amp()){
+  get_footer();
+}
+?>

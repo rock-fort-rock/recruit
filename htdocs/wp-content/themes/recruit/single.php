@@ -1,4 +1,8 @@
-<?php get_header(); ?>
+<?php
+if(!is_amp()){
+  get_header();
+}
+?>
 <?php
 $the_terms = get_the_terms($post->ID, 'category');
 //カテゴリは単一選択
@@ -11,7 +15,10 @@ $cat = array(
 );
 
 //アイキャッチ
-$eyecatchSrc = getEyecatch($post->ID, 'medium_large');
+$eyecatch = getEyecatchInfo($post->ID, 'medium_large');
+$eyecatchSrc = $eyecatch[0];
+$eyecatchWidth = $eyecatch[1];
+$eyecatchHeight = $eyecatch[2];
 ?>
 <div class="container__main">
   <section class="container__mainSection">
@@ -37,7 +44,11 @@ $eyecatchSrc = getEyecatch($post->ID, 'medium_large');
         </li> -->
       </ul>
       <div class="article__eyecatch">
-        <img src="<?php echo $eyecatchSrc; ?>" class="article__eyecatchImg" alt="<?php the_title(); ?>">
+        <?php if(is_amp()): ?>
+					<amp-img src="<?php echo $eyecatchSrc; ?>" width="<?php echo $eyecatchWidth; ?>" height="<?php echo $eyecatchHeight; ?>" layout="responsive" class="article__eyecatchImg" alt="<?php the_title(); ?>"></amp-img>
+				<?php else: ?>
+          <img src="<?php echo $eyecatchSrc; ?>" class="article__eyecatchImg" alt="<?php the_title(); ?>">
+        <?php endif; ?>
         <div class="article__category" style="background-color: <?php echo $cat['color']; ?>;"><?php echo $cat['name']; ?></div>
       </div>
       <div class="article__container">
@@ -53,12 +64,23 @@ $eyecatchSrc = getEyecatch($post->ID, 'medium_large');
         <div class="article__date"><?php the_time('Y.m.d'); ?></div>
         <h1 class="article__title article__title--question"><?php the_title(); ?></h1>
         <div class="article__lede">
-          <?php the_post(); the_content(); ?>
+          <?php the_post(); ?>
+          <?php
+          if(is_amp()){
+            echo convertImgToAmpImg(get_the_content());
+          }else{
+            the_content();
+          }
+          ?>
         </div>
 
         <h2 class="article__answer"><?php the_field('qa_answer'); ?></h2>
         <section class="article__body">
-          <?php the_field('qa_answerDescription'); ?>
+          <?php if(is_amp()): ?>
+            <?php echo convertImgToAmpImg(get_field('qa_answerDescription')); ?>
+          <?php else: ?>
+            <?php the_field('qa_answerDescription'); ?>
+          <?php endif; ?>
 
           <div class="article__bodyFooter">
             <div class="contentBlock">
@@ -66,12 +88,14 @@ $eyecatchSrc = getEyecatch($post->ID, 'medium_large');
                 この質問は役に立ちましたか？
               </div>
               <ul class="buttonList">
+                <?php if(!is_amp()): ?>
                 <li class="buttonList__item">
                   <?php echo get_favorites_button($post->ID); ?>
                   <!-- <a href="#" class="button button--pink">
                     <div class="button__inner">クリップする</div>
                   </a> -->
                 </li>
+              <?php endif; ?>
                 <li class="buttonList__item">
                   <a href="<?php echo $applyPage; ?>" target="_blank" class="button">
                     <div class="button__inner">Web応募する</div>
@@ -84,7 +108,7 @@ $eyecatchSrc = getEyecatch($post->ID, 'medium_large');
                 </li>
               </ul>
             </div>
-
+            <?php if(!is_amp()): ?>
             <div class="contentBlock">
               <div class="contentBlock__title">
                 過去の質問をキーワードで検索もできます
@@ -101,6 +125,7 @@ $eyecatchSrc = getEyecatch($post->ID, 'medium_large');
                 </div>
               </div>
             </div>
+          <?php endif; ?>
 
             <?php $posttags = get_the_tags(); ?>
             <?php if($posttags): ?>
@@ -214,7 +239,6 @@ $eyecatchSrc = getEyecatch($post->ID, 'medium_large');
                   </div>
                 </div>
               </div>
-              <!-- <img src="/assets/images/sample.jpg" class="articleList__itemEyecatchImg" alt=""> -->
             </div>
             <div class="articleList__textBlock">
               <div class="onlySmall">
@@ -248,6 +272,7 @@ $eyecatchSrc = getEyecatch($post->ID, 'medium_large');
   </section>
   <?php endif; ?>
 
+  <?php if(!is_amp()): ?>
   <section class="container__mainSection">
     <div class="contentTitle">
       <h2 class="contentTitle__main">Q&Aクリップランキング</h2>
@@ -255,5 +280,11 @@ $eyecatchSrc = getEyecatch($post->ID, 'medium_large');
     </div>
     <?php get_template_part('part-clipranking'); ?>
   </section>
+  <?php endif; ?>
 </div>
-<?php get_footer(); ?>
+
+<?php
+if(!is_amp()){
+  get_footer();
+}
+?>

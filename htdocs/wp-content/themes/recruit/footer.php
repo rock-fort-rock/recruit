@@ -21,7 +21,7 @@
 
 		</ul>
 		<div class="globalFooter__copyright">
-			&copy; MUSEE PLATINUM All Rights Reserved.
+			&copy; <?php the_field('sitesetting_sitename-en', 'option'); ?> All Rights Reserved.
 		</div>
 	</div>
 </footer>

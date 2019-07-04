@@ -444,6 +444,13 @@ function getEyecatch($postid, $size='medium_large'){
   $eyecatch = wp_get_attachment_image_src( $eyecatchId, $size );
   return $eyecatch[0];
 }
+//width,heightも
+function getEyecatchInfo($postid, $size='medium_large'){
+  $eyecatchId = get_post_thumbnail_id($postid);
+  $eyecatch = wp_get_attachment_image_src( $eyecatchId, $size );
+  return array($eyecatch[0],$eyecatch[1],$eyecatch[2]);
+}
+
 
 //お気に入りランキング取得
 function getClipRanking($catID = null){
@@ -566,41 +573,115 @@ function is_parent_slug() {
 }
 
 
-//お問い合わせ
-function mwform_form_class() {
-  if(is_page('support') || is_page('confirm') || is_page('contact')){
-?>
-<script>
-  document.querySelector('.mw_wp_form form').classList.add('ContactForm');//formタグにclass追加
 
-  //入力画面
-  <?php if(is_page('support') || is_page('contact')){ ?>
-    var $required = document.querySelectorAll('.required');
-    for (var i = 0; i < $required.length; i++){
-      $required[i].required = true;
+//AMP判定
+function is_amp(){
+	$is_amp = false;
+    if(function_exists('is_amp_endpoint') && is_amp_endpoint()) {
+        $is_amp = true;
     }
-  <?php } ?>
+    return $is_amp;
+}
+//「logo」フィールドの値は必須です。対応
+add_filter( 'amp_post_template_metadata', 'amp_set_site_logo', 10, 2);
+function amp_set_site_logo( $metadata, $post ) {
+    $metadata['publisher']['logo'] = array(
+        '@type' => 'ImageObject',
+        'url' => get_bloginfo('stylesheet_directory').'/images/logo.png',
+        //'height' => 1200,
+        //'width' => 1200
+        );
+    return $metadata;
+}
 
-  //確認画面
-  <?php if(is_page('confirm')){ ?>
-    var $remove = document.querySelectorAll('.ContactForm__Help, .ContactForm__AgreementLine');
-    for (var i = 0; i < $remove.length; i++){
-      $remove[i].parentNode.removeChild($remove[i]);
+//コンテンツのHTML文字列からimg要素をamp-img要素に変換
+function convertImgToAmpImg($the_content){
+    // PHPのパスを解決(相対パスだとライブラリを読み込めないため)
+    require_once(dirname(__FILE__) . "/libs/phpQuery-onefile.php");
+
+    // 仮想DOMを構築（phpQueryで走査するため）
+    $html = <<<HTML
+<html>
+<body>{$the_content}</body>
+</html>
+HTML;
+
+    // DOMを構築
+    $dom = phpQuery::newDocument($html);
+
+    // img要素を探し出して、繰り返す
+    foreach ($dom->find("img") as $img) {
+        // 参照を取る
+        $pqImg = pq($img);
+
+        // 属性値をコピーする
+        $obj["src"] = $pqImg->attr("src");
+        $obj["width"] = $pqImg->attr("width");
+        $obj["height"] = $pqImg->attr("height");
+        $obj["srcset"] = $pqImg->attr("srcset");
+        $obj["alt"] = $pqImg->attr("alt");
+        $obj["class"] = $pqImg->attr("class");
+        // sizes属性は表示崩れの可能性があるのでコピーしない
+
+        // src 属性がなければ変換しない
+        if (empty($obj["src"])) {
+            continue;
+        }
+
+        ini_set('error_reporting', E_ALL);
+        //日本語ドメインNG
+        // $obj["src"] = str_replace('https://脱毛診断メーカー.com', 'https://xn--lckwf7cb5558dg0hnt1bzdp.com', $obj["src"]);
+        // print_r($obj["src"]);
+        $imagesize = getimagesize($obj["src"]);
+        // print_r($imagesize);
+        // width と height がなければオリジナルサイズを取得
+        if (empty($obj["width"]) || empty($obj["height"])){
+            $obj["width"] = $imagesize[0];
+            $obj["height"] = $imagesize[1];
+            //imagesize取得できなければ強制
+            if(empty($imagesize)){
+              $obj["width"] = 640;
+              $obj["height"] = 480;
+            }
+        }
+
+        // 属性をコピーする
+        $attrStr = [];
+        foreach ($obj as $key => $value) {
+            if (!empty($value)) {
+                $attrStr[] = "$key=\"$value\"";
+            }
+        }
+
+        // w:375pxより大きいものはlayout属性を追加する（レスポンシブに）
+        if($obj["width"] > 375){
+        	$attrStr[] = 'layout="responsive"';
+        }
+
+        // img要素をamp-img要素に置き換える
+        // コピーした属性値をくっつける
+        $pqImg->replaceWith("<amp-img " . join(" ", $attrStr) . " />");
     }
-    var $value = document.querySelectorAll('.ContactForm__Main td');
-    for (var i = 0; i < $value.length; i++){
-      $list = $value[i].querySelectorAll('.ContactForm__InputListMwform');
-      for (var n = 0; n < $list.length; n++){
-        $list[n].outerHTML = $list[n].innerHTML;
-      }
-      $value[i].innerHTML = '<div class="ContactForm__Value">' + $value[i].innerHTML + '</div>';
+
+    // contentの内容を返す
+    return $dom->find("body")->html();
+}
+
+
+//twitterカードのAMP対応
+function embed_amp( $content, $url ) {
+  preg_match( '/twitter.com/', $content, $matche );
+  $urlArray = explode('/', $url);
+  $tweetid = end($urlArray);
+  if( $matche ) {
+    if( is_amp() ) {
+        return '<amp-twitter width=486 height=657 layout="responsive" data-tweetid="' . $tweetid . '" data-cards="hidden"></amp-twitter>';
+    }else{
+      return $content;
     }
-  <?php } ?>
-</script>
-<?php
   }
 }
-// add_action( 'wp_footer', 'mwform_form_class', 1 );
+add_filter( 'embed_oembed_html', 'embed_amp', 10, 2 );
 
 
 /*
@@ -608,7 +689,6 @@ function mwform_form_class() {
 設定画面でLazy load YouTube and Vimeo videos, iframes, audio, etc.にチェックを入れると
 lazysizes.unveilhooks.jsが読み込まれ、背景画像も設定可能に
 */
-
 
 //カスタムフィールド設定用
 // $path = trim( get_blog_status( $blog_id, 'path' ), '/' );

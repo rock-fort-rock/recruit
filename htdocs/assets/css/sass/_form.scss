@@ -148,9 +148,6 @@
     text-align: center;
     cursor: pointer;
     position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
     width: 100%;
     max-width: 360px;
     height: 50px;
@@ -306,5 +303,69 @@
 .mw_wp_form_confirm{
   .onlyInput{
     display: none;
+  }
+}
+
+.thanksPage{
+  &__message{
+    margin-bottom: 30px;
+  }
+  &__messageCatch{
+    font-size: 1.15rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  &__messageDesc{
+
+  }
+  &__buttonContainer{
+    text-align: center;
+    margin-top: 30px;
+  }
+  &__banner{
+    max-width: 760px;
+    margin: 0 auto 30px;
+  }
+  &__button{
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    max-width: 200px;
+    height: 36px;
+    line-height: 36px;
+    border-radius: 18px;
+    background: #7cb716;
+    display: block;
+    color: #fff;
+    margin: 0 auto 15px;
+  }
+  @media all and (min-width: $breakpoint + 1){
+    &__message{
+      margin-bottom: 60px;
+    }
+    &__messageCatch{
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+    &__messageDesc{
+      text-align: center;
+    }
+    &__banner{
+      margin: 0 auto 70px;
+
+    }
+    &__button{
+      font-size: 16px;
+      max-width: 360px;
+      height: 50px;
+      line-height: 50px;
+      border-radius: 25px;
+      cursor: pointer;
+      @include hover;
+    }
+
   }
 }

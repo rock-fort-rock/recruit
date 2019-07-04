@@ -176,3 +176,8 @@ a {
     background-color: $siteColor--exlight;
   }
 }
+.thanksPage{
+  &__button{
+    background-color: $siteColor--dark;
+  }
+}

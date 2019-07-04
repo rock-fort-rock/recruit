@@ -1,3 +1,7 @@
+/*
+Max 50KB
+*/
+
 @import "vars";
 @import "reset";
 @import "icon-vars";
@@ -5,7 +9,6 @@
 @import "common";
 @import "article";
 @import "column";
-@import "glossary";
 
 .exceptSmall{
 	display: none;

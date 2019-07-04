@@ -17,7 +17,7 @@ global $allcat;
 <?php wp_head(); ?>
 <?php /*
 子テーマ作成時に使用
-functions.phpのlocalstyleを無効化　→　調整　→　吐き出されたCSSを子テーマのstyle.cssへコピペ。
+functions.phpのlocalstyleを無効化　→　調整　→　吐き出されたCSSを子テーマのheader.phpへコピペ。
 */ ?>
 <style><?php include $_SERVER['DOCUMENT_ROOT'].'/assets/css/site.css'; ?></style>
 </head>

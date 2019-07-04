@@ -20,6 +20,7 @@
   // print_r($favorites);
 ?>
 <div class="ranking">
+  <?php if(!is_amp()): ?>
   <div class="ranking__select">
     カテゴリ
     <div class="selectContainer">
@@ -31,6 +32,8 @@
       </select>
     </div>
   </div>
+  <?php endif; ?>
+
   <ol class="ranking__list">
     <?php for($i=0; $i<$num; $i++): ?>
     <?php
