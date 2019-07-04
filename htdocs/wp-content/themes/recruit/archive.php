@@ -2,7 +2,14 @@
 <?php
 	$term = $wp_query->queried_object;
 	$termSlug = $term->slug;
-	$title = (!empty($term))?$term->description:'質問一覧';
+	if($term->description){//カテゴリ
+		// $title = $term->description;
+		$title = $term->name.'の質問一覧';
+	}elseif($term->name){//タグ
+		$title = $term->name.'の質問一覧';
+	}else{
+		$title = '質問一覧';
+	}
 ?>
 <div class="container__main">
 	<div class="contentTitle">
