@@ -354,6 +354,15 @@ MAIN
 	background-color: #53a7db;
 	border-bottom: 4px solid #3d80aa;
 	padding: 8px 15px;
+
+	//お気に入りボタン
+	&.simplefavorite-button{
+		appearance: none;
+		border-top: none;
+		border-left: none;
+		border-right: none;
+		height: 100%;
+	}
 	&__inner{
 		font-size: 1.1rem;
 		font-weight: bold;
@@ -412,7 +421,7 @@ MAIN
 		width: 100%;
 		text-align: center;
 		.button__inner{
-			padding: 5px 20px;
+			padding: 5px 15px;
 			text-align: center;
 			font-size: 0.9rem;
 			position: relative;

@@ -258,6 +258,7 @@ HEADER
 	}
 	&__naviInner{
 		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
 		padding: 8px 15px;
 	}
 	&__naviItem{

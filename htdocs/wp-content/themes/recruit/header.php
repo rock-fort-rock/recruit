@@ -16,10 +16,13 @@ global $allcat;
 <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
 <?php wp_head(); ?>
 <?php /*
-子テーマ作成時に使用
-functions.phpのlocalstyleを無効化　→　調整　→　吐き出されたCSSを子テーマのheader.phpへコピペ。
+↓子テーマ作成時に使用
+*/
+/* <style><?php include $_SERVER['DOCUMENT_ROOT'].'/assets/css/site.css'; ?></style> */
+
+/*
+functions.phpのlocalstyleを無効化　→　CSS調整　→　吐き出されたsite.cssを子テーマのstyle.cssへコピペ。　→　上のコメントアウト
 */ ?>
-<style><?php include $_SERVER['DOCUMENT_ROOT'].'/assets/css/site.css'; ?></style>
 </head>
 <body>
   <header class="globalHeader">
