@@ -96,7 +96,7 @@ Class internal_link_building{
 
 		$keys = $keywords;
 		if(is_array($customkeys)){
-		            
+
 			@$keys = $keys+$customkeys;  //Add custom keys
 		}
 		$update = 0;
@@ -114,7 +114,7 @@ Class internal_link_building{
 
 		if(!is_array($keys)) //Something broke
 			return $content;
-		
+
 		$content = internal_link_building_blocks::findtags($content); //We do NOT want to replace content inside HTML blocks.
 
 		foreach ($keys as $name => $ops) {
@@ -125,7 +125,7 @@ Class internal_link_building{
 					$key_list[] = $new_name;
 					$keys[$new_name] = $ops;
 				}
-			}else{	
+			}else{
 				$key_list[] = $name;
 			}
 		}
@@ -162,8 +162,8 @@ Class internal_link_building{
 				foreach($escapes as $s){
 					$r = '\\\\'.$s;
 					$name = str_replace($s, stripslashes($r), $name);
-				} 
-				
+				}
+
 				if(intval($ops['between']) >0 && strpos($name,' ')){
 					$name = str_replace(' ',"([\s,\(\);:]*?[A-Za-z0-9\x80-\xFF+]*?[\s,\)\(;:]){0,$ops[between]}",$name);//([\s,\(\);:]*?[A-Za-z0-9]*?[\s,\)\(;:])
 				}
@@ -175,7 +175,7 @@ Class internal_link_building{
 				if(intval($ops['after']) >0){
 					$after = "([\s,\(\);:]*?[A-Za-z0-9\x80-\xFF+]*?[\s,\)\(;:]){0,$ops[after]}";
 				}
-		
+
 				$needle ='@()('.$before.$name.'\b'.$after.')()@';
 				$extra = '';
 
@@ -191,12 +191,12 @@ Class internal_link_building{
 				}
 
 				if(count($link) == 1){//Single link simple replace
-					
+
 					if(trim(str_replace(array('http://','www.'),'',$link[0]),'/') == trim(str_replace(array('http://','www.'),'',get_permalink()),'/')){
 						continue;}
 
 					$content = internal_link_building_blocks::findtags($content,false); //We do NOT want to replace content inside HTML blocks.
-					$content = internal_link_building::replace($content, $needle, $replace1, $replace2, $times,$insensitive); 
+					$content = internal_link_building::replace($content, $needle, $replace1, $replace2, $times,$insensitive);
 					$actual_times = preg_match_all($needle.$insensitive,$content,$out);
 
 					$key_count += ($actual_times < $times) ? $actual_times : $times;
@@ -207,7 +207,7 @@ Class internal_link_building{
 						$times = 1;
 						$loops = preg_match_all($needle,$content,$out);
 					}else{
-						
+
 						$loops =($actual_times < $times) ? $actual_times : $times;
 						$times = 1;
 					}
@@ -216,10 +216,10 @@ Class internal_link_building{
 					$key_count += $loops;
 					if($linkindices && $update != 1){ //Is there a cache so we don't use different links every page load
 						$indices = explode(',',$linkindices);
-		
+
 					}else{//Multiple links and no chache, create random array
 					$indices = array_rand($link, count($link));
-						$linkindices = implode(',',$indices);	
+						$linkindices = implode(',',$indices);
 						update_post_meta($id, 'link_indices_'.$name,$linkindices);
 					}
 					$y = 0;
@@ -242,12 +242,12 @@ Class internal_link_building{
 						}
 					}
 				}
-				
+
 				$used_keywords[$key] = $ops;
 
 				unset($name, $before, $after, $insensitive, $times, $loops);
 			}
-			
+
 		}
 
 		$content = internal_link_building_blocks::findblocks($content); // Return the HTML blocks
@@ -334,7 +334,7 @@ Class internal_link_building{
 		}
 		$custom['keywords_time'] = time();
 		update_post_meta($id, 'keyword_custom', $custom);
-		
+
 //		echo '<script>alert("'.$_REQUEST['internal_link_building'].'");</script>';
 		$keywords = get_option('internal_link_building');
 		$keywords['keywords_time'] = time();
@@ -342,8 +342,8 @@ Class internal_link_building{
 
 		$options = $_REQUEST['internal_link_building_options'];
 		update_option('internal_link_building_options',$_REQUEST['internal_link_building_options']);
-		
-	
+
+
 		return $custom;
 	}
 /******************************
@@ -388,25 +388,25 @@ Class internal_link_building{
 							if(d.length > 5){
 								d += '&update_keylink_custom=1&post_ID=<? echo $_GET['post'];?>'
 								var path = '<?php echo  $_SERVER['REQUEST_URI']; ?>';
-								 
+
 								if(-1==path.indexOf('?'))
 									window.location =  path+'?'+d;
 								else
 									window.location =  path+'&'+d;
 							}
-						});	
+						});
 					});
 				</script>
-				
+
 				<table width="100%" id="keyword_links">
 					<?php internal_link_building::print_menu($keywords)?>
 				</table>
 
 				<?php if($_GET['post']){ // We do not want to show this link unless the post is already assinged an ID. ?>
-						
+
 						<a href="#" onclick="more_keyword_links(); return false;">Add More Keywords</a>&nbsp;&nbsp;
 						<a  class="hlink" style="text-decoration:underline;">Add New Keywords</a>
-			
+
 				<?php }else{ ?>
 					<!--<a href="#" onclick="more_keyword_links(); return false;">Add More Keywords</a>-->
 					<div>First create post for adding keywords.</div>
@@ -424,9 +424,9 @@ Class internal_link_building{
 /*****************************/
 
 	static function print_menu($keywords, $show_first = true){
-	
+
 	?>
-		
+
 		<thead><tr><td>Keyword</td><td>URL</td><td style="font-size:10px">Times <br/>(optional)</td><td  style="font-size:10px">Words Between <br/>(optional)</td><td style="font-size:10px">Words Before<br/> (optional)</td><td style="font-size:10px">Words after <br/>(optional)</td><td>Exact Match</td><td>Use Nofollow?</td><td>Open in New Window?</td></tr></thead>
 
 			<tr id="keyword_link_first" >
@@ -482,7 +482,7 @@ Class internal_link_building{
 
 	}
 
-/******************************	
+/******************************
 *
 * Purpose: Adds admin menu item to WP menu.
 *
@@ -523,7 +523,7 @@ global $wpdb;
 
 			if($_POST['keywordcvs'] != ''){
 				$imported_keywords = internal_link_building::convert_cvs($_POST['keywordcvs']);
-				
+
 
 			}elseif($_POST['keywordfile']){
 				$imported_keywords = internal_link_building::convert_cvs(file_get_contents($_POST['keywordfile']));
@@ -544,7 +544,7 @@ global $wpdb;
 					var increment = 10000;
 
 					function more_keyword_links(){
-		
+
 						jQuery("#keyword_link_first").before("<tr><td><input type='text' style='width:90%;' value='' name='internal_link_building["+increment+"][name]'></td><td><input type='text' style='width:90%;' value='' name='internal_link_building["+increment+"][url]'></td><td><input type='text' style='width:90%;' value='' name='internal_link_building["+increment+"][times]' size='4' /></td><td><input type='text' style='width:90%;' value='' name='internal_link_building["+increment+"][between]' size='4' /></td><td><input type='text' style='width:90%;' value='' name='internal_link_building["+increment+"][before]' size='4' /></td><td><input type='text' style='width:90%;' value='' name='internal_link_building["+increment+"][after]' size='4' /></td><td><input type='checkbox' value = '1' name='internal_link_building["+increment+"][case]'></td><td><input type='checkbox' value = '1' name='internal_link_building["+increment+"][nofollow]'></td><td><input type='checkbox' value = '1' name='internal_link_building["+increment+"][newwindow]'></td></tr>");
 
 						increment++;
@@ -614,7 +614,7 @@ global $wpdb;
 								<div class="dbx-content">
 									<p>Use the textarea below to import a CVS file. Please Note the following items before use:</p>
 									<ul>
-										<li>The CVS file should be tab or comma delimited with one keyword entry per line.</li> 
+										<li>The CVS file should be tab or comma delimited with one keyword entry per line.</li>
 										<li>Do not mix and match commas and tabs. If using commas, ensure your URLs do not include commas or the entries will be corrupt.</li>
 										<li>The order should be: Keyword, URL, Number of Times, Exact Match, Use Nofollow, Between, Before, After.</li>
 										<li>Only Keyword and URL are required; however, if you want to specify Case, you must specify times.</li>
@@ -678,19 +678,19 @@ class internal_link_building_blocks{
 		if($firstrun){
 	//Protects content within <blockquote tags
 			//$content = preg_replace_callback('!(\<blockquote\>[\S\s]*?\<\/blockquote\>)!ims', array('internal_link_building_blocks','returnblocks'), $content);
-	
+
 	//Protects content within <pre tags.
 			//$content = preg_replace_callback('!(\<pre\>[\S\s]*?\<\/pre\>)!ims', array('internal_link_building_blocks','returnblocks'), $content);
-	
+
 	//protects code tags.
 			$content = preg_replace_callback('!(\<code\>[\S\s]*?\<\/code\>)!ims', array('internal_link_building_blocks','returnblocks'), $content);
-	
+
 	//protects simple tags tags
 			$content = preg_replace_callback('!(\[tags*\][\S\s]*?\[\/tags*\])!ims', array('internal_link_building_blocks','returnblocks'), $content);
-	
+
 	//protects img tags
 			$content = preg_replace_callback('!(\<img[^>]*\>)!ims', array('internal_link_building_blocks','returnblocks'), $content);
-	
+
 
 			$content = preg_replace_callback('!(\<h1[^>]*\>([^>]*)\>)!ims', array('internal_link_building_blocks','returnblocks'), $content);
 
@@ -713,7 +713,7 @@ class internal_link_building_blocks{
 
 	//protects all correctly formatted URLS
 			$content = preg_replace_callback('!(([A-Za-z]{3,9})://([-;:&=\+\$,\w]+@{1})?([-A-Za-z0-9\.]+)+:?(\d+)?((/[-\+~%/\.\w]+)?\??([-\+=&;%@\.\w]+)?#?([\w]+)?)?)!', array('internal_link_building_blocks','returnblocks'), $content);
-	
+
 	//protects urls of the form yahoo.com
 			$content = preg_replace_callback('!([-A-Za-z0-9_]+\.[A-Za-z][A-Za-z][A-Za-z]?\W?)!', array('internal_link_building_blocks','returnblocks'), $content);
 		}

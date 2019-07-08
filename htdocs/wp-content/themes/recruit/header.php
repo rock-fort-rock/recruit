@@ -134,7 +134,7 @@ functions.phpのlocalstyleを無効化　→　調整　→　吐き出された
         <div class="spHeader__search">
           <div class="keywordSearch">
       			<form action="/" method="get" class="keywordSearch__form" autocomplete="off">
-              <span class="Icon -search"></span>
+              <button class="keywordSearch__button"><span class="Icon -search"></span></button>
       				<input type="text" name="s" value="" class="keywordSearch__input" placeholder="求人に関するキーワード">
       			</form>
       		</div>
