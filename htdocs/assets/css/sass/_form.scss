@@ -128,14 +128,16 @@
   }
   &__textBlock{
     border: 1px solid #999;
-    padding: 10px;
+    padding: 15px;
     height: 200px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     overflow-y: scroll;
-    margin-bottom: 20px;
+    -webkit-overflow-scrolling: touch;
+    margin: 10px 0 20px;
   }
   &__buttons{
     margin-top: 20px;
+    text-align: center;
     p{
       font-size: 0.85rem;
       text-align: center;
@@ -163,6 +165,14 @@
       background: #ccc;
       cursor: not-allowed;
     }
+  }
+  &__backButton{
+    margin-top: 15px;
+    padding: 5px 15px;
+    line-height: 1;
+    appearance: none;
+    background-color: #f1f1f1;
+    border: 1px solid #999;
   }
 
   @media all and (min-width: $breakpoint + 1){
@@ -274,6 +284,7 @@
     padding: 5px 10px;
     border: 1px solid #ccc;
     background: #fff;
+    appearance: none;
   }
   @media all and (min-width: $breakpoint + 1){
     th,td{
@@ -281,7 +292,7 @@
       font-size: 1rem;
     }
     th{
-      width: 230px;
+      width: 260px;
     }
     &__require{
       margin-top: 0;

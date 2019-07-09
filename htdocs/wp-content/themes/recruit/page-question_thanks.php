@@ -32,6 +32,7 @@ Template Name: 質問する（完了）
 
   <section class="container__mainSection container__mainSection--wht container__mainSection--padding">
     <div class="thanksPage">
+      <?php the_post(); the_content(); ?>
       <div class="thanksPage__message">
         <h1 class="thanksPage__messageCatch">ご応募ありがとうございました</h1>
         <div class="thanksPage__messageDesc">

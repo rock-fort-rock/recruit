@@ -32,7 +32,7 @@ Template Name: 質問する
 
   <section class="container__mainSection container__mainSection--wht container__mainSection--padding">
     <div class="paragraph">
-      こちらのページでは求人に関する質問を受け付けております。<br>必要事項をご記入の上「入力内容の確認画面へ」を押してください。
+      こちらのページでは求人に関する質問を受け付けております。<br>必要事項をご記入の上「入力内容の確認画面」を押してください。
     </div>
     <div class="formContainer">
       <div class="contentBlock">
