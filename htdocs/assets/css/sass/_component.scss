@@ -313,19 +313,24 @@ HEADER
 }
 
 .spNavi{
-	display: none;
+	// display: none;
 	position: fixed;
 	width: 100%;
-	height: 100%;
+	height: 0;
+	overflow: hidden;
+	opacity: 0;
 	top: 0;
 	left: 0;
 	z-index: 9999;
+	transition: opacity .3s, height 0s .3s;
 	&.-active{
-		display: block;
-		animation: fadeIn .3s;
+		// display: block;
+		// animation: fadeIn .3s;
+		height: 100%;
+		opacity: 1;
+		transition: opacity .3s;
 		.spNavi__navi{
 			transform: translateX(0);
-			transition: transform .3s .1s;
 		}
 	}
 	&__navi{
@@ -339,7 +344,7 @@ HEADER
 		z-index: 2;
 		overflow-y: auto;
 		-webkit-overflow-scrolling: touch;
-		// transition: transform .3s;
+		transition: transform .3s .1s;
 	}
 	&__naviContainer{
 		padding: 0 10px 15px;

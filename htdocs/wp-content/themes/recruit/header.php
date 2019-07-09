@@ -173,9 +173,9 @@ functions.phpのlocalstyleを無効化　→　CSS調整　→　吐き出され
             <li class="spGlobalNavi__item">
               <a href="/" class="spGlobalNavi__itemInner"><span class="Icon -home"></span>TOP</a>
             </li>
-            <li class="spGlobalNavi__item">
+            <!-- <li class="spGlobalNavi__item">
               <a href="/news/" class="spGlobalNavi__itemInner"><span class="Icon -bell"></span>お知らせ</a>
-            </li>
+            </li> -->
             <li class="spGlobalNavi__item">
               <a href="/clipped/" class="spGlobalNavi__itemInner"><span class="Icon -clip"></span>クリップした質問</a>
             </li>
