@@ -1,3 +1,10 @@
+<?php
+//公開記事件数
+if(wp_count_posts('column')->publish == 0){
+	header('Location: /');
+　exit;
+}
+?>
 <?php get_header(); ?>
 <?php
 	$term = $wp_query->queried_object;

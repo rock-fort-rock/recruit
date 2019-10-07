@@ -116,9 +116,9 @@ functions.phpのlocalstyleを無効化　→　CSS調整　→　吐き出され
 						<?php endforeach; ?>
           </ul>
         </li>
-        <li class="globalNavi__item">
+        <!-- <li class="globalNavi__item">
           <a href="/glossary/"><span class="Icon -list"></span>用語集</a>
-        </li>
+        </li> -->
         <li class="globalNavi__item">
           <a href="/popular/"><span class="Icon -bookmark"></span>関心が高い</a>
         </li>
@@ -195,15 +195,17 @@ functions.phpのlocalstyleを無効化　→　CSS調整　→　吐き出され
             <li class="spGlobalNavi__item">
               <a href="/clipranking/" class="spGlobalNavi__itemInner"><span class="Icon -clipranking"></span>クリップランキング</a>
             </li>
-            <li class="spGlobalNavi__item">
+            <!-- <li class="spGlobalNavi__item">
               <a href="/glossary/" class="spGlobalNavi__itemInner"><span class="Icon -list"></span>用語集</a>
-            </li>
+            </li> -->
             <li class="spGlobalNavi__item">
               <a href="/question/" class="spGlobalNavi__itemInner"><span class="Icon -question"></span>質問をする</a>
             </li>
+            <?php if(wp_count_posts('column')->publish > 0): ?>
             <li class="spGlobalNavi__item">
               <a href="/column/" class="spGlobalNavi__itemInner"><span class="Icon -comment"></span>企業コラム</a>
             </li>
+            <?php endif; ?>
             <li class="spGlobalNavi__item">
               <a href="<?php echo $officialSite; ?>" target="_blank" class="spGlobalNavi__itemInner"><span class="Icon -star"></span>公式サイト</a>
             </li>

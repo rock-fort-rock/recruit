@@ -23,6 +23,10 @@ body{
 	width: 100%;
 	word-wrap: break-word;
 	background-color: $bgColor;
+	//タグ埋め込みによってフッター下に余白があく対策
+	> img{
+		position: absolute;
+	}
 }
 
 a {

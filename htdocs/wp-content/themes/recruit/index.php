@@ -154,18 +154,19 @@
 			<?php get_template_part('part-clipranking'); ?>
 		</section>
 
+		<?php
+		$args = array(
+			'posts_per_page'   => 3,
+			'post_type'        => 'column',
+		);
+		$columnPosts = get_posts( $args );
+		?>
+		<?php if(!empty($columnPosts)): ?>
 		<section class="container__mainSection">
 			<div class="contentTitle">
 				<h2 class="contentTitle__main">企業コラム</h2>
 				<div class="contentTitle__button"><a href="/column/">コラム一覧</a></div>
 			</div>
-			<?php
-			$args = array(
-				'posts_per_page'   => 3,
-				'post_type'        => 'column',
-			);
-			$columnPosts = get_posts( $args );
-			?>
 			<ul class="columnList">
 				<?php foreach($columnPosts as $value): ?>
 				<?php
@@ -192,6 +193,7 @@
 				<?php endforeach; ?>
 			</ul>
 		</section>
+		<?php endif; ?>
 	</div>
 
 <?php get_footer(); ?>

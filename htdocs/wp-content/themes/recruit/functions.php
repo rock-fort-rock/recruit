@@ -61,7 +61,7 @@ function is_infiniteLoad(){
 }
 
 function my_scripts() {
-  wp_enqueue_style( 'style', home_url().'/assets/css/style.css', array(), '1.0');
+  wp_enqueue_style( 'style', home_url().'/assets/css/style.css', array(), '1.1');
   wp_enqueue_style( 'localstyle', get_bloginfo('stylesheet_url'), array(), '1.0');
   wp_enqueue_script('script', home_url().'/assets/js/bundle.js', array(), '1.0', true );
 
@@ -303,57 +303,57 @@ function cpt_column_init()
 custom post type
 用語集
 **/
-add_action('init', 'cpt_glossary_init');
-function cpt_glossary_init()
-{
-  $labels = array(
-    'name' => _x('用語集', 'post type general name'),
-    'singular_name' => _x('用語集', 'post type singular name'),
-    'add_new' => _x('新規追加', 'glossary'),
-    'add_new_item' => __('用語集を追加'),
-    'edit_item' => __('用語集を編集'),
-    'new_item' => __('新しい用語集'),
-    'view_item' => __('用語集を見る'),
-    'search_items' => __('用語集を探す'),
-    'not_found' =>  __('用語集はありません'),
-    'not_found_in_trash' => __('ゴミ箱に用語集はありません'),
-    'parent_item_colon' => ''
-  );
-  $args = array(
-    'labels' => $labels,
-    'public' => true,
-    'show_ui' => true,
-    'query_var' => true,
-    'capability_type' => 'post',
-    'has_archive' => true,
-    'rewrite' => array('slug' => 'glossary', 'with_front' => false, 'pages' => true, 'feeds' => false),
-    'hierarchical' => false,
-    'menu_position' => 5,
-    'supports' => array('title','editor','thumbnail')
-  );
-  register_post_type('glossary', $args);
-
-  $args = array(
-    'labels' => array(
-      'name' => '用語集カテゴリ',
-      'singular_name' => '用語集カテゴリ',
-      'search_items' => '用語集カテゴリを検索',
-      'popular_items' => 'よく使われている用語集カテゴリ',
-      'all_items' => 'すべての用語集カテゴリ',
-      'parent_item' => '親用語集カテゴリ',
-      'edit_item' => '用語集カテゴリの編集',
-      'update_item' => '更新',
-      'add_new_item' => '用語集カテゴリを追加',
-      'new_item_name' => '新しい用語集カテゴリ'
-    ),
-    'public' => true,
-    'show_ui' => true,
-    'hierarchical' => true,
-    'query_var' => true,
-    'rewrite' => array('slug' => 'glossarycat', 'with_front' => false)
-  );
-  register_taxonomy('glossarycat', 'glossary', $args);
-}
+// add_action('init', 'cpt_glossary_init');
+// function cpt_glossary_init()
+// {
+//   $labels = array(
+//     'name' => _x('用語集', 'post type general name'),
+//     'singular_name' => _x('用語集', 'post type singular name'),
+//     'add_new' => _x('新規追加', 'glossary'),
+//     'add_new_item' => __('用語集を追加'),
+//     'edit_item' => __('用語集を編集'),
+//     'new_item' => __('新しい用語集'),
+//     'view_item' => __('用語集を見る'),
+//     'search_items' => __('用語集を探す'),
+//     'not_found' =>  __('用語集はありません'),
+//     'not_found_in_trash' => __('ゴミ箱に用語集はありません'),
+//     'parent_item_colon' => ''
+//   );
+//   $args = array(
+//     'labels' => $labels,
+//     'public' => true,
+//     'show_ui' => true,
+//     'query_var' => true,
+//     'capability_type' => 'post',
+//     'has_archive' => true,
+//     'rewrite' => array('slug' => 'glossary', 'with_front' => false, 'pages' => true, 'feeds' => false),
+//     'hierarchical' => false,
+//     'menu_position' => 5,
+//     'supports' => array('title','editor','thumbnail')
+//   );
+//   register_post_type('glossary', $args);
+//
+//   $args = array(
+//     'labels' => array(
+//       'name' => '用語集カテゴリ',
+//       'singular_name' => '用語集カテゴリ',
+//       'search_items' => '用語集カテゴリを検索',
+//       'popular_items' => 'よく使われている用語集カテゴリ',
+//       'all_items' => 'すべての用語集カテゴリ',
+//       'parent_item' => '親用語集カテゴリ',
+//       'edit_item' => '用語集カテゴリの編集',
+//       'update_item' => '更新',
+//       'add_new_item' => '用語集カテゴリを追加',
+//       'new_item_name' => '新しい用語集カテゴリ'
+//     ),
+//     'public' => true,
+//     'show_ui' => true,
+//     'hierarchical' => true,
+//     'query_var' => true,
+//     'rewrite' => array('slug' => 'glossarycat', 'with_front' => false)
+//   );
+//   register_taxonomy('glossarycat', 'glossary', $args);
+// }
 
 function setOption(){
   if( function_exists('acf_add_options_page') ) {

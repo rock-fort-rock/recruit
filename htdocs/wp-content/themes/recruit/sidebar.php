@@ -33,15 +33,16 @@ global $applyPage;
 	</div>
 </section>
 
+<?php
+$args = array(
+	'posts_per_page'   => 3,
+	'post_type'        => 'column',
+);
+$columnPosts = get_posts( $args );
+?>
+<?php if(!empty($columnPosts)): ?>
 <section class="container__sideSection">
 	<div class="container__sideSectionTitle">企業コラム</div>
-	<?php
-	$args = array(
-		'posts_per_page'   => 3,
-		'post_type'        => 'column',
-	);
-	$columnPosts = get_posts( $args );
-	?>
 	<ul class="sideColumnList">
 		<?php foreach($columnPosts as $value): ?>
 		<?php
@@ -59,6 +60,7 @@ global $applyPage;
 	<?php endforeach; ?>
 	</ul>
 </section>
+<?php endif; ?>
 
 <section class="container__sideSection container__sideSection--border">
 	<?php
@@ -80,7 +82,7 @@ global $applyPage;
 					} ?>
 				</ul>
 				<div class="genderRatio__percent">
-					<div class="genderRatio__percentNum genderRatio__percentNum--male" style="width: <?php echo $companyData['sitesetting_gender']; ?>%;">
+					<div class="genderRatio__percentNum genderRatio__percentNum--male" style="width: <?php echo max($companyData['sitesetting_gender'], 20); ?>%;">
 						<strong><?php echo $companyData['sitesetting_gender']; ?></strong>%
 					</div>
 					<div class="genderRatio__percentNum genderRatio__percentNum--female">

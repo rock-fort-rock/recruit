@@ -59,5 +59,15 @@
 </div>
 
 <?php wp_footer(); ?>
+<!-- YTM -->
+<script type="text/javascript">
+(function () {
+var tagjs = document.createElement("script");
+var s = document.getElementsByTagName("script")[0];
+tagjs.async = true;
+tagjs.src = "//s.yjtag.jp/tag.js#site=LvD80Ig,MfCDS8P";
+s.parentNode.insertBefore(tagjs, s);
+}());
+</script>
 </body>
 </html>
