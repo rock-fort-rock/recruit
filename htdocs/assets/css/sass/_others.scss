@@ -1,0 +1,39 @@
+.sitemap{
+  &__item{
+    &:not(:last-child){
+      margin-bottom: 35px;
+    }
+    a{
+      // color: inherit;
+      display: flex;
+      align-items: center;
+      @media (min-width: $breakpoint + 1px){
+        @include hover();
+      }
+      .Icon{
+        font-size: 80%;
+        transform: rotate(90deg);
+        margin-right: 5px;
+        // color:
+      }
+    }
+    &Title{
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+      border-bottom: 1px dotted #333;
+    }
+  }
+
+  &__sub{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+    &Item{
+      width: 50%;
+      margin-bottom: 5px;
+      @media (min-width: $breakpoint + 1px){
+        width: 33.33%;
+      }
+    }
+  }
+}

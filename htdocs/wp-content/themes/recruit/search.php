@@ -15,6 +15,7 @@
 				//カテゴリは単一選択
 				$cat = array(
 					'name'=>$the_terms[0]->name,
+					'desc'=>$the_terms[0]->description,
 					'color'=>get_field('category_color', 'category_'.$the_terms[0]->term_id)
 				);
 				$eyecatchSrc = getEyecatch($post_id, 'medium');
@@ -30,7 +31,7 @@
 				<a href="<?php the_permalink(); ?>" class="articleList__itemInner">
 					<div class="articleList__itemEyecatch" style="background-image: url('<?php echo $eyecatchSrc; ?>');">
 						<div class="exceptSmall">
-							<div class="articleList__itemCategory" style="background-color: <?php echo $cat['color']; ?>;"><?php echo $cat['name']; ?></div>
+							<div class="articleList__itemCategory" style="background-color: <?php echo $cat['color']; ?>;"><?php echo $cat['desc']; ?></div>
 							<div class="articleList__itemClip">
 								<div class="clipCounter">
 									<div class="clipCounter__icon">
@@ -45,7 +46,7 @@
 					<div class="articleList__textBlock">
 						<div class="onlySmall">
 							<div class="articleList__status">
-								<div class="articleList__itemCategory" style="background-color: <?php echo $cat['color']; ?>;"><?php echo $cat['name']; ?></div>
+								<div class="articleList__itemCategory" style="background-color: <?php echo $cat['color']; ?>;"><?php echo $cat['desc']; ?></div>
 								<div class="articleList__itemClip">
 									<div class="clipCounter">
 										<div class="clipCounter__icon">

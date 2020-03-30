@@ -111,7 +111,7 @@ functions.phpのlocalstyleを無効化　→　CSS調整　→　吐き出され
           <ul class="globalNavi__childList">
 						<?php foreach($allcat as $value): ?>
 						<li class="globalNavi__childItem">
-              <a href="/category/<?php echo $value->slug; ?>/"><?php echo $value->description; ?><span>(<?php echo $value->count; ?>)</span></a>
+              <a href="<?php echo esc_url(get_category_link( $value->term_id )); ?>"><?php echo $value->name; ?><span>(<?php echo $value->count; ?>)</span></a>
             </li>
 						<?php endforeach; ?>
           </ul>
@@ -148,7 +148,7 @@ functions.phpのlocalstyleを無効化　→　CSS調整　→　吐き出され
               <a href="/">TOP</a>
             </li><!--
             --><?php foreach($allcat as $value): ?><li class="spHeader__naviItem">
-                <a href="/category/<?php echo $value->slug; ?>/"><?php echo $value->description; ?></a>
+                <a href="<?php echo esc_url(get_category_link( $value->term_id )); ?>"><?php echo $value->description; ?></a>
               </li><?php endforeach; ?>
           </ul>
         </div>
@@ -184,7 +184,7 @@ functions.phpのlocalstyleを無効化　→　CSS調整　→　吐き出され
               <ul class="spGlobalNavi__subNavi">
                 <?php foreach($allcat as $value): ?>
     						<li class="spGlobalNavi__subNaviItem">
-                  <a href="/category/<?php echo $value->slug; ?>/"><?php echo $value->description; ?></a>
+                  <a href="<?php echo esc_url(get_category_link( $value->term_id )); ?>"><?php echo $value->name; ?></a>
                 </li>
     						<?php endforeach; ?>
               </ul>

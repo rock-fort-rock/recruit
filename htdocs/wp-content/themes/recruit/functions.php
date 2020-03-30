@@ -482,35 +482,35 @@ function getClipRanking($catID = null){
 }
 
 //アクセスランキング出力カスタム
-function my_custom_single_popular_post( $post_html, $p, $instance ){
-    // $output = '<li><a href="' . get_the_permalink($p->id) . '" class="my-custom-title-class" title="' . esc_attr($p->title) . '">' . $p->title . '</a> <div class="my-custom-date-class">' . date( 'Y-m-d', strtotime($p->date) ) . '</div></li>';
-
-    // print_r($instance['markup']['wpp-start']);
-    if(is_page('question')){//質問投稿フォームページの場合
-      // $instance['markup']['wpp-start'] = '<ul class="popularQuestion">';
-      $output = '<li class="popularQuestion__item">';
-      $output .= '<a href="'. get_the_permalink($p->id) . '">';
-      $output .= $p->title;
-      $output .= '</a>';
-      $output .= '</li>';
-    }else{
-      $the_terms = get_the_terms($p->id, 'category');
-      //カテゴリは単一選択
-      $cat = array(
-        // 'id'=>$the_terms[0]->term_id,
-        'name'=>$the_terms[0]->name,
-        // 'slug'=>$the_terms[0]->slug,
-        // 'desc'=>$the_terms[0]->description,
-        // 'color'=>get_field('category_color', 'category_'.$the_terms[0]->term_id)
-      );
-      $output = '<li class="ranking__listItem">';
-      $output .= '<a href="'. get_the_permalink($p->id) . '">';
-      $output .= $p->title.'<span class="ranking__listItemCategory">['.$cat['name'].']</span>';
-      $output .= '</a>';
-      $output .= '</li>';
-    }
-    return $output;
-}
+// function my_custom_single_popular_post( $post_html, $p, $instance ){
+//     // $output = '<li><a href="' . get_the_permalink($p->id) . '" class="my-custom-title-class" title="' . esc_attr($p->title) . '">' . $p->title . '</a> <div class="my-custom-date-class">' . date( 'Y-m-d', strtotime($p->date) ) . '</div></li>';
+//
+//     // print_r($instance['markup']['wpp-start']);
+//     if(is_page('question')){//質問投稿フォームページの場合
+//       // $instance['markup']['wpp-start'] = '<ul class="popularQuestion">';
+//       $output = '<li class="popularQuestion__item">';
+//       $output .= '<a href="'. get_the_permalink($p->id) . '">';
+//       $output .= $p->title;
+//       $output .= '</a>';
+//       $output .= '</li>';
+//     }else{
+//       $the_terms = get_the_terms($p->id, 'category');
+//       //カテゴリは単一選択
+//       $cat = array(
+//         // 'id'=>$the_terms[0]->term_id,
+//         'name'=>$the_terms[0]->name,
+//         // 'slug'=>$the_terms[0]->slug,
+//         // 'desc'=>$the_terms[0]->description,
+//         // 'color'=>get_field('category_color', 'category_'.$the_terms[0]->term_id)
+//       );
+//       $output = '<li class="ranking__listItem">';
+//       $output .= '<a href="'. get_the_permalink($p->id) . '">';
+//       $output .= $p->title.'<span class="ranking__listItemCategory">['.$cat['name'].']</span>';
+//       $output .= '</a>';
+//       $output .= '</li>';
+//     }
+//     return $output;
+// }
 // add_filter( 'wpp_post', 'my_custom_single_popular_post', 10, 3 );
 
 
@@ -536,12 +536,12 @@ function my_custom_popular_posts_html_list( $mostpopular, $instance ){
         // 'id'=>$the_terms[0]->term_id,
         'name'=>$the_terms[0]->name,
         // 'slug'=>$the_terms[0]->slug,
-        // 'desc'=>$the_terms[0]->description,
+        'desc'=>$the_terms[0]->description,
         // 'color'=>get_field('category_color', 'category_'.$the_terms[0]->term_id)
       );
       $output .= '<li class="ranking__listItem">';
       $output .= '<a href="'. get_the_permalink($p->id) . '">';
-      $output .= $p->title.'<span class="ranking__listItemCategory">['.$cat['name'].']</span>';
+      $output .= $p->title.'<span class="ranking__listItemCategory">['.$cat['desc'].']</span>';
       $output .= '</a>';
       $output .= '</li>';
     }

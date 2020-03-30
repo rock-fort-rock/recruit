@@ -49,7 +49,7 @@ $eyecatchHeight = $eyecatch[2];
 				<?php else: ?>
           <img src="<?php echo $eyecatchSrc; ?>" class="article__eyecatchImg" alt="<?php the_title(); ?>">
         <?php endif; ?>
-        <div class="article__category" style="background-color: <?php echo $cat['color']; ?>;"><?php echo $cat['name']; ?></div>
+        <div class="article__category" style="background-color: <?php echo $cat['color']; ?>;"><?php echo $cat['desc']; ?></div>
       </div>
       <div class="article__container">
         <div class="article__clip">
@@ -61,7 +61,15 @@ $eyecatchHeight = $eyecatch[2];
           </div>
         </div>
 
-        <div class="article__date"><?php the_time('Y.m.d'); ?></div>
+        <!-- <div class="article__date"><?php the_time('Y.m.d'); ?></div> -->
+        <ul class="article__breadcrumb">
+          <li class="article__breadcrumbItem">
+            <a href="/">TOP</a>
+          </li>
+          <li class="article__breadcrumbItem">
+            <a href="<?php echo esc_url(get_category_link( $cat['term_id'] )); ?>"><?php echo $cat['name']; ?></a>
+          </li>
+        </ul>
         <h1 class="article__title article__title--question"><?php the_title(); ?></h1>
         <div class="article__lede">
           <?php the_post(); ?>
@@ -215,6 +223,7 @@ $eyecatchHeight = $eyecatch[2];
           $rp_terms = get_the_terms($rp_id, 'category');
           $rp_cat = array(
             'name'=>$rp_terms[0]->name,
+            'desc'=>$rp_terms[0]->description,
             'color'=>get_field('category_color', 'category_'.$rp_terms[0]->term_id)
           );
 
@@ -229,7 +238,7 @@ $eyecatchHeight = $eyecatch[2];
           <a href="<?php the_permalink($rp_id); ?>" class="articleList__itemInner">
             <div class="articleList__itemEyecatch" style="background-image: url('<?php echo $rp_eyecatchSrc; ?>');">
               <div class="exceptSmall">
-                <div class="articleList__itemCategory" style="background-color: <?php echo $rp_cat['color']; ?>;"><?php echo $rp_cat['name']; ?></div>
+                <div class="articleList__itemCategory" style="background-color: <?php echo $rp_cat['color']; ?>;"><?php echo $rp_cat['desc']; ?></div>
                 <div class="articleList__itemClip">
                   <div class="clipCounter">
                     <div class="clipCounter__icon">
@@ -243,7 +252,7 @@ $eyecatchHeight = $eyecatch[2];
             <div class="articleList__textBlock">
               <div class="onlySmall">
                 <div class="articleList__status">
-                  <div class="articleList__itemCategory" style="background-color: <?php echo $rp_cat['color']; ?>;"><?php echo $rp_cat['name']; ?></div>
+                  <div class="articleList__itemCategory" style="background-color: <?php echo $rp_cat['color']; ?>;"><?php echo $rp_cat['desc']; ?></div>
                   <div class="articleList__itemClip">
                     <div class="clipCounter">
                       <div class="clipCounter__icon">
@@ -255,7 +264,15 @@ $eyecatchHeight = $eyecatch[2];
                 </div>
               </div>
 
-              <div class="articleList__date"><?php echo get_the_time('Y.m.d', $rp_id); ?></div>
+              <!-- <div class="articleList__date"><?php echo get_the_time('Y.m.d', $rp_id); ?></div> -->
+              <ul class="articleList__breadcrumb">
+                <li class="articleList__breadcrumbItem">
+                  TOP
+                </li>
+                <li class="articleList__breadcrumbItem">
+                  <?php echo $rp_cat['name']; ?>
+                </li>
+              </ul>
               <h2 class="articleList__title articleList__title--question"><?php echo get_the_title($rp_id); ?></h2>
               <div class="articleList__description">
                 <?php echo $rp_desc; ?>

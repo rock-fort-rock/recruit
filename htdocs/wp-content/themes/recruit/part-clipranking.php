@@ -40,11 +40,12 @@
       $the_terms = get_the_terms($favorites[$i]['id'], 'category');
       //カテゴリは単一選択
       $cat = array(
-        'name'=>$the_terms[0]->name
+        'name'=>$the_terms[0]->name,
+        'desc'=>$the_terms[0]->description,
       );
     ?>
     <li class="ranking__listItem">
-      <a href="<?php the_permalink($favorites[$i]['id']); ?>"><?php echo get_the_title($favorites[$i]['id']); ?><span class="ranking__listItemCategory">[<?php echo $cat['name']; ?>]</span></a>
+      <a href="<?php the_permalink($favorites[$i]['id']); ?>"><?php echo get_the_title($favorites[$i]['id']); ?><span class="ranking__listItemCategory">[<?php echo $cat['desc']; ?>]</span></a>
     </li>
     <?php endfor; ?>
   </ol>
