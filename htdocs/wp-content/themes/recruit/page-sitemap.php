@@ -31,13 +31,13 @@ Template Name: サイトマップ
         <a href="/clipranking/" class="sitemap__itemTitle"><span class="Icon -arrow"></span>クリップランキング</a>
       </li>
       <li class="sitemap__item">
-        <a href="/question/" class="sitemap__itemTitle" target="_blank"><span class="Icon -arrow"></span>質問をする</a>
+        <a href="/question/" class="sitemap__itemTitle"><span class="Icon -arrow"></span>質問をする</a>
       </li>
       <li class="sitemap__item">
-        <a href="/company/" class="sitemap__itemTitle" target="_blank"><span class="Icon -arrow"></span>運営会社</a>
+        <a href="/company/" class="sitemap__itemTitle"><span class="Icon -arrow"></span>運営会社</a>
       </li>
       <li class="sitemap__item">
-        <a href="/privacy/" class="sitemap__itemTitle" target="_blank"><span class="Icon -arrow"></span>プライバシーポリシー</a>
+        <a href="/privacy/" class="sitemap__itemTitle"><span class="Icon -arrow"></span>プライバシーポリシー</a>
       </li>
     </ul>
   </section>

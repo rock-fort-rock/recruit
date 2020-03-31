@@ -58,7 +58,15 @@
 							</div>
 						</div>
 
-						<div class="articleList__date"><?php the_time('Y.m.d'); ?></div>
+						<!-- <div class="articleList__date"><?php the_time('Y.m.d'); ?></div> -->
+						<ul class="articleList__breadcrumb">
+							<li class="articleList__breadcrumbItem">
+								TOP
+							</li>
+							<li class="articleList__breadcrumbItem">
+								<?php echo $cat['name']; ?>
+							</li>
+						</ul>
 						<h2 class="articleList__title"><?php the_title(); ?></h2>
 						<div class="articleList__description">
 							<?php echo $desc; ?>

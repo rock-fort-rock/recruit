@@ -65,7 +65,15 @@ Template Name: クリップした質問
   							</div>
   						</div>
 
-  						<div class="articleList__date"><?php echo get_the_time('Y.m.d', $value); ?></div>
+  						<!-- <div class="articleList__date"><?php echo get_the_time('Y.m.d', $value); ?></div> -->
+              <ul class="articleList__breadcrumb">
+  							<li class="articleList__breadcrumbItem">
+  								TOP
+  							</li>
+  							<li class="articleList__breadcrumbItem">
+  								<?php echo $cat['name']; ?>
+  							</li>
+  						</ul>
   						<h2 class="articleList__title"><?php echo get_the_title($value); ?></h2>
   						<div class="articleList__description">
   							<?php echo $desc; ?>
