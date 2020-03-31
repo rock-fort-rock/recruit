@@ -7,7 +7,7 @@ if(!is_amp()){
 $the_terms = get_the_terms($post->ID, 'category');
 //カテゴリは単一選択
 $cat = array(
-  'term_id'=>$the_terms[0]->term_id,
+  'id'=>$the_terms[0]->term_id,
   'name'=>$the_terms[0]->name,
   'slug'=>$the_terms[0]->slug,
   'desc'=>$the_terms[0]->description,
@@ -67,7 +67,7 @@ $eyecatchHeight = $eyecatch[2];
             <a href="/">TOP</a>
           </li>
           <li class="article__breadcrumbItem">
-            <a href="<?php echo esc_url(get_category_link( $cat['term_id'] )); ?>"><?php echo $cat['name']; ?></a>
+            <a href="<?php echo esc_url(get_category_link( $cat['id'] )); ?>"><?php echo $cat['name']; ?></a>
           </li>
         </ul>
         <h1 class="article__title article__title--question"><?php the_title(); ?></h1>
@@ -82,12 +82,7 @@ $eyecatchHeight = $eyecatch[2];
           ?>
         </div>
 
-<?php
-/*
-//20191024 comment out:KUMA
         <h2 class="article__answer"><?php the_field('qa_answer'); ?></h2>
-*/
-?>
         <section class="article__body">
           <?php if(is_amp()): ?>
             <?php echo convertImgToAmpImg(get_field('qa_answerDescription')); ?>
@@ -156,7 +151,7 @@ $eyecatchHeight = $eyecatch[2];
             <div class="contentBlock">
               <ul class="article__bodyFooterCategory">
                 <li>
-                  <a href="<?php echo esc_url(get_category_link( $cat['term_id'] )); ?>"><span class="Icon -folder"></span><?php echo $cat['name']; ?></a>
+                  <a href="/category/<?php echo $cat['slug']; ?>/"><span class="Icon -folder"></span><?php echo $cat['desc']; ?></a>
                 </li>
               </ul>
             </div>
@@ -206,7 +201,7 @@ $eyecatchHeight = $eyecatch[2];
   $args = array(
     'posts_per_page' => 3,
     'post_type' => 'post',
-    'category' => $cat['term_id'],
+    'category' => $cat['id'],
     'exclude' => $post->ID,
   );
   $relatePosts = get_posts( $args );

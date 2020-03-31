@@ -11,6 +11,7 @@
 				$topPost_ID = $topPost[0]->ID;
 				$the_terms = get_the_terms($topPost_ID, 'category');
 				//カテゴリは単一選択
+				// print_r($the_terms[0]);
 				$cat = array(
 					'term_id'=>$the_terms[0]->term_id,
 				  'name'=>$the_terms[0]->name,
@@ -41,7 +42,6 @@
 						</div>
 					</div>
 
-					<!-- <div class="article__date"><?php echo get_the_time('Y.m.d', $topPost_ID); ?></div> -->
 					<ul class="article__breadcrumb">
 						<li class="article__breadcrumbItem">
 							<a href="/">TOP</a>
@@ -50,19 +50,11 @@
 							<a href="<?php echo esc_url(get_category_link( $cat['term_id'] )); ?>"><?php echo $cat['name']; ?></a>
 						</li>
 					</ul>
+
 					<h2 class="article__title article__title--question"><?php echo get_the_title($topPost_ID); ?></h2>
-
-
 					<div class="article__lede">
-						<?php
-							//echo $topDesc;
-							if (isset($topDesc)) {
-								echo mb_strimwidth($topDesc, 0, 128, "...", 'UTF-8');
-							}
-						?>
+						<?php echo $topDesc; ?>
 					</div>
-
-
 					<div class="article__viewAnswer">
 						<a href="<?php the_permalink($topPost_ID); ?>" class="button">
 							<div class="button__inner button__inner--arrow">回答を見る</div>
@@ -74,7 +66,7 @@
 
 		<section class="container__mainSection">
 			<div class="contentTitle">
-				<h2 class="contentTitle__main">みなさんからの質問</h2>
+				<h2 class="contentTitle__main">最新の質問</h2>
 				<div class="contentTitle__caption">新しく寄せられた質問にお答えいたします。</div>
 			</div>
 			<?php if(have_posts()): ?>

@@ -775,13 +775,19 @@ FOOTER
   }
 
   &__nav{
-    display: flex;
-		align-items: center;
-		justify-content: center;
+		text-align: center;
+		font-size: 0;
+		@media (min-width: $breakpoint + 1px){
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
   }
   &__navItem{
+		display: inline-block;
     font-size:  8px;
 		line-height: 1.2;
+		padding: 2px 0;
     &:not(:last-child){
       margin-right: 5px;
 			padding-right: 5px;

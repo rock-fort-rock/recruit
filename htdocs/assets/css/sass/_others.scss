@@ -9,6 +9,7 @@
       align-items: center;
       @media (min-width: $breakpoint + 1px){
         @include hover();
+        font-weight: 600;
       }
       .Icon{
         font-size: 80%;
@@ -21,6 +22,7 @@
       padding-bottom: 5px;
       margin-bottom: 10px;
       border-bottom: 1px dotted #333;
+      // font-weight: bold;
     }
   }
 
@@ -34,6 +36,32 @@
       @media (min-width: $breakpoint + 1px){
         width: 33.33%;
       }
+    }
+  }
+}
+
+.companyOutline{
+  width: 100%;
+  border-collapse: collapse;
+  th,
+  td{
+    padding: 10px 5px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    font-size: 0.9rem;
+    @media (min-width: $breakpoint + 1px){
+      padding: 20px 10px;
+      font-size: 1rem;
+    }
+  }
+  th{
+    text-align: left;
+    vertical-align: top;
+    color: #666;
+    font-weight: 600;
+    width: 80px;
+    @media (min-width: $breakpoint + 1px){
+      width: 150px;
     }
   }
 }

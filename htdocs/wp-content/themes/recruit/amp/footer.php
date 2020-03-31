@@ -3,10 +3,17 @@
 		<div class="globalFooter__inner">
 			<ul class="globalFooter__nav">
 					<li class="globalFooter__navItem">
-						<a href="<?php echo $officialSite; ?>" target="_blank">コーポレートサイト</a>
+						<!-- <a href="<?php echo $officialSite; ?>" target="_blank">コーポレートサイト</a> -->
+						<a href="https://musee-pla.com/corporate/" target="_blank">コーポレートサイト</a>
 					</li>
 					<li class="globalFooter__navItem">
 						<a href="/privacy/">プライバシーポリシー</a>
+					</li>
+					<li class="globalFooter__navItem">
+						<a href="/company/">運営会社</a>
+					</li>
+					<li class="globalFooter__navItem">
+						<a href="/sitemap/">サイトマップ</a>
 					</li>
 
 			</ul>
