@@ -1,4 +1,5 @@
 /*サイト個別設定*/
+/*コンパイルされたsite.cssの内容を該当テーマフォルダのstyle.cssへコピペ*/
 @import "vars";
 
 // $siteColor: #53a7db;
@@ -86,6 +87,12 @@ a {
   }
   &__answer{
     /*変える必要があれば*/
+  }
+  &__body{
+    h1,h2{
+      color: $siteColor;
+
+    }
   }
 }
 .button{

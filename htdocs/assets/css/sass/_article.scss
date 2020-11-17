@@ -112,6 +112,7 @@
     }
     a{
       color: #666;
+      text-decoration: none;
     }
   }
   &__title{
@@ -159,13 +160,16 @@
   }
   &__body{
     h1,h2{
-      padding: 5px 10px;
-      background-color: #eae8e8;
-      // font-size: 1.05rem;
+      // padding: 5px 10px;
+      // background-color: #eae8e8;
+      // line-height: 1.3;
+      // font-weight: bold;
+      // border-radius: 3px;
+      margin-bottom: 5px;
+
+      font-size: 1.15rem;
       line-height: 1.3;
       font-weight: bold;
-      border-radius: 3px;
-      margin-bottom: 5px;
       &:not(:first-child){
         margin-top: 30px;
       }
@@ -218,6 +222,7 @@
 			a{
 				color: #666;
 				font-size: 0.9rem;
+        text-decoration: none;
 				.Icon{
 					margin-right: 5px;
 				}
@@ -252,9 +257,12 @@
     }
     &__body{
       h1,h2{
-        padding: 5px 10px;
-        font-size: 1.1rem;
+        // padding: 5px 10px;
+        // font-size: 1.1rem;
         margin-bottom: 10px;
+        font-size: 20px;
+        margin-bottom: 15px;
+        
         &:not(:first-child){
           margin-top: 40px;
         }
@@ -285,6 +293,7 @@
 	&__button{
 		width: 50%;
 		color: inherit;
+    text-decoration: none;
 		@include hover;
     &--prev{
       margin-left: auto;
@@ -375,6 +384,7 @@
     padding: 10px;
     display: flex;
     position: relative;
+    text-decoration: none;
   }
   &__itemEyecatch{
     width: 100px;

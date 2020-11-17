@@ -61,8 +61,8 @@ function is_infiniteLoad(){
 }
 
 function my_scripts() {
-  wp_enqueue_style( 'style', home_url().'/assets/css/style.css', array(), '1.1');
-  wp_enqueue_style( 'localstyle', get_bloginfo('stylesheet_url'), array(), '1.0');
+  wp_enqueue_style( 'style', home_url().'/assets/css/style.css', array(), '1.2');
+  wp_enqueue_style( 'localstyle', get_bloginfo('stylesheet_url'), array(), '1.2');
   wp_enqueue_script('script', home_url().'/assets/js/bundle.js', array(), '1.0', true );
 
   if(is_infiniteLoad()){

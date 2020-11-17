@@ -19,6 +19,7 @@
     position: relative;
     a{
       position: relative;
+      text-decoration: none;
       &::before{
         content: 'Q:';
       }
